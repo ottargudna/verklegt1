@@ -1,5 +1,5 @@
 from Model.airplane import Airplane
 
-class Airplane_logic:
+class Airplane_Logic:
     def __init__(self) -> None:
         pass

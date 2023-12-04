@@ -1,6 +1,6 @@
 
 from Model.employee import Employee
 
-class employee_logic:
+class Employee_Logic:
     def __init__(self) -> None:
         pass
