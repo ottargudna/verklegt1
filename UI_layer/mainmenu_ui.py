@@ -1,5 +1,5 @@
 
 
-class Menu_ui:
+class MainMenu_ui:
     def __init__(self) -> None:
         pass
