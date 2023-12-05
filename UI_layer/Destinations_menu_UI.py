@@ -3,7 +3,6 @@ from Model.desinations import Desinations
 import string
 
 BORDER = 109 * "="
-ASCII_NANAIR = pfg.figlet_format("NaN AIR", font="slant")
 
 class Destiantions_menu_ui:
 
@@ -21,23 +20,26 @@ class Destiantions_menu_ui:
 {BORDER}
         """
 
-        self.ascii_airplane = f"""
-{BORDER}
-                                                 | 
-                                                 |
-                                                 |
-                                               .-'-.
-                                              ' ___ '
-                                    ---------'  .-.  '---------
-                    _________________________'  '-'  '_________________________
-                     ''''''-|---|--/    \==][^',_m_,'^][==/    \--|---|-''''''
-                                   \    /  ||/   H   \||  \    /
-                                    '--'   OO   O|O   OO   '--'
-{BORDER}
-        """
+#         self.ascii_airplane = f"""
+# {BORDER}
+#                                                      |
+#                                                      |
+#                                                    .-'-.
+#                                                   ' ___ '
+#                                         ---------'  .-.  '---------
+#                         _________________________'  '-'  '_________________________
+#                          ''''''-|---|--/    \==][^',_m_,'^][==/    \--|---|-''''''
+#                                        \    /  ||/   H   \||  \    /
+#                                         '--'   OO   O|O   OO   '--'
+#         """
 
         self.ascii_nanair = f"""
-{ASCII_NANAIR}
+{BORDER}
+                              _    _          _    _       __     _____  _____
+                __|__        |  \ | |   __ _ |  \ | |     /  \   |_   _||  _  \         __|__ 
+            ---o-(_)-o---    |   \| | / __' ||   \| |    / /\ \    | |  | |_|  |    ---o-(_)-o---
+                             | |\   || |__| || |\   |   /  __  \  _| |_ |  _ _/      
+                             |_| \__| \___,_||_| \__|  /__/  \__\|_____||_| \_\ 
 {BORDER}
         """
 
@@ -46,7 +48,7 @@ class Destiantions_menu_ui:
         return input("Enter your selection: ")
     
     def print_menu(self) -> str:
-        print(self.ascii_airplane)
+        #print(self.ascii_airplane)
         print(self.ascii_nanair)
         print(self.main_menu)
         print(self.options)
