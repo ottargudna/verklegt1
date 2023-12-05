@@ -20,3 +20,14 @@ class Employee_menu_ui:
 
     def input_prompt(self):
         return input("Enter your selection: ")
+    
+    def pilot_menu(self):
+        print(STARS)
+        print("[1] Register a new pilot")
+        print("[2] Edit information of a pilot")
+        print("[3] Search for a pilot")
+        print("[4] List pilots")
+        print()
+        print("[B]ack to main menu  [Q]uit")
+        print(STARS)
+    
