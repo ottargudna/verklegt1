@@ -3,9 +3,10 @@ from Model.employee import Employee
 
 class Employee_Logic:
     def __init__(self) -> None:
-        pass
+        self.employee = Employee
 
     def create_empolyee(self):
+        """Takes in Employee object and forwards it to the data layer"""
         pass
 
     def list_employees(self):
