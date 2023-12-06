@@ -18,4 +18,31 @@ class Logic_Wrapper:
         self.voyage = Voyage_Logic(self.data_wrapper)
 
 
-    """Hérna á að koma öll föll sem eru notuð og returna þeim"""
+    """Here comes all functions sem that are used in the logic layer and returns them"""
+
+    #Employees
+
+
+
+
+
+    #Airplane
+
+
+
+
+    #Destinations
+
+
+
+
+    #Voyage
+
+
+
+
+    #Flights
+
+
+
+
