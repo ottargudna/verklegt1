@@ -12,10 +12,10 @@ class Logic_Wrapper:
     def __init__(self) -> None:
         self.data_wrapper = Data_Wrapper
         self.employee_logic = Employee_Logic(self.data_wrapper)
-        self.airplane_logic = Airplane_Logic
-        self.destination_logic = Destinations_Logic
-        self.flight_logic = Flights_Logic
-        self.voyage = Voyage_Logic
+        self.airplane_logic = Airplane_Logic(self.data_wrapper)
+        self.destination_logic = Destinations_Logic(self.data_wrapper)
+        self.flight_logic = Flights_Logic(self.data_wrapper)
+        self.voyage = Voyage_Logic(self.data_wrapper)
 
 
     """Hérna á að koma öll föll sem eru notuð og returna þeim"""
