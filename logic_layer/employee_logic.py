@@ -1,13 +1,14 @@
 
 from Model.employee import Employee
+from data_layer.data_wrapper import Data_Wrapper
 
 class Employee_Logic:
-    def __init__(self) -> None:
-        self.employee = Employee
+    def __init__(self, data_connection ) -> None:
+        self.data_wrapper = data_connection
 
     def create_empolyee(self):
         """Takes in Employee object and forwards it to the data layer"""
-        pass
+        self.Employee_Data.create_employee(employee)
 
     def list_employees(self):
         pass
@@ -22,4 +23,4 @@ class Employee_Logic:
         pass
 
     def get_all_employees(self):
-        pass
+        self.Employee_Data.get_all_employees(employee)
