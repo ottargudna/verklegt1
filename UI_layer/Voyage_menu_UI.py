@@ -1,21 +1,34 @@
 from Model.voyage import Voyage
 
-STARS = 50 * "*"
+BORDER = 109 * "*"
 
 class Voyage_menu_ui:
 
     def __init__(self) -> None:
-        pass
+        self.options = f"""
+                                [B]ack to main menu     [Q]uit
+{BORDER}
+        """
+
+        self.ascii_nanair = f"""
+{BORDER}
+                              _    _          _    _       __     _____  _____
+                __|__        |  \ | |   __ _ |  \ | |     /  \   |_   _||  _  \         __|__ 
+            ---o-(_)-o---    |   \| | / __' ||   \| |    / /\ \    | |  | |_|  |    ---o-(_)-o---
+                             | |\   || |__| || |\   |   /  __  \  _| |_ |  _ _/      
+                             |_| \__| \___,_||_| \__|  /__/  \__\|_____||_| \_\ 
+{BORDER}
+        """
 
     def staff_member_menu(self) -> None:
-        print(STARS)
+        print(BORDER)
         print("")
         print("[1] ")
         print("[2] ")
         print("[3] ")
         print()
         print("[B]ack to main menu  [Q]uit")
-        print(STARS)
+        print(BORDER)
 
         self.input_prompt(self)
     

@@ -5,54 +5,54 @@ from UI_layer.Employee_menu_UI import Employee
 from UI_layer.Voyage_menu_UI import Voyage
 from UI_layer.Flights_menu_UI import Flights
 
-BORDER = 50 * "=" # I´m not sure if this is a long enough border
-ASCII_ART = """ 
-                __|__
-            ---o-(_)-o--- 
-        """
-ASCII_NANAIR = pfg.figlet_format("NaN AIR", font="slant")
+BORDER = 109 * "="
 
 class MainMenu_ui:
     def __init__(self) -> None:
-        pass
+        
+        self.main_menu = f"""
+                                What kind of staff member are you?
+                                
+                                [1] Manager
+                                [2] Shift Supervisor
+                                [3] Employee
+{BORDER}
+        """
 
-    def staff_member_menu(self) -> None:
-        print(BORDER)
-        print(ASCII_ART)
-        print(ASCII_NANAIR)
-        print("What kind of staff member are you?")
-        print("[1] Manager")
-        print("[2] Shift Supervisor")
-        print("[3] Employee")
-        print()
-        print("[B]ack to main menu  [Q]uit")
-        print(BORDER)
+        self.options = f"""
+                                [B]ack to main menu     [Q]uit
+{BORDER}
+        """
 
-        self.input_prompt(self)
+        self.ascii_nanair = f"""
+{BORDER}
+                              _    _          _    _       __     _____  _____
+                __|__        |  \ | |   __ _ |  \ | |     /  \   |_   _||  _  \         __|__ 
+            ---o-(_)-o---    |   \| | / __' ||   \| |    / /\ \    | |  | |_|  |    ---o-(_)-o---
+                             | |\   || |__| || |\   |   /  __  \  _| |_ |  _ _/      
+                             |_| \__| \___,_||_| \__|  /__/  \__\|_____||_| \_\ 
+{BORDER}
+        """
 
-    def manager_and_shift_supervisor_menu(self):
-        print(BORDER)
-        print("[1] Airplanes")
-        print("[2] Destinations")
-        print("[3] Employees")
-        print("[4] Flights")
-        print("[5] Voyages")
-        print()
-        print("[B]ack to main menu  [Q]uit")
-        print(BORDER)
+        self.manager_and_shift_supervisor_menu = f"""
+
+                                [1] Airplanes
+                                [2] Destinations
+                                [3] Employees
+                                [4] Flights
+                                [5] Voyages
+{BORDER}
+        """
+
+        self.employee_menu = f"""
+                                [1] Display Shifts
+                                [2] Display Hours
+{BORDER}
+        """
     
-    def employee_name(self): # We might have to move this function to another class
+    def employee_name(self):
         return input("Enter your name: ")
-    
-    def employee_menu(self):
-        print(BORDER)
-        print("[1] Display Shifts")
-        print("[2] Display Hours")
-        print()
-        print("[B]ack to main menu  [Q]uit")
-        print(BORDER)
-
-        self.input_prompt(self)
 
     def input_prompt(self):
         return input("Enter your selection: ")
+    

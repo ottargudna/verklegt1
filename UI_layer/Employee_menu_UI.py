@@ -1,6 +1,6 @@
 from Model.employee import Employee
 
-BORDER = 50 * "*"
+BORDER = 109 * "*"
 
 class Employee_menu_ui:
 
@@ -14,6 +14,29 @@ class Employee_menu_ui:
 
         self.pilot_crew_menu = """
         
+        """
+
+        self.main_menu = f"""
+                                [1] List of flights to specific destinations
+                                [2] List of the most popular destinations
+                                [3] Register a new destination
+                                [4] Edit destinations
+{BORDER}
+        """
+
+        self.options = f"""
+                                [B]ack to main menu     [Q]uit
+{BORDER}
+        """
+
+        self.ascii_nanair = f"""
+{BORDER}
+                              _    _          _    _       __     _____  _____
+                __|__        |  \ | |   __ _ |  \ | |     /  \   |_   _||  _  \         __|__ 
+            ---o-(_)-o---    |   \| | / __' ||   \| |    / /\ \    | |  | |_|  |    ---o-(_)-o---
+                             | |\   || |__| || |\   |   /  __  \  _| |_ |  _ _/      
+                             |_| \__| \___,_||_| \__|  /__/  \__\|_____||_| \_\ 
+{BORDER}
         """
     
     def menu_output(self):
