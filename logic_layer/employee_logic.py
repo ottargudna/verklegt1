@@ -14,13 +14,12 @@ class Employee_Logic:
         """Gets all employees"""
         self.data_wrapper.get_all_employees()
 
-    def list_employees(self, employees):
-        self.get_all_employees = employees
-        
-
     def edit_employee(self, employee):
         '''Takes in name of an employee and forwards it to data layer'''
         self.data_wrapper.edit_employee(employee)
+
+    def list_employees(self, employees):
+        self.get_all_employees = employees
 
     def check_working_status(self, date, option):
        """" employees = self.get_all_flights()
