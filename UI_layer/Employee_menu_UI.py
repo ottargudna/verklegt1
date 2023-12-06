@@ -1,20 +1,29 @@
 from Model.employee import Employee
 
-STARS = 50 * "*"
+BORDER = 50 * "*"
 
 class Employee_menu_ui:
 
     def __init__(self) -> None:
-        pass    
+        self.employee_menu = f"""
+        [1] Pilot and Crew
+        [2] Pilot
+        [3] Crew
+        {BORDER}
+        """
+
+        self.pilot_crew_menu = """
+        
+        """
     
     def menu_output(self):
-        print(STARS)
+        print(BORDER)
         print("[1] Pilot and Crew")
         print("[2] Pilot")
         print("[3] Crew")
         print()
         print("[B]ack to main menu  [Q]uit")
-        print(STARS)
+        print(BORDER)
 
         self.input_prompt()
 
@@ -22,12 +31,12 @@ class Employee_menu_ui:
         return input("Enter your selection: ")
     
     def pilot_menu(self):
-        print(STARS)
+        print(BORDER)
         print("[1] Register a new pilot")
         print("[2] Edit information of a pilot")
         print("[3] Search for a pilot")
         print("[4] List pilots")
         print()
         print("[B]ack to main menu  [Q]uit")
-        print(STARS)
+        print(BORDER)
     
