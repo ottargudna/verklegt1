@@ -14,14 +14,29 @@ class Employee_Logic:
         """Gets all employees"""
         self.data_wrapper.get_all_employees()
 
-    def list_employees(self):
-        pass
+    def list_employees(self, employees):
+        self.get_all_employees = employees
+        
 
     def edit_employee(self):
         pass
 
-    def check_working_status(self):
-        pass
+    def check_working_status(self, date, option):
+       """" employees = self.get_all_flights()
+        self.data_wrapper = date
+        working = []
+        not_working = []
+        for employee in employees:
+            if employee[?] == date:
+                    working.append(employee[2])
+            else:
+                    not_working.append(employee[2])
+        if option == "1":
+            return working
+        else:
+             return not_working
+"""
+
 
     def list_voyges_for_an_employee(self):
         pass
