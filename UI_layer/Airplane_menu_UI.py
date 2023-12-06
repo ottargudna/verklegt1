@@ -5,10 +5,6 @@ BORDER = 109 * "*"
 class Airplane_menu_ui:
 
     def __init__(self):
-        self.options = f"""
-                                [B]ack to main menu     [Q]uit
-{BORDER}
-        """
 
         self.ascii_nanair = f"""
 {BORDER}
@@ -17,5 +13,19 @@ class Airplane_menu_ui:
             ---o-(_)-o---    |   \| | / __' ||   \| |    / /\ \    | |  | |_|  |    ---o-(_)-o---
                              | |\   || |__| || |\   |   /  __  \  _| |_ |  _ _/      
                              |_| \__| \___,_||_| \__|  /__/  \__\|_____||_| \_\ 
+{BORDER}
+        """
+
+        self.manager_menu = f"""
+                                [1] Register airplane
+                                [2] Edit airplane
+                                [3] List airplanes
+{BORDER}
+        """
+
+        self.list_menu = f"""
+                                [1] List all airplanes
+                                [2] List airplanes after number of flights
+                                [3] List airplanes after usage
 {BORDER}
         """
