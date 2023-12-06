@@ -6,7 +6,7 @@ class Employee_Logic:
     def __init__(self, data_connection ) -> None:
         self.data_wrapper = data_connection
 
-    def create_empolyee(self):
+    def create_employee(self):
         """Takes in Employee object and forwards it to the data layer"""
         self.Employee_Data.create_employee(employee)
 
