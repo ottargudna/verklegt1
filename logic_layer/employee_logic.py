@@ -18,8 +18,9 @@ class Employee_Logic:
         self.get_all_employees = employees
         
 
-    def edit_employee(self):
-        pass
+    def edit_employee(self, employee):
+        '''Takes in name of an employee and forwards it to data layer'''
+        self.data_wrapper.edit_employee(employee)
 
     def check_working_status(self, date, option):
        """" employees = self.get_all_flights()
