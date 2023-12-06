@@ -19,6 +19,10 @@ class MainMenu_ui:
 {BORDER}
         """
 
+        self.main_menu_options = """
+                                [Q]uit
+        """
+
         self.options = f"""
                                 [B]ack to main menu     [Q]uit
 {BORDER}
@@ -53,6 +57,4 @@ class MainMenu_ui:
     def employee_name(self):
         return input("Enter your name: ")
 
-    def input_prompt(self):
-        return input("Enter your selection: ")
     
