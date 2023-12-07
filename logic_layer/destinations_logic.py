@@ -16,4 +16,5 @@ class Destinations_Logic:
         self.data_wrapper.get_all_destinations()
 
     def edit_destanations(self):
-        pass
+        '''Takes in name of an destination and forwards it to data layer'''
+        self.data_wrapper.edit_destinations()
