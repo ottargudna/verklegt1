@@ -2,6 +2,7 @@
 from Model.employee import Employee
 from data_layer.data_wrapper import Data_Wrapper
 
+
 class Employee_Logic:
     def __init__(self, data_connection ) -> None:
         self.data_wrapper = data_connection
@@ -18,11 +19,8 @@ class Employee_Logic:
         '''Takes in name of an employee and forwards it to data layer'''
         self.data_wrapper.edit_employee(employee)
 
-    def list_employees(self, employees):
-        self.get_all_employees = employees
-
-    def check_working_status(self, date, option):
-       """" employees = self.get_all_flights()
+    #def check_working_status(self, date, option):
+    """" employees = self.get_all_flights()
         self.data_wrapper = date
         working = []
         not_working = []
