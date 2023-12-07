@@ -10,10 +10,13 @@ class Employee_Data:
         with open(self.file_name, newline= '', encoding = "utf-8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                list.append(Employee(row["nid"], row ["name"], row ["role"], row ["address"], row ["phone_nr"]))
+                list.append(Employee(row["nid"], row ["name"], row ["role"], row ["rank"], row ["address"], row ["phone_nr"]))
         return list 
     
-    def create_employee(self, employee):
+    def register_employee(self, employee):
         with open(self.file_name, "a", newline= " ", encoding = " utf-8") as csvfile:
-            fieldnames = ["nid","name","role", "address", "phone_nr"]
-            writer = csv.DictReader(csvfile,fieldnames = fieldnames)
+            fieldnames = ["nid","name","role", "rank", "address", "phone_nr"]
+            writer = csv.DictReader(csvfile,fieldnames = fieldnames) 
+
+
+        
