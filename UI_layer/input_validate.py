@@ -33,13 +33,41 @@ class Validate:
             return False
 
     def validate_destination(self, destination):
-        pass
+        if destination.isalpha:
+            return True
+        else:
+            return False
 
     def validate_addres(self, address):
-        pass
+        ad_num = address.split(" ")
+        if address[0].isalpha and address[1].isdigit:
+            return True
+        else:
+            return False
 
     def validate_role(self, role):
-        pass
+        roles = ["pilot", "cabincrew"]
+        role = role.lower
+        if role in roles:
+            return True
+        else:
+            return False
 
-    def validate_rank(self, rank):
+    def validate_rank(self, role, rank):
+        rank_pilot = ["captain", "copilot"]
+        rank_cabain_crew = ["flight attendant", "flight service manager"]
+        if role == "pilot":
+            if rank in rank_pilot:
+                return True
+            else:
+                return False
+        else:
+            if rank in rank_cabain_crew:
+                return True
+            else:
+                return False
+            
+    def validate_licence(self, licence):
         pass
+           
+        
