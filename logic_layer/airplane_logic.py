@@ -12,13 +12,3 @@ class Airplane_Logic:
     def get_all_airplanes(self):
         """Gets all airplane"""
         self.data_wrapper.get_all_airplanes()
-    
-    def edit_airplane(self, airplane):
-        '''Takes in name of an airplane and forwards it to data layer'''
-        self.data_wrapper.edit_airplane(airplane)
-
-    def list_airplanes(self):
-        pass
-
-    def validate_airplane(self):
-        pass
