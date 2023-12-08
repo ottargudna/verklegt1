@@ -12,4 +12,7 @@ class Employee:
         self.pref_nr = pref_nr
         self.slot_param = slot_param
 
+    def __str__(self):
+        return f"ID number: {self.nid}, Name: {self.name}, Role: {self.role}, Rank: {self.rank}, Licence: {self.licence}, Addres: {self.address}, Phone number: {self.phone_nr}, Preferd phone number: {self.pref_nr}"
+
     
