@@ -17,7 +17,7 @@ class Employee_Data:
         with open(self.file_name, "a", newline= " ", encoding = " utf-8") as csvfile:
             fieldnames = ["nid","name","role", "rank", "address", "phone_nr"]
             writer = csv.DictWriter(csvfile,fieldnames = fieldnames)
-            writer.writerow({"nid": employee.nid, "name": employee.name})
+            writer.writerow({"nid": employee.nid, "name": employee.name, "role": employee.role, "rank": employee.rank, "address": employee.address, "phone_nr": employee.phone_nr})
 
     def update_employee(self, updated_employee):
         all_employees = self.get_all_employees()
