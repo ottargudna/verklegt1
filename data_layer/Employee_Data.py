@@ -13,7 +13,7 @@ class Employee_Data:
                 list.append(Employee(row["nid"], row ["name"], row ["role"], row ["rank"], row ["address"], row ["phone_nr"]))
         return list 
     
-    def register_employee(self, employee):
+    def create_employee(self, employee):
         with open(self.file_name, "a", newline= " ", encoding = " utf-8") as csvfile:
             fieldnames = ["nid","name","role", "rank", "address", "phone_nr"]
             writer = csv.DictReader(csvfile,fieldnames = fieldnames) 

@@ -3,7 +3,7 @@ from Model.airplane import Airplane
 
 class Airplane_Data:
     def __init__(self) -> None:
-        self.file_name = "Files/"
+        self.file_name = "Files/airplane.csv"
 
 
     def get_all_airplanes(self):
@@ -14,7 +14,7 @@ class Airplane_Data:
                 list.append(Airplane(row["name"], row ["plane_type"], row ["manufacturer"], row ["number_of_passanger_seats"]))
         return list 
     
-    def create_airplanes(self, Airplane):
+    def create_airplane(self, Airplane):
         with open(self.file_name, "a", newline= " ", encoding = " utf-8") as csvfile:
             fieldnames = ["name","plane_type","manufacturer", "number_of_passanger_seats"]
             writer = csv.DictReader(csvfile,fieldnames = fieldnames) 
