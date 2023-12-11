@@ -38,3 +38,4 @@ class Employee_Logic:
 
     def list_voyges_for_an_employee(self):
         pass
+
