@@ -1,4 +1,4 @@
-import pyfiglet as pfg
+#import pyfiglet as pfg
 from Model.desinations import Desinations
 import string
 
