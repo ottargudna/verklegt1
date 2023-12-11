@@ -1,1 +1,1 @@
-destination, airport, captain, copilot, flight_attendant, date
+dep_from,arr_at,aircraft_id,date_out,date_home,captain,copilot,flight_service_maneger,flight_attendant1,flight_attendant2
