@@ -18,3 +18,4 @@ class Airplane_Data:
         with open(self.file_name, "a", newline= " ", encoding = " utf-8") as csvfile:
             fieldnames = ["name","plane_type","manufacturer", "number_of_passanger_seats"]
             writer = csv.DictReader(csvfile,fieldnames = fieldnames) 
+            writer.writerow({"name": Airplane.name, "plane_type": Airplane.plane_type, "manufacturer": Airplane.manufacturer, "number_of_passanger_seats": Airplane.number_of_passanger_seats,})
