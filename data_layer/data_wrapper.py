@@ -17,26 +17,26 @@ class Data_Wrapper:
     def get_all_employees(self):
         return self.employee_data.get_all_employees()
     
-    def create_employees(self):
-        return self.employee_data.create_employee()
+    def create_employees(self, employee):
+        return self.employee_data.create_employee(employee)
     
     def get_all_destinations(self):
         return self.destination_data.get_all_destinations()
 
-    def create_destination(self):
-        return self.destination_data.create_destination()
+    def create_destination(self, destination):
+        return self.destination_data.create_destination(destination)
 
     def get_all_voyages(self):
         return self.voyage_data.get_all_voyages()
     
-    def create_voyages(self):
-        return self.voyage_data.create_voyage()
+    def create_voyages(self, voyage):
+        return self.voyage_data.create_voyage(voyage)
     
     def get_all_airplanes(self):
         return self.airplane_data.get_all_airplanes()
     
-    def create_airplane(self):
-        return self.airplane_data.create_airplane()
+    def create_airplane(self, airplane):
+        return self.airplane_data.create_airplane(airplane)
     
 
     

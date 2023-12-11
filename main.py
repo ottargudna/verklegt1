@@ -95,7 +95,13 @@ def main(): # I will change the name
                 pass
 
             elif user_selection == SELECTION_THREE: # Employees
+                #name = input("name")
+                #ssn = input("ssn")
+                #input("phone")
+                #input("enail")
+                #logicwrapper.create_empl(Emplpoyee(name, ssn, ...))
                 pass
+                
 
             elif user_selection == SELECTION_FOUR: # Flights
                 pass

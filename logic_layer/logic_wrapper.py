@@ -21,8 +21,8 @@ class Logic_Wrapper:
     """Here comes all functions sem that are used in the logic layer and returns them"""
 
     #Employees
-
-
+    def create_employee(self, employee):
+        self.employee_logic.create_employee(employee)
 
 
 
