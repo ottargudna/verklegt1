@@ -1,3 +1,4 @@
+'''
 from Model.flights import Flights
 
 BORDER = 109 * "*"
@@ -33,3 +34,5 @@ class Flights_menu_ui:
     
     def print_menu():
         pass
+
+'''
