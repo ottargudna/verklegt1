@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import pyfiglet as pfg
 from UI_layer.Airplane_menu_UI import Airplane
 from UI_layer.Destinations_menu_UI import Desinations
@@ -12,6 +13,8 @@ from UI_layer.Flights_menu_UI import Flights
 # from UI_layer.Employee_menu_UI import Employee
 # from UI_layer.Voyage_menu_UI import Voyage
 # from UI_layer.Flights_menu_UI import Flights
+=======
+>>>>>>> Stashed changes
 from UI_layer.Employee_menu_UI import Employee_menu_ui
 from UI_layer.mainmenu_ui import MainMenu_ui
 from UI_layer.Destinations_menu_UI import Destiantions_menu_ui
@@ -79,6 +82,12 @@ class MainMenu_ui:
 {BORDER}
         """
     
+    def employee_name(self):
+        return input("Enter your name: ")
+    
+    def input_prompt(self):
+        return input("Enter your selection: ").lower()
+    
     def get_shift_superviser(self):
         pass
     
@@ -90,22 +99,23 @@ class MainMenu_ui:
                 user_selection = self.input_prompt()
 
                 if user_selection == SELECTION_ONE: # Airplanes
-                        print(self.ascii_nanair)
-                        print(self.airplane_menu.manager_menu)
-                        print(self.options)
-                        user_selection = self.input_prompt()
+                    print(self.ascii_nanair)
+                    print(self.airplane_menu.manager_menu)
+                    print(self.options)
+                    user_selection = self.input_prompt()
 
-                        if user_selection == SELECTION_ONE: # Register airplane
-                                pass
+                    if user_selection == SELECTION_ONE: # Register airplane
+                        pass
 
-                        elif user_selection == SELECTION_TWO: # Edit airplane
-                                pass
+                    elif user_selection == SELECTION_TWO: # Edit airplane
+                        pass
 
-                        elif user_selection == QUIT:
-                                quit()
-                        
-                        else: # Go back
-                                pass
+                    elif user_selection == QUIT:
+                        print(EXIT_TEXT)
+                        quit()
+                    
+                    else: # Go back
+                        pass
         
                 elif user_selection == SELECTION_TWO: # Destinations
                         print(self.ascii_nanair)
@@ -113,19 +123,81 @@ class MainMenu_ui:
                         print(self.options)
                         user_selection = self.input_prompt()
 
-                        if user_selection == SELECTION_ONE:
-                            pass
-                        elif user_selection == SELECTION_TWO:
+                        if user_selection == SELECTION_ONE: # Register a new destination
                             pass
                         
+                        elif user_selection == SELECTION_TWO: # Edit destinations
+                            pass
 
+                        elif user_selection == SELECTION_THREE: # List all destinations
+                            pass
+
+                        elif user_selection == QUIT:
+                            print(EXIT_TEXT)
+                            quit()
+                    
+                        else: # Go back
+                            pass
+                        
                 elif user_selection == SELECTION_THREE: # Employees
-                    pass
+                    print(self.ascii_nanair)
+                    print(self.employee_menu.main_menu)
+                    print(self.options)
+                    user_selection = self.input_prompt()
+
+                    if user_selection == SELECTION_ONE: # List all employees
+                        pass
+                    
+                    elif user_selection == SELECTION_TWO: # Pilot
+                        print(self.ascii_nanair)
+                        print(self.employee_menu.pilot_menu)
+                        print(self.options)
+                        user_selection = self.input_prompt()
+
+                        if user_selection == SELECTION_ONE: # Register a new pilot
+                            pass
+
+                        elif user_selection == SELECTION_TWO: # Edit information of a pilot
+                            pass
+
+                        elif user_selection == SELECTION_THREE: # Search for a pilot
+                            pass
+
+                        elif user_selection == SELECTION_FOUR: # List pilots
+                            pass
+
+                        elif user_selection == QUIT:
+                            print(EXIT_TEXT)
+                            quit()
+                    
+                        else: # Go back
+                            pass
+
+                    elif user_selection == SELECTION_THREE: # Crew
+                        if user_selection == SELECTION_ONE: # Register a new crew member
+                            pass
+
+                        elif user_selection == SELECTION_TWO: # Edit information of a crew member
+                            pass
+
+                        elif user_selection == SELECTION_THREE: # Search for a crew member
+                            pass
+
+                        elif user_selection == SELECTION_FOUR: # List crew members
+                            pass
+
+                        elif user_selection == QUIT:
+                            print(EXIT_TEXT)
+                            quit()
+                    
+                        else: # Go back
+                            pass
 
                 elif user_selection == SELECTION_FIVE: # Voyages
                     pass
 
                 elif user_selection == QUIT:
+                    print(EXIT_TEXT)
                     quit()
                 
                 else: # Go back
@@ -134,74 +206,70 @@ class MainMenu_ui:
     def get_employee(self):
         pass
     
-    def main(self): # I will change the name 
-        while True:
-			print(self.ascii_nanair)
-			print(self.main_menu)
-			print(self.main_menu_options)
-			user_selection = self.input_prompt()
+def main(self): # I will change the name 
+    while True:
+        print(self.ascii_nanair)
+        print(self.main_menu)
+        print(self.main_menu_options)
+        user_selection = self.input_prompt()
 
-			if user_selection == QUIT:
-				print(EXIT_TEXT)
-				quit()
-			
-			elif user_selection == SELECTION_TWO: # Shift supervisor
-				print(self.ascii_nanair)
-				print(self.manager_and_shift_supervisor_menu)
-				print(self.options)
-				user_selection = self.input_prompt()
+        if user_selection == QUIT:
+            print(EXIT_TEXT)
+            quit()
+        
+        elif user_selection == SELECTION_TWO: # Shift supervisor
+            print(self.ascii_nanair)
+            print(self.manager_and_shift_supervisor_menu)
+            print(self.options)
+            user_selection = self.input_prompt()
 
-				if user_selection == SELECTION_ONE: # Airplanes
-					print(self.airplane_menu.ascii_nanair)
-					print(self.airplane_menu.list_menu)
-					print(self.main_menu.options)
-					user_selection = self.input_prompt()
-					
-				elif user_selection == SELECTION_TWO: # Destinations
-					pass
+            if user_selection == SELECTION_ONE: # Airplanes
+                print(self.airplane_menu.ascii_nanair)
+                print(self.airplane_menu.list_menu)
+                print(self.main_menu.options)
+                user_selection = self.input_prompt()
+                
+            elif user_selection == SELECTION_TWO: # Destinations
+                pass
 
-				elif user_selection == SELECTION_THREE: # Employees
-					#name = input("name")
-					#ssn = input("ssn")
-					#input("phone")
-					#input("enail")
-					#logicwrapper.create_empl(Emplpoyee(name, ssn, ...))
-					pass
-							
+            elif user_selection == SELECTION_THREE: # Employees
+                #name = input("name")
+                #ssn = input("ssn")
+                #input("phone")
+                #input("enail")
+                #logicwrapper.create_empl(Emplpoyee(name, ssn, ...))
+                pass
+                        
 
-				elif user_selection == SELECTION_FOUR: # Flights
-					pass
+            elif user_selection == SELECTION_FOUR: # Flights
+                pass
 
-				elif user_selection == SELECTION_FIVE: # Voyages
-					pass
+            elif user_selection == SELECTION_FIVE: # Voyages
+                pass
 
-				elif user_selection == QUIT:
-					quit()
-				
-				else: # Go back
-					pass
+            elif user_selection == QUIT:
+                quit()
+            
+            else: # Go back
+                break
 
-			elif user_selection == SELECTION_THREE: # Employee
-				print(self.main_menu.ascii_nanair)
-				print(self.main_menu.employee_name())
-				print(self.main_menu.employee_menu)
-				print(self.main_menu.options)
-				user_selection = self.input_prompt()
+        elif user_selection == SELECTION_THREE: # Employee
+            print(self.main_menu.ascii_nanair)
+            print(self.main_menu.employee_name())
+            print(self.main_menu.employee_menu)
+            print(self.main_menu.options)
+            user_selection = self.input_prompt()
 
-				if user_selection == SELECTION_ONE: # Display Shifts
-					pass
+            if user_selection == SELECTION_ONE: # Display Shifts
+                pass
 
-				elif user_selection == SELECTION_TWO: # Display Hours
-					pass
+            elif user_selection == SELECTION_TWO: # Display Hours
+                pass
 
-				elif user_selection == QUIT:
-					quit()
-				
-				else: # Go back
-					pass
+            elif user_selection == QUIT:
+                quit()
+            
+            else: # Go back
+                pass
 
-	def employee_name(self):
-		return input("Enter your name: ")
-    
-	def input_prompt(self):
-		return input("Enter your selection: ").lower()
+

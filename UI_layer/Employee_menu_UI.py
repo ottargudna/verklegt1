@@ -12,7 +12,7 @@ SELECTION_FIVE = "5"
 class Employee_menu_ui:
 
     def __init__(self) -> None:
-        self.employee_menu = f"""
+        self.main_menu = f"""
                                 [1] List all employees
                                 [2] Pilot
                                 [3] Crew
