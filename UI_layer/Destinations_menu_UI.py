@@ -13,13 +13,12 @@ SELECTION_FIVE = "5"
 class Destiantions_menu_ui:
 
     def __init__(self) -> None:
-        self.main_menu = f"""
+        self.manager_menu = f"""
                                 [{SELECTION_ONE}] Register a new destination
                                 [{SELECTION_TWO}] Edit destinations
                                 [{SELECTION_THREE}] List all destinations
 {BORDER}
         """
-
 
     def input_prompt(self):
         return input("Enter your selection: ")
