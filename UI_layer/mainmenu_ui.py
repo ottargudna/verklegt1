@@ -20,7 +20,7 @@ class MainMenu_ui:
         self.employee_menu = Employee_menu_ui()
         self.destinations_menu = Destiantions_menu_ui()
         self.airplane_menu = Airplane_menu_ui()
-        self.Voyage_menu = Voyage_menu_ui()
+        self.voyage_menu = Voyage_menu_ui()
         
         self.main_menu = f"""
                                 What kind of staff member are you?
@@ -50,12 +50,19 @@ class MainMenu_ui:
 {BORDER}
         """
 
-        self.manager_and_shift_supervisor_menu = f"""
+        self.manager_menu = f"""
 
                                 [{SELECTION_ONE}] Airplanes
                                 [{SELECTION_TWO}] Destinations
                                 [{SELECTION_THREE}] Employees
                                 [{SELECTION_FOUR}] Voyages
+{BORDER}
+        """
+
+        self.shift_supervisor_menu = f"""
+                                [{SELECTION_ONE}] Destinations
+                                [{SELECTION_TWO}] Employees
+                                [{SELECTION_THREE}] Voyages
 {BORDER}
         """
 
@@ -72,119 +79,158 @@ class MainMenu_ui:
         return input("Enter your selection: ").lower()
     
     def get_shift_superviser(self):
-        pass
+        print(self.ascii_nanair)
+        print(self.shift_supervisor_menu)
+        print(self.options)
+        user_selection = self.input_prompt()
+
+        if user_selection == SELECTION_ONE: # List all Destinations
+            pass
+
+        elif user_selection == SELECTION_TWO: # Employees
+            print(self.ascii_nanair)
+            print(self.employee_menu.main_menu)
+            print(self.options)
+            user_selection = self.input_prompt()
+
+            if user_selection == SELECTION_ONE:
+                pass
+
+            elif user_selection == SELECTION_TWO:
+                pass
+
+        elif user_selection == SELECTION_THREE: # Voyages
+            pass
+        
     
     def get_manager(self):
-        if user_selection == SELECTION_ONE: # Manager
+        print(self.ascii_nanair)
+        print(self.manager_menu)
+        print(self.options)
+        user_selection = self.input_prompt()
+
+        if user_selection == SELECTION_ONE: # Airplanes
+            print(self.ascii_nanair)
+            print(self.airplane_menu.manager_menu)
+            print(self.options)
+            user_selection = self.input_prompt()
+
+            if user_selection == SELECTION_ONE: # Register airplane
+                pass
+
+            elif user_selection == SELECTION_TWO: # Edit airplane
+                pass
+
+            elif user_selection == QUIT:
+                print(EXIT_TEXT)
+                quit()
+            
+            else: # Go back
+                pass
+
+        elif user_selection == SELECTION_TWO: # Destinations
                 print(self.ascii_nanair)
-                print(self.manager_and_shift_supervisor_menu)
+                print(self.destinations_menu.manager_menu)
                 print(self.options)
                 user_selection = self.input_prompt()
 
-                if user_selection == SELECTION_ONE: # Airplanes
-                    print(self.ascii_nanair)
-                    print(self.airplane_menu.manager_menu)
-                    print(self.options)
-                    user_selection = self.input_prompt()
+                if user_selection == SELECTION_ONE: # Register a new destination
+                    pass
+                
+                elif user_selection == SELECTION_TWO: # Edit destinations
+                    pass
 
-                    if user_selection == SELECTION_ONE: # Register airplane
-                        pass
-
-                    elif user_selection == SELECTION_TWO: # Edit airplane
-                        pass
-
-                    elif user_selection == QUIT:
-                        print(EXIT_TEXT)
-                        quit()
-                    
-                    else: # Go back
-                        pass
-        
-                elif user_selection == SELECTION_TWO: # Destinations
-                        print(self.ascii_nanair)
-                        print(self.destinations_menu.main_menu)
-                        print(self.options)
-                        user_selection = self.input_prompt()
-
-                        if user_selection == SELECTION_ONE: # Register a new destination
-                            pass
-                        
-                        elif user_selection == SELECTION_TWO: # Edit destinations
-                            pass
-
-                        elif user_selection == SELECTION_THREE: # List all destinations
-                            pass
-
-                        elif user_selection == QUIT:
-                            print(EXIT_TEXT)
-                            quit()
-                    
-                        else: # Go back
-                            pass
-                        
-                elif user_selection == SELECTION_THREE: # Employees
-                    print(self.ascii_nanair)
-                    print(self.employee_menu.main_menu)
-                    print(self.options)
-                    user_selection = self.input_prompt()
-
-                    if user_selection == SELECTION_ONE: # List all employees
-                        pass
-                    
-                    elif user_selection == SELECTION_TWO: # Pilot
-                        print(self.ascii_nanair)
-                        print(self.employee_menu.pilot_menu)
-                        print(self.options)
-                        user_selection = self.input_prompt()
-
-                        if user_selection == SELECTION_ONE: # Register a new pilot
-                            pass
-
-                        elif user_selection == SELECTION_TWO: # Edit information of a pilot
-                            pass
-
-                        elif user_selection == SELECTION_THREE: # Search for a pilot
-                            pass
-
-                        elif user_selection == SELECTION_FOUR: # List pilots
-                            pass
-
-                        elif user_selection == QUIT:
-                            print(EXIT_TEXT)
-                            quit()
-                    
-                        else: # Go back
-                            pass
-
-                    elif user_selection == SELECTION_THREE: # Crew
-                        if user_selection == SELECTION_ONE: # Register a new crew member
-                            pass
-
-                        elif user_selection == SELECTION_TWO: # Edit information of a crew member
-                            pass
-
-                        elif user_selection == SELECTION_THREE: # Search for a crew member
-                            pass
-
-                        elif user_selection == SELECTION_FOUR: # List crew members
-                            pass
-
-                        elif user_selection == QUIT:
-                            print(EXIT_TEXT)
-                            quit()
-                    
-                        else: # Go back
-                            pass
-
-                elif user_selection == SELECTION_FIVE: # Voyages
+                elif user_selection == SELECTION_THREE: # List all destinations
                     pass
 
                 elif user_selection == QUIT:
                     print(EXIT_TEXT)
                     quit()
-                
+            
                 else: # Go back
                     pass
+                
+        elif user_selection == SELECTION_THREE: # Employees
+            print(self.ascii_nanair)
+            print(self.employee_menu.main_menu)
+            print(self.options)
+            user_selection = self.input_prompt()
+
+            if user_selection == SELECTION_ONE: # List all employees
+                pass
+            
+            elif user_selection == SELECTION_TWO: # Pilot
+                print(self.ascii_nanair)
+                print(self.employee_menu.pilot_menu)
+                print(self.options)
+                user_selection = self.input_prompt()
+
+                if user_selection == SELECTION_ONE: # Register a new pilot
+                    pass
+
+                elif user_selection == SELECTION_TWO: # Edit information of a pilot
+                    pass
+
+                elif user_selection == SELECTION_THREE: # Search for a pilot
+                    pass
+
+                elif user_selection == SELECTION_FOUR: # List pilots
+                    pass
+
+                elif user_selection == QUIT:
+                    print(EXIT_TEXT)
+                    quit()
+            
+                else: # Go back
+                    pass
+
+            elif user_selection == SELECTION_THREE: # Crew
+                if user_selection == SELECTION_ONE: # Register a new crew member
+                    pass
+
+                elif user_selection == SELECTION_TWO: # Edit information of a crew member
+                    pass
+
+                elif user_selection == SELECTION_THREE: # Search for a crew member
+                    pass
+
+                elif user_selection == SELECTION_FOUR: # List crew members
+                    pass
+
+                elif user_selection == QUIT:
+                    print(EXIT_TEXT)
+                    quit()
+            
+                else: # Go back
+                    pass
+
+        elif user_selection == SELECTION_FIVE: # Voyages
+            print(self.ascii_nanair)
+            print(self.voyage_menu.voyage_menu_manager)
+            print(self.options)
+            user_selection = self.input_prompt()
+
+            if user_selection == SELECTION_ONE: # Register a new voyage
+                pass
+
+            elif user_selection == SELECTION_TWO: # List all voyages
+                pass
+
+            elif user_selection == SELECTION_THREE: # List all voyages for a given day
+                pass
+
+            elif user_selection == SELECTION_FOUR: # List all voyages for a given week
+                pass
+
+            elif user_selection == SELECTION_FIVE: # List all voyages of a staff member for a given week
+                pass
+
+        elif user_selection == QUIT:
+            print(EXIT_TEXT)
+            quit()
+        
+        else: # Go back
+            pass
     
     def get_employee(self):
         pass
