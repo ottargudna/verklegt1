@@ -1,5 +1,4 @@
-from Model.voyage import Voyage
-from logic_layer.flights_logic import Flights
+from data_layer.data_wrapper import Data_Wrapper
 
 class Voyage_Logic:
     
@@ -18,4 +17,36 @@ class Voyage_Logic:
         self.data_wrapper.get_all_voyages()
 
 
+<<<<<<< Updated upstream
+=======
+
+
+
+
+    def check_working_status_day(self, date):
+        voyages = self.get_all_voyages()
+        voyages_in_date = []
+        every_employee = self.get_all_employee()
+
+        for voyage in voyages:
+            if voyages[3] >= date <= voyages[4]:
+                voyages_in_date.append(voyage)
+
+        working = []
+        not_working = []    
+        for voyage in voyages_in_date:
+            working.append(voyage[5])
+            working.append(voyage[6])
+            working.append(voyage[7])
+            working.append(voyage[8])
+            working.append(voyage[9])
+
+        for employee in every_employee:
+            if employee[0] not in working:
+                not_working.append(employee[0])
+
+        return working, not_working
+
+
+>>>>>>> Stashed changes
     
