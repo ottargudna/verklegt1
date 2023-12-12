@@ -1,4 +1,4 @@
-from Model.flights import Flights
+'''from Model.flights import Flights
 
 class Flights_Logic:
 
@@ -24,4 +24,4 @@ class Flights_Logic:
         self.data_wrapper.
 
     def get_all_flights(self):
-        return self.data_wrapper.get_all_fligths()
+        return self.data_wrapper.get_all_fligths()'''

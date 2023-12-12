@@ -6,9 +6,9 @@ class Voyage:
         self.aircraft_id = aircraft_id
         self.date_out = date_out
         self.date_home = date_home
-        self.catain = captain
+        self.captain = captain
         self.copilot = copilot
-        self.flight_service_maneger = flight_service_manager
+        self.flight_service_manager = flight_service_manager
         self.flight_attendant1 = flight_attendant1
         self.flight_attendant2 = flight_attendant2
     
