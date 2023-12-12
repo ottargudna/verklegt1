@@ -47,7 +47,7 @@ class Voyage_Logic:
     # if you want a list of who are working on the date you do [0] and not working [1]
 
 
-    def check_working_status_week(self, date="yyyy.mm.dd"):
+    """def check_working_status_week(self, date="yyyy.mm.dd"):
         voyages = self.data_wrapper.get_all_voyages()
         voyages_in_date = []
         every_employee = self.data_wrapper.get_all_employees()
@@ -69,6 +69,6 @@ class Voyage_Logic:
             if employee.nid not in working:
                 not_working.append(employee.nid)
 
-        return working, not_working
+        return working, not_working"""
     # if you want a list of who are working on the date you do [0] and not working [1]
 
