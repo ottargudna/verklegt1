@@ -24,15 +24,31 @@ class Logic_Wrapper:
     def create_employee(self, employee):
         self.employee_logic.create_employee(employee)
 
+    def get_all_employees(self):
+        self.employee_logic.get_all_employees()
 
+    def edit_employee(self, employee):
+        self.employee_logic.edit_employee(employee)
 
     #Airplane
+    def create_airplane(self, airplane):
+        self.airplane_logic.create_airplane(airplane)
 
+    def get_all_airplanes(self):
+        self.airplane_logic.get_all_airplanes()
 
 
 
     #Destinations
 
+    def create_destination(self, destination):
+        """Takes in destination object and forwards it to the data layer"""
+        self.destination_logic.create_destination(destination)
+
+
+    def get_all_destinations(self):
+        """Gets all destinations"""
+        self.destination_logic.get_all_destinations()
 
 
 
