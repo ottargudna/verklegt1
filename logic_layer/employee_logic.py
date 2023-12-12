@@ -18,23 +18,7 @@ class Employee_Logic:
     def edit_employee(self, employee):
         '''Takes in name of an employee and forwards it to data layer'''
         self.data_wrapper.edit_employee(employee)
-
-    #def check_working_status(self, date, option):
-    """" employees = self.get_all_flights()
-        self.data_wrapper = date
-        working = []
-        not_working = []
-        for employee in employees:
-            if employee[?] == date:
-                    working.append(employee[2])
-            else:
-                    not_working.append(employee[2])
-        if option == "1":
-            return working
-        else:
-             return not_working
-"""
-
-
+        
+        
     def list_voyges_for_an_employee(self):
         pass
