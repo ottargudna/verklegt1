@@ -24,6 +24,10 @@ class Flights_Logic:
         self.data_wrapper.create_flight(flight)
 
     def get_all_flights(self):
+<<<<<<< HEAD
         return self.data_wrapper.get_all_fligths()
 
 '''
+=======
+        return self.data_wrapper.get_all_fligths()'''
+>>>>>>> ottar5
