@@ -5,7 +5,7 @@ class Airplane_Logic:
     def __init__(self, data_connection) -> None:
         self.datawrapper = data_connection
 
-    def register_airplane(self, airplane):
+    def create_airplane(self, airplane):
         """Takes in airplane object and forwards it to the data layer"""
         self.data_wrapper.create_airplane(airplane)
 
