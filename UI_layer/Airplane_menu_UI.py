@@ -1,31 +1,22 @@
 from Model.airplane import Airplane
+from logic_layer.logic_wrapper import Logic_Wrapper
+
 
 BORDER = 109 * "*"
+SELECTION_ONE = "1"
+SELECTION_TWO = "2"
+SELECTION_THREE = "3"
+SELECTION_FOUR = "4"
+SELECTION_FIVE = "5"
+
 
 class Airplane_menu_ui:
 
     def __init__(self):
-
-        self.ascii_nanair = f"""
-{BORDER}
-                              _    _          _    _       __     _____  _____
-                __|__        |  \ | |   __ _ |  \ | |     /  \   |_   _||  _  \         __|__ 
-            ---o-(_)-o---    |   \| | / __' ||   \| |    / /\ \    | |  | |_|  |    ---o-(_)-o---
-                             | |\   || |__| || |\   |   /  __  \  _| |_ |  _ _/      
-                             |_| \__| \___,_||_| \__|  /__/  \__\|_____||_| \_\ 
-{BORDER}
-        """
+        self.logic_wrapper = Logic_Wrapper()
 
         self.manager_menu = f"""
-                                [1] Register airplane
-                                [2] Edit airplane
-                                [3] List airplanes
-{BORDER}
-        """
-
-        self.list_menu = f"""
-                                [1] List all airplanes
-                                [2] List airplanes after number of flights
-                                [3] List airplanes after usage
+                                [{SELECTION_ONE}] Register airplane
+                                [{SELECTION_TWO}] Edit airplane
 {BORDER}
         """
