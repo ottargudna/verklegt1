@@ -11,10 +11,10 @@ class Destinations_Logic:
         self.data_wrapper.create_destination(destination)
 
 
-    def get_all_employees(self):
+    def get_all_destinations(self):
         """Gets all destinations"""
         self.data_wrapper.get_all_destinations()
 
-    def edit_destanations(self):
+    #def edit_destanations(self):
         '''Takes in name of an destination and forwards it to data layer'''
-        self.data_wrapper.edit_destinations()
+       # self.data_wrapper.edit_destinations()
