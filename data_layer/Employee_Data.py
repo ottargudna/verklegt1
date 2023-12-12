@@ -16,13 +16,27 @@ class Employee_Data:
     
     def create_employee(self, employee):
         with open(self.file_name, "a", newline= " ", encoding = " utf-8") as csvfile:
+
             fieldnames = ["nid","name","role", "rank","licence", "address", "phone_nr"]
             writer = csv.DictWriter(csvfile,fieldnames = fieldnames)
             writer.writerow({"nid": employee.nid, "name": employee.name, "role": employee.role, "rank": employee.rank, "licence":employee.licence, "address": employee.address, "phone_nr": employee.phone_nr, "email": employee.email, "homephone_nr":employee.homephone.nr})
 
-    def update_employee(self, updated_employee):
-        all_employees = self.get_all_employees()
 
-        for employee in enumerate(all_employees): # veit ekki hvað enumerate er
-            if employee.id == updated_employee.nid:
-                pass
+    def update_employee(self, updated_employee):
+        employees = self.get_all_employees() 
+
+        for employee in employees: 
+            if employee.nid == employee.nid:
+                #update the employee information
+                employee.role = updated_employee.role
+                employee.rank = updated_employee.rank
+                employee.address = updated_employee.address
+                employee.phone_nr = updated_employee.phone_nr
+
+                with open(self.file_name, "w+", newline = "", encoding = "utf-8") as csvfile:
+                    fieldnames = ["nid", "name", "role", "rank", "address", "phone_nr"]
+                    writer = csv.DictWriter(csvfile, fieldnames = fieldnames)
+                    writer.writeheader()
+                    writer.writerow(employee) 
+
+                
