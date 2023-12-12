@@ -305,14 +305,9 @@ def main(self): # I will change the name
             
             else: # Go back
                 pass
-            elif user_selection == QUIT:
-                quit()
+        
+        elif user_selection == QUIT:
+            quit()
             
-            else: # Go back
-                pass
-
-	def employee_name(self):
-		return input("Enter your name: ")
-    
-	def input_prompt(self):
-		return input("Enter your selection: ").lower()
+        else: # Go back
+            pass
