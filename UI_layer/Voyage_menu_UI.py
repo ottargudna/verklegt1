@@ -40,19 +40,19 @@ class Voyage_menu_ui:
         user_selection = self.main_menu.input_prompt()
 
         if user_selection == SELECTION_ONE: # Register a new voyage
-            pass
+            self.get_register_new_voyage()
 
         elif user_selection == SELECTION_TWO: # List all voyages
-            pass
+            self.get_list_all_voyages()
 
         elif user_selection == SELECTION_THREE: # List all voyages for a given day
-            pass
+            self.get_list_voyages_for_day()
 
         elif user_selection == SELECTION_FOUR: # List all voyages for a given week
-            pass
+            self.get_list_voyages_for_week
 
         elif user_selection == SELECTION_FIVE: # List all voyages of a staff member for a given week
-            pass
+            self.get_list_voyages_of_employee()
 
     def get_shift_superviser_voyage(self):
         print(self.main_menu.ascii_nanair)
@@ -61,16 +61,16 @@ class Voyage_menu_ui:
         user_selection = self.main_menu.input_prompt()
 
         if user_selection == SELECTION_ONE: # List all voyages
-            pass
+            self.get_list_all_voyages()
 
         elif user_selection == SELECTION_TWO: # List all voyages for a given day
-            pass
+            self.get_list_voyages_for_day()
 
         elif user_selection == SELECTION_THREE: # List all voyages for a given week
-            pass
+            self.get_list_voyages_for_week()
 
         elif user_selection == SELECTION_FOUR: # List all voyages of a staff member for a given week
-            pass
+            self.get_list_voyages_of_employee()
 
     
     def get_register_new_voyage(self):
