@@ -3,7 +3,7 @@ from Model.voyage import Voyage
 
 class Voyage_Data:
     def __init__(self) -> None:
-        self.file_name = "File/voyage.csv"
+        self.file_name = "Files/voyage.csv"
 
 
     def get_all_voyages(self):
@@ -11,7 +11,7 @@ class Voyage_Data:
         with open(self.file_name, newline= '', encoding = "utf-8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                list.append(Voyage(row["dep_from"], row ["arr_at"], row ["aircraft_id"], row ["date_out"], row ["date_home"], row ["captain"], row ["copilot"], row ["flight_service_manager"], row ["flight_attendant1"], row ["flight attendant2"]))
+                list.append(Voyage(row["dep_from"], row ["arr_at"], row ["aircraft_id"], row ["date_out"], row ["date_home"], row ["captain"], row ["copilot"], row ["flight_service_manager"], row ["flight_attendant1"], row ["flight_attendant2"]))
         return list 
     
     def create_voyage(self, Voyage):

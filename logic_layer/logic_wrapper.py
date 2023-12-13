@@ -1,6 +1,6 @@
 
 
-from data_layer.data_wrapper import Data_Wrapper
+#from data_layer.data_wrapper import Data_Wrapper
 from logic_layer.airplane_logic import Airplane_Logic
 from logic_layer.destinations_logic import Destinations_Logic
 from logic_layer.employee_logic import Employee_Logic
@@ -10,7 +10,7 @@ from logic_layer.voyage_logic import Voyage_Logic
 
 class Logic_Wrapper:
     def __init__(self) -> None:
-        self.data_wrapper = Data_Wrapper
+        #self.data_wrapper = Data_Wrapper
         self.employee_logic = Employee_Logic(self.data_wrapper)
         self.airplane_logic = Airplane_Logic(self.data_wrapper)
         self.destination_logic = Destinations_Logic(self.data_wrapper)
@@ -29,6 +29,11 @@ class Logic_Wrapper:
 
     def edit_employee(self, employee):
         self.employee_logic.edit_employee(employee)
+
+    def get_one_employee(self, nid):
+        '''searches for one employee'''
+        self.employee_logic.get_one_employee(nid)
+
 
     #Airplane
     def create_airplane(self, airplane):
@@ -55,6 +60,15 @@ class Logic_Wrapper:
         """Takes in voyage object and forwards it to the data layer"""
         self.voyage_logic.create_voyage(voyage)
 
+    def check_day(self, date):
+        '''checks if people are working, not working on perticuler 
+        day and also gets every voyages on that day'''
+        self.voyage_logic.check_day(date)
+
+    def check_week(self, date): #enter the first day in that week
+        '''checks if people are working, not working on perticuler 
+        week and also gets every voyages on that week'''
+        self.voyage_logic.check_week(date)
 
 
 

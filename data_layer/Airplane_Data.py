@@ -11,11 +11,11 @@ class Airplane_Data:
         with open(self.file_name, newline= '', encoding = "utf-8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                list.append(Airplane(row["name"], row ["plane_type"], row ["manufacturer"], row ["number_of_passanger_seats"]))
+                list.append(Airplane(row["plane_insignia"], row ["plane_type_id"], row ["capacity"]))
         return list 
     
     def create_airplane(self, Airplane):
         with open(self.file_name, "a", newline= " ", encoding = " utf-8") as csvfile:
-            fieldnames = ["name","plane_type","manufacturer", "number_of_passanger_seats"]
+            fieldnames = ["plane_insignia","plane_type_id","capacity"]
             writer = csv.DictReader(csvfile,fieldnames = fieldnames) 
-            writer.writerow({"name": Airplane.name, "plane_type": Airplane.plane_type, "manufacturer": Airplane.manufacturer, "number_of_passanger_seats": Airplane.number_of_passanger_seats,})
+            writer.writerow({"plane_insignia": Airplane.plane_insignia, "plane_type_id": Airplane.plane_type_id, "capacity": Airplane.capacity})

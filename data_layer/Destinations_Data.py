@@ -10,11 +10,11 @@ class Destinations_Data:
         with open(self.file_name, newline= '', encoding = "utf-8") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                list.append(Desinations(row["destination"], row ["airport"], row ["flight_time"], row["distance_from_iceland"]))
+                list.append(Desinations(row["destination"], row ["airport_initials"], row ["flight_time"], row["distance_from_iceland"]))
         return list 
     
     def create_destination(self, destination):
         with open(self.file_name, "a", newline= " ", encoding = " utf-8") as csvfile:
-            fieldnames = ["destination", "airport", "flight_time", "distance_from_iceland"]
+            fieldnames = ["destination", "airport_initials", "flight_time", "distance_from_iceland"]
             writer = csv.DictReader(csvfile,fieldnames = fieldnames)
-            writer.writerow({"destination": destination.destination, "airport": destination.airport, "flight_time": destination.flight_time, "distance_from_iceland": destination.distance_from_iceland,})
+            writer.writerow({"destination": destination.destination, "airport_initials": destination.airport_initials, "flight_time": destination.flight_time, "distance_from_iceland": destination.distance_from_iceland,})

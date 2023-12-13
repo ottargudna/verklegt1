@@ -1,1 +1,2 @@
-dep_from,arr_at,aircraft_id,date_out,date_home,captain,copilot,flight_service_maneger,flight_attendant1,flight_attendant2
+dep_from,arr_at,aircraft_id,date_out,date_home,captain,copilot,flight_service_manager,flight_attendant1,flight_attendant2
+KEF,NYC,NAFlokker23,2023.12.12,2023.12.24,1611042050,1411032050,1312002350,0103104020,3001042560

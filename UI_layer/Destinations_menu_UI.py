@@ -1,43 +1,57 @@
-#import pyfiglet as pfg
 from Model.desinations import Desinations
+from UI_layer.mainmenu_ui import MainMenu_ui
 import string
 
+
 BORDER = 109 * "="
+QUIT = "q"
+BACK = "b"
+EXIT_TEXT = "Goodbye :)"
+SELECTION_ONE = "1"
+SELECTION_TWO = "2"
+SELECTION_THREE = "3"
+SELECTION_FOUR = "4"
+SELECTION_FIVE = "5"
+
 
 class Destiantions_menu_ui:
 
     def __init__(self) -> None:
-        self.main_menu = f"""
-                                [1] List of flights to specific destinations
-                                [2] List of the most popular destinations
-                                [3] Register a new destination
-                                [4] Edit destinations
+        self.main_menu = MainMenu_ui()
+        self.manager_menu = f"""
+                                [{SELECTION_ONE}] Register a new destination
+                                [{SELECTION_TWO}] Edit destinations
+                                [{SELECTION_THREE}] List all destinations
 {BORDER}
         """
-
-        self.options = f"""
-                                [B]ack to main menu     [Q]uit
-{BORDER}
-        """
-
-        self.ascii_nanair = f"""
-{BORDER}
-                              _    _          _    _       __     _____  _____
-                __|__        |  \ | |   __ _ |  \ | |     /  \   |_   _||  _  \         __|__ 
-            ---o-(_)-o---    |   \| | / __' ||   \| |    / /\ \    | |  | |_|  |    ---o-(_)-o---
-                             | |\   || |__| || |\   |   /  __  \  _| |_ |  _ _/      
-                             |_| \__| \___,_||_| \__|  /__/  \__\|_____||_| \_\ 
-{BORDER}
-        """
-
-
-    def input_prompt(self):
-        return input("Enter your selection: ")
     
-    def print_menu(self) -> str:
-        #print(self.ascii_airplane)
-        print(self.ascii_nanair)
-        print(self.main_menu)
-        print(self.options)
-        print()
-        self.input_prompt()
+    def get_manager_destinations(self):
+        print(self.main_menu.ascii_nanair)
+        print(self.manager_menu)
+        print(self.main_menu.options)
+        user_selection = self.main_menu.input_prompt()
+
+        if user_selection == SELECTION_ONE: # Register a new destination
+            self.register_new_destination()
+        
+        elif user_selection == SELECTION_TWO: # Edit destinations
+            self.edit_destanation()
+
+        elif user_selection == SELECTION_THREE: # List all destinations
+            self.list_all_destinations()
+
+        elif user_selection == QUIT:
+            print(EXIT_TEXT)
+            quit()
+    
+        else: # Go back
+            pass
+    
+    def register_new_destination(self):
+        pass
+
+    def edit_destanation(self):
+        pass
+
+    def list_all_destinations(self):
+        pass
