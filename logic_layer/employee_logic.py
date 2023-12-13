@@ -81,6 +81,7 @@ class Employee_Logic:
     
 
     def check_if_voyages_are_fully_shiped(self):
+        '''Cheks if user has a voyage where there is not an a employee in it'''
         voyages = self.data_wrapper.get_all_voyages()
 
         not_fully_shiped = set()
