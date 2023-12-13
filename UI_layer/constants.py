@@ -1,4 +1,4 @@
-BORDER = 109 * "*"
+BORDER = 109 * "="
 QUIT = "q"
 BACK = "b"
 EXIT_TEXT = "Goodbye :)"
@@ -9,7 +9,7 @@ FOUR = "4"
 FIVE = "5"
 SIX = "6"
 
-MAIN_MENU = f"""
+MAIN_MENU_CHOICES = f"""
                                 What kind of staff member are you?
                                 
                                 [{ONE}] Manager
@@ -120,3 +120,48 @@ VOYAGE_SHIFT_SUPER_MENU = f"""
                                 [{FOUR}] List all voyages of a staff member for a given week
 {BORDER}
         """
+
+def main_menu():
+    return LOGO + MAIN_MENU_CHOICES + MAIN_MENU_FOOTER
+
+def manager_menu():
+    return LOGO + MANAGER_CHOICES + FOOTER
+
+def shift_supervisor_menu():
+    return LOGO + SHIFT_SUPERVISOR_MENU + FOOTER
+
+def employee_menu():
+    return LOGO + EMPLOYEE_MENU + FOOTER
+
+def airplane_menu():
+    return LOGO + AIRPLANE_MENU + FOOTER
+
+def destinations_menu():
+    return LOGO + DESTINATIONS_MENU + FOOTER
+
+def staff_menu():
+    return LOGO + DESTINATIONS_MENU + FOOTER
+
+def pilot_manager_menu():
+    return LOGO + PILOT_MANAGER_MENU + FOOTER
+
+def pilot_shift_supervisor_menu():
+    return LOGO + PILOT_SHIFT_SUP_MENU + FOOTER
+
+def crew_manager_menu():
+    return LOGO + CREW_MANAGER_MENU + FOOTER
+
+def crew_shift_supervisor_menu():
+    return LOGO + CREW_SHIFT_SUP_MENU + FOOTER
+
+def employees_menu():
+    return LOGO + EMPLOYEES_MENU + FOOTER
+
+def voyage_menu_manager():
+    return LOGO + VOYAGE_MANAGER_MENU + FOOTER
+
+def voyage_menu_shift_superviser():
+    return LOGO + VOYAGE_SHIFT_SUPER_MENU + FOOTER
+
+def input_selection():
+    return input("Enter your selection: ")

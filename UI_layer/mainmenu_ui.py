@@ -15,14 +15,9 @@ class MainMenu_ui:
     def employee_name(self):
         return input("Enter your name: ")
     
-    def input_prompt(self):
-        return input("Enter your selection: ").lower()
-    
     def get_shift_superviser(self):
-        print(self.ascii_nanair)
-        print(self.shift_supervisor_menu)
-        print(self.options)
-        user_selection = self.input_prompt()
+        print(self.const.shift_supervisor_menu)
+        user_selection = self.const.input_selection()
 
         if user_selection == self.const.ONE: # List all Destinations
             self.destinations_menu.list_all_destinations()
@@ -35,10 +30,8 @@ class MainMenu_ui:
         
     
     def get_manager(self):
-        print(self.ascii_nanair)
-        print(self.manager_menu)
-        print(self.options)
-        user_selection = self.input_prompt()
+        print(self.const.manager_menu())
+        user_selection = self.const.input_selection()
 
         if user_selection == self.const.ONE: # Airplanes
             self.airplane_menu.get_manager_airplane_menu()
@@ -69,19 +62,22 @@ class MainMenu_ui:
     
 
     def main(self):
-        print(self.ascii_nanair)
-        print(self.main_menu)
-        print(self.main_menu_options)
-        user_selection = self.input_prompt()
+        print(self.const.main_menu())
+        user_selection = self.const.input_selection()
 
-        if user_selection == self.const.ONE:
-            self.get_manager()
-        
-        elif user_selection == self.const.TWO:
-            self.get_shift_superviser()
-        
-        elif user_selection == self.const.THREE:
-            self.get_employee()
+        while True:
+            if user_selection == self.const.QUIT:
+                print(self.const.EXIT_TEXT)
+                break
+
+            if user_selection == self.const.ONE:
+                self.get_manager()
+            
+            elif user_selection == self.const.TWO:
+                self.get_shift_superviser()
+            
+            elif user_selection == self.const.THREE:
+                self.get_employee()
 
 
     #elif user_selection == SELECTION_THREE: # Employees

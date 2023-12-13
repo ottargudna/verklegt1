@@ -1,34 +1,37 @@
 from Model.airplane import Airplane
 from logic_layer.logic_wrapper import Logic_Wrapper
-from UI_layer import constants
+import UI_layer.constants
 
 
 class Airplane_menu_ui:
 
     def __init__(self):
         self.logic_wrapper = Logic_Wrapper()
+        self.const = UI_layer.constants
 
     def get_manager_airplane_menu(self):
-        print(self.main_menu.ascii_nanair)
-        print(self.manager_menu)
-        print(self.main_menu.options)
-        user_selection = self.main_menu.input_prompt()
+        print(self.const.airplane_menu())
+        user_selection = self.const.input_selection()
 
-        if user_selection == SELECTION_ONE: # Register airplane
+        if user_selection == self.const.ONE: # Register airplane
             self.get_register_airplane()
 
-        elif user_selection == SELECTION_TWO: # Edit airplane
-            self.get_edit_airplane()
+        elif user_selection == self.const.TWO: # Edit airplane
+            self.get_list_airplanes()
 
-        elif user_selection == QUIT:
-            print(EXIT_TEXT)
+        elif user_selection == self.const.QUIT:
+            print(self.const.EXIT_TEXT)
             quit()
         
         else: # Go back
             pass
     
     def get_register_airplane(self):
-        pass
+        airplane = input("Enter the name of the airplane: ")
+        register_airplane = self.logic_wrapper.create_airplane(airplane)
+        return register_airplane
 
-    def get_edit_airplane(self):
-        pass
+    def get_list_airplanes(self):
+        airplanes = self.logic_wrapper.get_all_airplanes()
+        for i in airplanes:
+            print(i)

@@ -3,8 +3,8 @@
 from Model.desinations import Desinations
 
 class Destinations_Logic:
-    def __init__(self) -> None:
-        pass
+    def __init__(self, data_wrapper) -> None:
+        self.data_wrapper = data_wrapper
 
     def create_destination(self, destination):
         """Takes in destination object and forwards it to the data layer"""
