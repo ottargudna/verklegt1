@@ -9,49 +9,51 @@ class Voyage_Logic:
 
     def create_voyage(self, voyage):
         """Takes in destination object and forwards it to the data layer"""
-        self.data_wrapper.create_voyage(voyage)
+        every_voyage = self.data_wrapper.get_all_voyages()
+        for v in every_voyage:
+            if voyage == v:
+                return False #already exists
+        check_if_employee_working = self.check_working(voyage)
+        if check_if_employee_working == True:
+            return False
+        else:
+            self.data_wrapper.create_voyage(voyage)
+        
+    def check_working(self, voyage):
+        #check if employee alredy working that day
+
+        date_out = self.date_time(voyage[3])
+        date_home = self.date_time(voyage[4])
+        
+        working_out_date = self.check_day(date_out)
+        working_out_date = working_out_date[0]
+        working_home_date = self.check_day(date_home)
+        working_home_date = working_home_date[0]
+
+        already_working = working_out_date + working_home_date
+
+        if voyage[5] in already_working:
+            #Captain is already working that day
+            return True
+        elif voyage[6] in already_working:
+            #copilot is already working that day
+            return True
+        elif voyage[7] in already_working:
+            #Flight service manager is already working that day
+            return True
+        elif voyage[8] in already_working:
+            #Flight attented is already working that day
+            return True
+        elif voyage[9] in already_working:
+            #Captain is alredy working that day
+            return True
+        else: 
+            return False
+        
 
     def get_all_voyages(self):
         '''Gets all voyages'''
         self.data_wrapper.get_all_voyages()
-
-    def is_employee_available(self, employee ,start_date, end_date):
-        every_voyage = self.data_wrapper.get_all_voyages()
-        
-
-        if (self.voyages[4] <= end_date) and (self.voyages[3] >= start_date):
-            return True
-        else:
-            return False
-
-    
-    ''' def schedule_employee(employee, start_date, end_date, other_details):
-        
-        if is_employee_available(employee, start_date, end_date):
-        # Update the DataFrame with new assignment
-        # Add your logic here to update the DataFrame
-            pass
-        else:
-            return False '''
-        #check if captain is workin else where
-
-'''     for voyage[5] in every_voyage:
-            if self.date in (voyage[3],voyage[4]):
-                return False
-            else:
-                return True '''
-                
-
-        #check if copilot
-
-
-        #check if fsm
-
-        #check fa1
-
-        #check fa2
-    def list_worktrips(self):
-        pass
 
     
 
@@ -83,7 +85,9 @@ class Voyage_Logic:
         voyages_in_date = []
 
         for voyage in voyages:
-            if voyage.date_out == date or date == voyage.date_home:
+            date_out = self.date_time(voyage.date_out)
+            date_home = self.date_time(voyage.date_home)
+            if date_out == date or date == date_home:
                 voyages_in_date.append(voyage)
 
         working = []

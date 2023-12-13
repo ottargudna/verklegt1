@@ -30,6 +30,11 @@ class Logic_Wrapper:
     def edit_employee(self, employee):
         self.employee_logic.edit_employee(employee)
 
+    def get_one_employee(self, nid):
+        '''searches for one employee'''
+        self.employee_logic.get_one_employee(nid)
+
+
     #Airplane
     def create_airplane(self, airplane):
         self.airplane_logic.create_airplane(airplane)

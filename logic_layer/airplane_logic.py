@@ -12,7 +12,7 @@ class Airplane_Logic:
             self.data_wrapper.create_airplane(airplane)
         else:
             return False
-        #if false enter another name
+        #if false enter another name and return a str try another name
 
     def get_all_airplanes(self):
         """Gets all airplane"""
