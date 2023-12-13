@@ -78,3 +78,29 @@ class Employee_Logic:
                 workin_in_voyage.append(voyage)
 
         return workin_in_voyage
+    
+
+    def check_if_voyages_are_fully_shiped(self):
+        voyages = self.data_wrapper.get_all_voyages()
+
+        not_fully_shiped = set()
+
+        for voyage in voyages:
+            if voyage.captain == "N/A":
+                not_fully_shiped.append(voyage)
+            elif voyage.copilot == "N/A":
+                not_fully_shiped.append(voyage)
+            elif voyage.flight_service_manager == "N/A":
+                not_fully_shiped.append(voyage)
+            elif voyage.flight_attendant1 == "N/A":
+                not_fully_shiped.append(voyage)
+            elif voyage.flight_attendant2 == "N/A":
+                not_fully_shiped.append(voyage)
+        
+        if not_fully_shiped == None:
+            return False
+        
+        return not_fully_shiped
+
+
+
