@@ -40,8 +40,9 @@ class Destiantions_menu_ui:
         destination = destination_name, destination_airport, destination_flight_time, destination_distance, destination_contact_name, destination_contact_nr
         return self.logic_wrapper.data_wrapper.create_destination(destination)
 
-    def edit_destanation(self):
-        pass
+    def edit_destanation(self, destination):
+        destination = input("What destination would you like to edit?: ")
+        return self.logic_wrapper.edit_destanations(destination)
 
     def list_all_destinations(self):
         pass
