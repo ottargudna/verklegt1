@@ -33,10 +33,10 @@ class Airplane_menu_ui:
         user_selection = self.main_menu.input_prompt()
 
         if user_selection == SELECTION_ONE: # Register airplane
-            pass
+            self.get_register_airplane()
 
         elif user_selection == SELECTION_TWO: # Edit airplane
-            pass
+            self.get_edit_airplane()
 
         elif user_selection == QUIT:
             print(EXIT_TEXT)
@@ -44,3 +44,9 @@ class Airplane_menu_ui:
         
         else: # Go back
             pass
+    
+    def get_register_airplane(self):
+        pass
+
+    def get_edit_airplane(self):
+        pass

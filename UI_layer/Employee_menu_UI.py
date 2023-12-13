@@ -226,3 +226,20 @@ class Employee_menu_ui:
     
         else: # Go back
             pass
+
+    # List all employees
+    def get_list_employees(self):
+        pass
+
+    # List information of an employee
+    # List all employees not working on a given day
+    # List all employees working on a given day
+    # Printable work summary for an employee in a giving week
+    # Register a new crew member
+    # Edit information of a crew member
+    # Search for a crew member
+    # List crew members
+    # Register a new pilot
+    # Edit information of a pilot
+    # Search for a pilot
+    # List pilots
