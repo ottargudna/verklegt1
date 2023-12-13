@@ -16,7 +16,7 @@ class MainMenu_ui:
         return input("Enter your name: ")
     
     def get_shift_superviser(self):
-        print(self.const.shift_supervisor_menu)
+        print(self.const.shift_supervisor_menu())
         user_selection = self.const.input_selection()
 
         if user_selection == self.const.ONE: # List all Destinations
@@ -58,7 +58,18 @@ class MainMenu_ui:
             pass
     
     def get_employee(self):
-        pass
+        print(self.const.employee_menu())
+        user_selection = self.const.input_selection()
+
+        if user_selection == self.const.QUIT:
+            print(self.const.EXIT_TEXT)
+            quit()
+
+        elif user_selection == self.const.ONE: # Display Shifts
+            pass
+
+        elif user_selection == self.const.TWO: # Display Hours
+            pass
     
 
     def main(self):
