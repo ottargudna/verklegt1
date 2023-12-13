@@ -48,9 +48,8 @@ class Employee_Logic:
 
     def date_time_plus_week(self, date):
         '''adds 7 days to a date thefore a week'''
-        int_date = self.date_time(date)
 
-        week_from_date = int_date + timedelta(days=6)
+        week_from_date = date + timedelta(days=7)
 
         return week_from_date
 
@@ -60,8 +59,7 @@ class Employee_Logic:
 
         #get every employee and voyage
         voyages = self.data_wrapper.get_all_voyages()
-        every_employee = self.data_wrapper.get_all_employees()
-
+        
         date = self.date_time(date)
         week_from_date = self.date_time_plus_week(date)
 
@@ -80,3 +78,29 @@ class Employee_Logic:
                 workin_in_voyage.append(voyage)
 
         return workin_in_voyage
+    
+
+    def check_if_voyages_are_fully_shiped(self):
+        voyages = self.data_wrapper.get_all_voyages()
+
+        not_fully_shiped = set()
+
+        for voyage in voyages:
+            if voyage.captain == "N/A":
+                not_fully_shiped.append(voyage)
+            elif voyage.copilot == "N/A":
+                not_fully_shiped.append(voyage)
+            elif voyage.flight_service_manager == "N/A":
+                not_fully_shiped.append(voyage)
+            elif voyage.flight_attendant1 == "N/A":
+                not_fully_shiped.append(voyage)
+            elif voyage.flight_attendant2 == "N/A":
+                not_fully_shiped.append(voyage)
+        
+        if not_fully_shiped == None:
+            return False
+        
+        return not_fully_shiped
+
+
+

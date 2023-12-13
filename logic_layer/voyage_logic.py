@@ -13,11 +13,35 @@ class Voyage_Logic:
         for v in every_voyage:
             if voyage == v:
                 return False #already exists
+        check_if_employee_exists = self.check_if_employee_exists(voyage)
+        if check_if_employee_exists == False:
+            return False
         check_if_employee_working = self.check_working(voyage)
         if check_if_employee_working == True:
             return False
         else:
             self.data_wrapper.create_voyage(voyage)
+
+    def check_if_employee_exists(self, voyage):
+        every_employee = self.data_wrapper.get_all_employees()
+        nids = every_employee[0]
+
+        if voyage.captain in nids or voyage.captain == "N/A":
+            if voyage.copilot in nids or voyage.copilot == "N/A":
+                if voyage.flight_service_manager in nids or voyage.flight_service_manager == "N/A":
+                    if voyage.flight_attendant1 in nids or voyage.flight_attendant1 == "N/A":
+                        if voyage.flight_attendant2 in nids or voyage.flight_attendant2 == "N/A":
+                            return True
+                        else:
+                            return False
+                    else:
+                        return False
+                else:
+                    return False
+            else:
+                return False
+        else:
+            return False
         
     def check_working(self, voyage):
         #check if employee alredy working that day
@@ -72,7 +96,7 @@ class Voyage_Logic:
         '''adds 7 days to a date thefore a week'''
         int_date = self.date_time(date)
 
-        week_from_date = int_date + timedelta(days=6)
+        week_from_date = int_date + timedelta(days=7)
 
         return week_from_date
 
