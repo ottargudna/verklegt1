@@ -20,7 +20,7 @@ class Destinations_Data:
             writer.writerow({"destination": destination.destination, "airport_initials": destination.airport_initials, "flight_time": destination.flight_time, "distance_from_iceland": destination.distance_from_iceland, "contact_name": destination.emergency_phone_nr})
 
 
-    def update_destination(self, updated_destination):
+    def update_destination(self, updated_destination): # testa update
         destinations = self.get_all_destination() 
 
 
@@ -37,3 +37,4 @@ class Destinations_Data:
                     
                     for destination in destinations:
                         writer.writerow({"destination": destination.destination, "airport_initals": destination.airport_initials, "flight_time": destination.flight_time, "distance_from_iceland": destination.ditance_from_iceland, "contact_name": destination.contact_name, "emergency_phone_nr": destination.emergency_phone_nr})
+
