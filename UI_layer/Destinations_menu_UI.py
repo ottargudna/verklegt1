@@ -1,29 +1,10 @@
 from Model.desinations import Desinations
-from UI_layer.mainmenu_ui import MainMenu_ui
 import string
-
-
-BORDER = 109 * "="
-QUIT = "q"
-BACK = "b"
-EXIT_TEXT = "Goodbye :)"
-SELECTION_ONE = "1"
-SELECTION_TWO = "2"
-SELECTION_THREE = "3"
-SELECTION_FOUR = "4"
-SELECTION_FIVE = "5"
-
 
 class Destiantions_menu_ui:
 
     def __init__(self) -> None:
         self.main_menu = MainMenu_ui()
-        self.manager_menu = f"""
-                                [{SELECTION_ONE}] Register a new destination
-                                [{SELECTION_TWO}] Edit destinations
-                                [{SELECTION_THREE}] List all destinations
-{BORDER}
-        """
     
     def get_manager_destinations(self):
         print(self.main_menu.ascii_nanair)
