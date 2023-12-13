@@ -1,47 +1,47 @@
-from Model.desinations import Desinations
-from UI_layer.mainmenu_ui import MainMenu_ui
-import string
+#from Model.desinations import Desinations
+import UI_layer.constants
+#import string
 
 
-BORDER = 109 * "="
-QUIT = "q"
-BACK = "b"
-EXIT_TEXT = "Goodbye :)"
-SELECTION_ONE = "1"
-SELECTION_TWO = "2"
-SELECTION_THREE = "3"
-SELECTION_FOUR = "4"
-SELECTION_FIVE = "5"
+#BORDER = 109 * "="
+#QUIT = "q"
+#BACK = "b"
+#EXIT_TEXT = "Goodbye :)"
+#SELECTION_ONE = "1"
+#SELECTION_TWO = "2"
+#SELECTION_THREE = "3"
+#SELECTION_FOUR = "4"
+#SELECTION_FIVE = "5"
 
 
 class Destiantions_menu_ui:
 
     def __init__(self) -> None:
-        self.main_menu = MainMenu_ui()
+        self.constants = UI_layer.constants
         self.manager_menu = f"""
-                                [{SELECTION_ONE}] Register a new destination
-                                [{SELECTION_TWO}] Edit destinations
-                                [{SELECTION_THREE}] List all destinations
-{BORDER}
+                                [{self.constants.SELECTION_ONE}] Register a new destination
+                                [{self.constants.SELECTION_TWO}] Edit destinations
+                                [{self.constants.SELECTION_THREE}] List all destinations
+{self.constants.BORDER}
         """
     
     def get_manager_destinations(self):
-        print(self.main_menu.ascii_nanair)
+        print(self.constants.ASCII_NANAIR)
         print(self.manager_menu)
-        print(self.main_menu.options)
-        user_selection = self.main_menu.input_prompt()
+        print(self.constants.OPTIONS)
+        user_selection = self.constants.INPUT_PROMPT
 
-        if user_selection == SELECTION_ONE: # Register a new destination
+        if user_selection == self.constants.SELECTION_ONE: # Register a new destination
             self.register_new_destination()
         
-        elif user_selection == SELECTION_TWO: # Edit destinations
+        elif user_selection == self.constants.SELECTION_TWO: # Edit destinations
             self.edit_destanation()
 
-        elif user_selection == SELECTION_THREE: # List all destinations
+        elif user_selection == self.constants.SELECTION_THREE: # List all destinations
             self.list_all_destinations()
 
-        elif user_selection == QUIT:
-            print(EXIT_TEXT)
+        elif user_selection == self.constants.QUIT:
+            print(self.constants.EXIT_TEXT)
             quit()
     
         else: # Go back
