@@ -15,7 +15,6 @@ def input_prompt():
 
 def main(): # I will change the name 
     while True:
-<<<<<<< Updated upstream
         print(main_menu.ascii_nanair)
         print(main_menu.main_menu)
         print(main_menu.main_menu_options)
@@ -123,9 +122,7 @@ def main(): # I will change the name
             
             else: # Go back
                 pass
-=======
         main_menu.main()
->>>>>>> Stashed changes
 
 if __name__ == "__main__":
     main_menu.main()

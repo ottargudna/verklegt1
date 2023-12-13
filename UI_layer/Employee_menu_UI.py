@@ -1,5 +1,7 @@
+from prettytable import PrettyTable
 from Model.employee import Employee
 from UI_layer.mainmenu_ui import MainMenu_ui
+from UI_layer.input_validate import Validate
 
 BORDER = 109 * "*"
 QUIT = "q"
@@ -10,6 +12,7 @@ SELECTION_TWO = "2"
 SELECTION_THREE = "3"
 SELECTION_FOUR = "4"
 SELECTION_FIVE = "5"
+SELECTION_SIX = "6"
 
 
 class Employee_menu_ui:
@@ -25,17 +28,15 @@ class Employee_menu_ui:
         """
 
         self.pilot_manager = f"""
-                                [{SELECTION_ONE}] Register a new pilot
-                                [{SELECTION_TWO}] Edit information of a pilot
-                                [{SELECTION_THREE}] Search for a pilot
-                                [{SELECTION_FOUR}] List all pilots
+                                [{SELECTION_ONE}] Edit information of a pilot
+                                [{SELECTION_TWO}] Search for a pilot
+                                [{SELECTION_THREE}] List all pilots
 {BORDER}
         """
         self.crew_manager = f"""
-                                [{SELECTION_ONE}] Register a new crew member
-                                [{SELECTION_TWO}] Edit information of a crew member
-                                [{SELECTION_THREE}] Search for a crew member
-                                [{SELECTION_FOUR}] List all crew members
+                                [{SELECTION_ONE}] Edit information of a crew member
+                                [{SELECTION_TWO}] Search for a crew member
+                                [{SELECTION_THREE}] List all crew members
 {BORDER}
         """
 
@@ -57,6 +58,7 @@ class Employee_menu_ui:
                                 [{SELECTION_THREE}] List all employees not working on a given day
                                 [{SELECTION_FOUR}] List all employees working on a given day
                                 [{SELECTION_FIVE}] Printable work summary for an employee in a giving week
+                                [{SELECTION_SIX}] Register new employee
 {BORDER}
         """
     
@@ -91,10 +93,29 @@ class Employee_menu_ui:
         user_selection = self.main_menu.input_prompt()
 
         if user_selection == SELECTION_ONE: # List all employees
-            pass
+
+            result = self.logic_wrapper.get_all_employees()
+            print("List of all Employees:")
+            All_employees = PrettyTable(['Name', 'Social Id', 'Job Title', 'Rank'])
+            for i in result:
+                All_employees.add_row([i.name, i.nid, i.role, i.rank])
+            print(All_employees)
+            input("Press any key to go back to Employees Menu.")
 
         elif user_selection == SELECTION_TWO: # List information of an employee
-            pass
+            
+            NID = input("Enter NID to get Employee: ")
+            while self.input_validate.validate_nid(NID) == False:
+                print('Invalid NID, please try again.')
+                NID = input('Enter NID to get Employee: ')
+
+            get_one_employee = self.logic_wrapper.get_one_employee(NID)
+            print("List of information of an Employee")
+            info_employee = PrettyTable(['NID','Name','Role','Rank', 'Licence', 'Address', 'Phone_nr', 'Email', 'Homephone_nr'])
+            for i in get_one_employee:
+                info_employee.add_row([i.nid, i.name, i.role, i.rank, i.licence, i.address, i.phone_nr, i.email, i.homephone_nr])
+            print(info_employee)
+            input("Press any key to go back to Employees Menu.")
 
         elif user_selection == SELECTION_THREE: # List all employees not working on a given day
             pass
@@ -105,9 +126,13 @@ class Employee_menu_ui:
         elif user_selection == SELECTION_FIVE: # Printable work summary for an employee in a giving week
             pass
 
+        elif user_selection == SELECTION_SIX:
+            pass
+
         elif user_selection == QUIT:
             print(EXIT_TEXT)
             quit()
+        
         
         else: # Go back
             pass
