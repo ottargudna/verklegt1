@@ -72,38 +72,54 @@ class Voyage_Logic:
         '''adds 7 days to a date thefore a week'''
         int_date = self.date_time(date)
 
-        week_from_date = int_date + timedelta(days=7)
+        week_from_date = int_date + timedelta(days=6)
 
         return week_from_date
 
     def check_day(self, date="yyyy.mm.dd"):
         '''checks if people are working, not working on perticuler 
         day and also gets every voyages on that day'''
+
+        #get every voyage and employee
         voyages = self.data_wrapper.get_all_voyages()
         every_employee = self.data_wrapper.get_all_employees()
-
+        
+        #list of voyages at that date
         voyages_in_date = []
 
+        search_date = self.date_time(date) 
+
+        #checks every voyage and appends if thay are the same as out pr home date
         for voyage in voyages:
             date_out = self.date_time(voyage.date_out)
             date_home = self.date_time(voyage.date_home)
-            if date_out == date or date == date_home:
+            if date_out == search_date or date == search_date:
                 voyages_in_date.append(voyage)
 
-        working = []
-        not_working = []    
-        for voyage in voyages_in_date:
 
-            working.append(voyage.captain)
-            working.append(voyage.copilot)
-            working.append(voyage.flight_service_manager)
-            working.append(voyage.flight_attendant1)
-            working.append(voyage.flight_attendant2)
+
+        working_nid = []    #nid for employees working that day
+        not_working = []    #employee that are not working (every information)
+        working = []        #employee that are working (every information)
+
+        for voyage in voyages_in_date:
+            #only gets nid's
+            working_nid.append(voyage.captain)
+            working_nid.append(voyage.copilot)
+            working_nid.append(voyage.flight_service_manager)
+            working_nid.append(voyage.flight_attendant1)
+            working_nid.append(voyage.flight_attendant2)
+
+        #gets every working employee informations
+        for employee in every_employee:
+            for nid in working_nid:
+                if nid == employee.nid:
+                    working.append(employee)
 
         #not working function
         for employee in every_employee:
             if employee.nid not in working:
-                not_working.append(employee.nid)
+                not_working.append(employee)
 
         return working, not_working, voyages_in_date
      # if you want a list of who are working on the date you do [0], not working [1], voyages on that day [2]
@@ -112,10 +128,14 @@ class Voyage_Logic:
     def check_week(self, date="yyyy.mm.dd"): #enter the first day in that week
         '''checks if people are working, not working on perticuler 
         week and also gets every voyages on that week'''
+        #get every employee and voyages
         voyages = self.data_wrapper.get_all_voyages()
         every_employee = self.data_wrapper.get_all_employees()
+        #list of voyages at that date
         voyages_in_date = []
-        search_date = self.date_time(date)
+
+
+        search_date = self.date_time(date) 
         week_from_date = self.date_time_plus_week(date)
 
         for voyage in voyages:
@@ -124,19 +144,28 @@ class Voyage_Logic:
             if  search_date <= date_out <= week_from_date or search_date <= date_home <= week_from_date :
                 voyages_in_date.append(voyage)
 
-        working = []
-        not_working = []    
+        working_nid = []    #nid for employees working that day
+        not_working = []    #employee that are not working (every information)
+        working = []        #employee that are working (every information)
+        
         for voyage in voyages_in_date:
-            working.append(voyage.captain)
-            working.append(voyage.copilot)
-            working.append(voyage.flight_service_manager)
-            working.append(voyage.flight_attendant1)
-            working.append(voyage.flight_attendant2)
+            #only gets nid's
+            working_nid.append(voyage.captain)
+            working_nid.append(voyage.copilot)
+            working_nid.append(voyage.flight_service_manager)
+            working_nid.append(voyage.flight_attendant1)
+            working_nid.append(voyage.flight_attendant2)
+
+        #gets every working employee informations
+        for employee in every_employee:
+            for nid in working_nid:
+                if nid == employee.nid:
+                    working.append(employee)
 
         #not working function
         for employee in every_employee:
             if employee.nid not in working:
-                not_working.append(employee.nid)
+                not_working.append(employee)
 
         return working, not_working,voyages_in_date
     # if you want a list of who are working on the date you do [0], not working [1], voyages in that time period [2]
