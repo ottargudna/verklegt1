@@ -30,14 +30,14 @@ class Destiantions_menu_ui:
             pass
     
     def register_new_destination(self):
-        destination_name = input("Enter the country: ")
-        destination_airport = input("Enter the initials of the airport: ")
-        destination_flight_time = input("Enter the flight time: ")
-        destination_distance = input("Enter the distance from Iceland: ")
-        destination_contact_name = input("Enter the contact name: ")
-        destination_contact_nr = input("Enter the contact emergency number: ")
+        dest_name = input("Enter the country: ")
+        airport = input("Enter the initials of the airport: ")
+        flight_time = input("Enter the flight time: ")
+        distance = input("Enter the distance from Iceland: ")
+        contact_name = input("Enter the contact name: ")
+        contact_number = input("Enter the contact emergency number: ")
 
-        destination = destination_name, destination_airport, destination_flight_time, destination_distance, destination_contact_name, destination_contact_nr
+        destination = dest_name, airport, flight_time, distance, contact_name, contact_number
         return self.logic_wrapper.data_wrapper.create_destination(destination)
 
     def edit_destanation(self, destination):
@@ -45,4 +45,6 @@ class Destiantions_menu_ui:
         return self.logic_wrapper.edit_destanations(destination)
 
     def list_all_destinations(self):
-        pass
+        all_destinations = self.logic_wrapper.get_all_destinations()
+        for destination in all_destinations:
+            print(destination)

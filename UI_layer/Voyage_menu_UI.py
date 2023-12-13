@@ -1,16 +1,16 @@
 from Model.voyage import Voyage
 import UI_layer.constants
+from logic_layer.logic_wrapper import Logic_Wrapper
 
 class Voyage_menu_ui:
 
     def __init__(self) -> None:
         self.const = UI_layer.constants
+        self.logic_wrapper = Logic_Wrapper()
 
     def get_manager_voyage(self):
-        print(self.main_menu.ascii_nanair)
-        print(self.voyage_menu_manager)
-        print(self.main_menu.options)
-        user_selection = self.main_menu.input_prompt()
+        print(self.const.voyage_menu_manager())
+        user_selection = self.const.input_selection()
 
         if user_selection == self.const.ONE: # Register a new voyage
             self.get_register_new_voyage()
@@ -28,10 +28,8 @@ class Voyage_menu_ui:
             self.get_list_voyages_of_employee()
 
     def get_shift_superviser_voyage(self):
-        print(self.main_menu.ascii_nanair)
-        print(self.voyage_menu_shift_superviser)
-        print(self.main_menu.options)
-        user_selection = self.main_menu.input_prompt()
+        print(self.const.voyage_menu_shift_superviser())
+        user_selection = self.const.input_selection()
 
         if user_selection == self.const.ONE: # List all voyages
             self.get_list_all_voyages()
@@ -46,8 +44,20 @@ class Voyage_menu_ui:
             self.get_list_voyages_of_employee()
 
     
-    def get_register_new_voyage(self):
-        pass
+    def get_register_new_voyage(self, voyage):
+        departing_from = input("Departing from: ")
+        arriving_at = input("Arriving at: ")
+        aircraft_id = input("Aircraft ID: ")
+        date_out = input("Date out: ")
+        date_home = input("Date home: ")
+        captain = input("Captain (press enter to leave empty): ")
+        copilot = input("Copilot (press enter to leave empty): ")
+        flight_service_manager = input("Flight service manager (press enter to leave empty): ")
+        flight_attendant1 = input("Flight attendant (press enter to leave empty): ")
+        flight_attendant2 = input("Flight attendant (press enter to leave empty): ")
+
+        voyage = departing_from, arriving_at, aircraft_id, date_out, date_home, captain, copilot, flight_service_manager, flight_attendant1, flight_attendant2
+        return self.logic_wrapper.create_voyage(voyage)
 
     def get_list_all_voyages(self):
         pass
