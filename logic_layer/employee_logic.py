@@ -27,7 +27,7 @@ class Employee_Logic:
         
     def list_voyges_for_an_employee(self):
         pass
-
+    
     def get_one_employee(self, nid):
         '''searches for one employee'''
         every_employee = self.data_wrapper.get_all_employees()
@@ -80,8 +80,3 @@ class Employee_Logic:
                 workin_in_voyage.append(voyage)
 
         return workin_in_voyage
-
-
-
-
-        
