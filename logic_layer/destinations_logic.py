@@ -3,8 +3,8 @@
 from Model.desinations import Desinations
 
 class Destinations_Logic:
-    def __init__(self) -> None:
-        pass
+    def __init__(self, data_connection) -> None:
+        self.data_wrapper = data_connection
 
     def create_destination(self, destination):
         """Takes in destination object and forwards it to the data layer"""
@@ -19,6 +19,6 @@ class Destinations_Logic:
         """Gets all destinations"""
         self.data_wrapper.get_all_destinations()
 
-    def edit_destanations(self):
+    def edit_destanations(self, destination):
         '''Takes in name of an destination and forwards it to data layer'''
         self.data_wrapper.edit_destinations(destination)
