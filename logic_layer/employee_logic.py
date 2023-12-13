@@ -48,9 +48,8 @@ class Employee_Logic:
 
     def date_time_plus_week(self, date):
         '''adds 7 days to a date thefore a week'''
-        int_date = self.date_time(date)
 
-        week_from_date = int_date + timedelta(days=6)
+        week_from_date = date + timedelta(days=7)
 
         return week_from_date
 
@@ -60,8 +59,7 @@ class Employee_Logic:
 
         #get every employee and voyage
         voyages = self.data_wrapper.get_all_voyages()
-        every_employee = self.data_wrapper.get_all_employees()
-
+        
         date = self.date_time(date)
         week_from_date = self.date_time_plus_week(date)
 
