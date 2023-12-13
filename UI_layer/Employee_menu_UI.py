@@ -118,21 +118,39 @@ class Employee_menu_ui:
             input("Press any key to go back to Employees Menu.")
 
         elif user_selection == SELECTION_THREE: # List all employees not working on a given day
-            pass
+            
+            date = input("Enter date: YYYY-MM-DD")
+            check_day = self.logic_wrapper.check_day(date)
+            while check_day == False:
+                print("Enter a valid date:")
+                date = input("Enter date: YYYY-MM-DD")
+            print("List of all employees not working on a given day:")
+            not_working = PrettyTable(check_day[1])
+            print(not_working)
 
         elif user_selection == SELECTION_FOUR: # List all employees working on a given day
-            pass
+            
+            date = input("Enter date: YYYY-MM-DD")
+
+            check_day = self.logic_wrapper.check_day(date)
+            while check_day == False:
+                print("Enter a valid date:")
+                date = input("Enter date: YYYY-MM-DD")
+            print("List of employees working on a given day:")
+            date_employee = PrettyTable('Date', 'Name', 'NID')
+            for i in check_day:
+                date_employee.add_row([date, i.name, i.nid])
 
         elif user_selection == SELECTION_FIVE: # Printable work summary for an employee in a giving week
-            pass
+            
+            week = input("Enter NID:")
 
-        elif user_selection == SELECTION_SIX:
+        elif user_selection == SELECTION_SIX: #update employee
             pass
 
         elif user_selection == QUIT:
             print(EXIT_TEXT)
             quit()
-        
         
         else: # Go back
             pass
@@ -151,7 +169,19 @@ class Employee_menu_ui:
             pass
 
         elif user_selection == SELECTION_THREE: # Search for a pilot
-            pass
+            
+            NID = input("Enter NID to get Pilot: ")
+            while self.input_validate.validate_nid(NID) == False:
+                print('Invalid NID, please try again.')
+                NID = input('Enter NID to get Employee: ')
+
+            get_one_employee = self.logic_wrapper.get_one_employee(NID)
+            print("List of information of an Employee")
+            info_employee = PrettyTable(['NID','Name','Role','Rank', 'Licence', 'Address', 'Phone_nr', 'Email', 'Homephone_nr'])
+            for i in get_one_employee:
+                info_employee.add_row([i.nid, i.name, i.role, i.rank, i.licence, i.address, i.phone_nr, i.email, i.homephone_nr])
+            print(info_employee)
+            input("Press any key to go back to Employees Menu.")
 
         elif user_selection == SELECTION_FOUR: # List pilots
             pass

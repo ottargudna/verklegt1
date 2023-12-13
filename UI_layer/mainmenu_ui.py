@@ -110,7 +110,7 @@ class MainMenu_ui:
              #name = input("name")
             #ssn = input("ssn")
             #input("phone")
-            #input("enail")
+            #input("email")
             #logicwrapper.create_empl(Emplpoyee(name, ssn, ...))
 
         elif user_selection == SELECTION_FIVE: # Voyages
