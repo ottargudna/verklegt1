@@ -84,7 +84,7 @@ class MainMenu_ui:
         user_selection = self.input_prompt()
 
         if user_selection == SELECTION_ONE: # List all Destinations
-            pass
+            self.destinations_menu.list_all_destinations()
 
         elif user_selection == SELECTION_TWO: # Employees
             self.employee_menu.get_shift_superviser_employees_menu()
@@ -100,69 +100,16 @@ class MainMenu_ui:
         user_selection = self.input_prompt()
 
         if user_selection == SELECTION_ONE: # Airplanes
-            print(self.ascii_nanair)
-            print(self.airplane_menu.manager_menu)
-            print(self.options)
-            user_selection = self.input_prompt()
-
-            if user_selection == SELECTION_ONE: # Register airplane
-                pass
-
-            elif user_selection == SELECTION_TWO: # Edit airplane
-                pass
-
-            elif user_selection == QUIT:
-                print(EXIT_TEXT)
-                quit()
-            
-            else: # Go back
-                pass
+            self.airplane_menu.get_manager_airplane_menu()
 
         elif user_selection == SELECTION_TWO: # Destinations
-                print(self.ascii_nanair)
-                print(self.destinations_menu.manager_menu)
-                print(self.options)
-                user_selection = self.input_prompt()
-
-                if user_selection == SELECTION_ONE: # Register a new destination
-                    pass
-                
-                elif user_selection == SELECTION_TWO: # Edit destinations
-                    pass
-
-                elif user_selection == SELECTION_THREE: # List all destinations
-                    pass
-
-                elif user_selection == QUIT:
-                    print(EXIT_TEXT)
-                    quit()
-            
-                else: # Go back
-                    pass
+            self.destinations_menu.get_manager_destinations()
                 
         elif user_selection == SELECTION_THREE: # Employees
             self.employee_menu.get_manager_employees_menu()
 
         elif user_selection == SELECTION_FIVE: # Voyages
-            print(self.ascii_nanair)
-            print(self.voyage_menu.voyage_menu_manager)
-            print(self.options)
-            user_selection = self.input_prompt()
-
-            if user_selection == SELECTION_ONE: # Register a new voyage
-                pass
-
-            elif user_selection == SELECTION_TWO: # List all voyages
-                pass
-
-            elif user_selection == SELECTION_THREE: # List all voyages for a given day
-                pass
-
-            elif user_selection == SELECTION_FOUR: # List all voyages for a given week
-                pass
-
-            elif user_selection == SELECTION_FIVE: # List all voyages of a staff member for a given week
-                pass
+            pass
 
         elif user_selection == QUIT:
             print(EXIT_TEXT)
