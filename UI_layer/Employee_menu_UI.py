@@ -9,6 +9,7 @@ class Employee_menu_ui:
     def __init__(self) -> None:
         self.const = UI_layer.constants
         self.logic_wrapper = Logic_Wrapper()
+        self.input_validate = Validate()
     
 
     def get_employees(self):
@@ -44,10 +45,10 @@ class Employee_menu_ui:
     def get_list_employees(self): # We need to change this
         result = self.logic_wrapper.get_all_employees()
         print("List of all Employees:")
-        All_employees = PrettyTable(['Name', 'Social Id', 'Job Title', 'Rank'])
+        all_employees = PrettyTable(['Name', 'Social Id', 'Job Title', 'Rank'])
         for i in result:
-            All_employees.add_row([i.name, i.nid, i.role, i.rank])
-        print(All_employees)
+            all_employees.add_row([i.name, i.nid, i.role, i.rank])
+        print(all_employees)
         input("Press any key to go back to Employees Menu.")
     
 

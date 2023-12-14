@@ -27,7 +27,10 @@ class Airplane_menu_ui:
             pass
     
     def get_register_airplane(self):
-        airplane = input("Enter the name of the airplane: ")
+        insignia = input("Enter plane insignia: ")
+        plane_id = input("Enter the plane id: ")
+        seats = input("Enter the number of seats: ")
+        airplane = insignia, plane_id, seats
         register_airplane = self.logic_wrapper.create_airplane(airplane)
         return register_airplane
 
