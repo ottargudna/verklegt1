@@ -10,6 +10,7 @@ class Employee_menu_ui:
         self.const = UI_layer.constants
         self.logic_wrapper = Logic_Wrapper()
         self.input_validate = Validate()
+        self.model_employee = Employee()
     
 
     def get_employees(self):
@@ -41,7 +42,6 @@ class Employee_menu_ui:
         else: # Go back
             pass
 
-
     def get_list_employees(self): # We need to change this
         result = self.logic_wrapper.get_all_employees()
         print("List of all Employees:")
@@ -53,7 +53,18 @@ class Employee_menu_ui:
     
 
     def register_new_employee(self):
-        pass
+        ssn = input("SSN: ")
+        name = input("Name: ")
+        role = input("Role (pilot/crew): ")
+        rank = input("Rank: ")
+        license = input("Airplane licence (leave empty if not a pilot): ")
+        address = input("Address: ")
+        phone = input("Phone: ")
+        email = input("Email: ")
+        homenumber = input("Home phone number (can leave empty): ")
+
+        new_employee = self.logic_wrapper.create_employee(name, ssn, phone, email)
+        print(self.model_employee(new_employee))
 
     def edit_employee(self):
         pass
