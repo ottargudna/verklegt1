@@ -193,3 +193,21 @@ class Voyage_Logic:
 
         return working, not_working,voyages_in_date
     # if you want a list of who are working on the date you do [0], not working [1], voyages in that time period [2]
+
+
+    def generte_voyage_nr(self):
+        '''Create voyage number, counts all voyages and then gives it a number'''
+        voyages = self.data_wrapper.get_all_voyages()
+        count_voyages = len(voyages)
+
+        begin = "NA"
+        number = count_voyages + 1
+        if len(number) == 3:
+            return begin+number
+        elif len(number) == 2:
+            return f"{begin}0{number}"
+        elif len(number) == 1:
+            return f"{begin}00{number}"
+        else:
+            return False
+
