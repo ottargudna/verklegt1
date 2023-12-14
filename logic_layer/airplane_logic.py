@@ -9,15 +9,11 @@ class Airplane_Logic:
     def create_airplane(self, airplane):
         """Takes in airplane object and forwards it to the data layer"""
         check_existing_airplanes = self.airplane_already_exist(airplane)
+
         if check_existing_airplanes == False:
             self.datawrapper.create_airplane(airplane)
         else:
             return False
-        #if true enter another name and return a str try another name
-
-    def get_all_airplanes(self):
-        """Gets all airplanes"""
-        self.datawrapper.get_all_airplanes()
 
     def get_all_airplanes(self):
         """Gets all airplanes"""

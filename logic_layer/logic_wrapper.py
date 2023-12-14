@@ -13,7 +13,6 @@ class Logic_Wrapper:
         self.employee_logic = Employee_Logic(self.data_wrapper)
         self.airplane_logic = Airplane_Logic(self.data_wrapper)
         self.destination_logic = Destinations_Logic(self.data_wrapper)
-        #self.flight_logic = Flights_Logic(self.data_wrapper)
         self.voyage = Voyage_Logic(self.data_wrapper)
 
 
@@ -32,6 +31,15 @@ class Logic_Wrapper:
     def get_one_employee(self, nid):
         '''searches for one employee'''
         self.employee_logic.get_one_employee(nid)
+    
+    def get_week_work(self, nid, date):
+        '''Gets a list of voyages that the nid is working on'''
+        self.employee_logic.get_week_work(nid, date)
+    
+    def check_if_voyages_are_fully_shiped(self):
+        '''Cheks if user has a voyage where there is not an a employee in it'''
+        self.employee_logic.check_if_voyages_are_fully_shiped()
+      
 
 
     #Airplane
@@ -72,6 +80,10 @@ class Logic_Wrapper:
         '''checks if people are working, not working on perticuler 
         week and also gets every voyages on that week'''
         self.voyage_logic.check_week(date)
+
+    def generte_voyage_nr(self):
+        '''Create voyage number, counts all voyages and then gives it a number'''
+        self.voyage_logic.generte_voyage_nr()
 
 
 
