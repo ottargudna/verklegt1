@@ -29,13 +29,17 @@ class Airplane_menu_ui:
             pass
     
     def get_register_airplane(self):
-
         insignia = input("Enter plane insignia: ")
         plane_id = input("Enter the plane id: ")
         seats = input("Enter the number of seats: ")
         airplane = Airplane(insignia, plane_id, seats)
         register_airplane = self.logic_wrapper.create_airplane(airplane)
-        return register_airplane
+
+        if register_airplane == False:
+            print("Airplane allready exists")
+        
+        else:
+            return register_airplane
 
     def get_list_airplanes(self):
         airplanes = self.logic_wrapper.get_all_airplanes()
