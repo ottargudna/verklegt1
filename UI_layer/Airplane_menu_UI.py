@@ -44,4 +44,3 @@ class Airplane_menu_ui:
             print(airplane)
         input("Press ENTER to go back to the menu: ")
     
-    

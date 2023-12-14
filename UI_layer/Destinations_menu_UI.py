@@ -55,3 +55,4 @@ class Destiantions_menu_ui:
         all_destinations = self.logic_wrapper.get_all_destinations()
         for destination in all_destinations:
             print(destination)
+        input("Press ENTER to go back to the menu: ")
