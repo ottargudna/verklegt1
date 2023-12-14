@@ -15,16 +15,77 @@ class Voyage_Logic:
                 return False #already exists
         check_if_employee_exists = self.check_if_employee_exists(voyage)
         if check_if_employee_exists == False:
-            return False
+            return False #employee dose not exist
+        check_date_out = self.date_time(voyage.date_out)
+        if check_date_out == None:
+            return False #date is not correct
+        check_date_home = self.date_time(voyage.date_home)
+        if check_date_home == None:
+            return False #date is not correct
+        if check_date_out > check_date_home:
+            return False #home date is bigger then out date
+        check_correct_role = self.in_correct_role(voyage)
+        if check_correct_role == False:
+            return False #check if everyone is in correct role
         check_if_employee_working = self.check_working(voyage)
         if check_if_employee_working == True:
-            return False
+            return False #employee is already working
         else:
             self.data_wrapper.create_voyage(voyage)
 
+
+    def in_correct_role(self, voyage):
+        all_captains = self.get_all_captains()
+        if voyage.captain not in all_captains:
+            return False
+        all_copilots = self.get_all_copilots()
+        if voyage.copilot not in all_copilots:
+            return False
+        all_fsm = self.get_all_fsm()
+        if voyage.flight_service_manager not in all_fsm:
+            return False
+        all_fa = self.get_all_fa()
+        if voyage.flight_attendant1 not in all_fa or voyage.flight_attendant2 not in all_fa:
+            return False
+
+    def get_all_captains(self):
+        every_employee = self.data_wrapper.get_all_employees()
+        captains = []
+        for employee in every_employee:
+            if employee.rank == "Captain":
+                captains.append(employee.nid)
+        return captains
+    
+    def get_all_copilots(self):
+        every_employee = self.data_wrapper.get_all_employees()
+        copilots = []
+        for employee in every_employee:
+            if employee.rank == "Copilot":
+                copilots.append(employee.nid)
+        return copilots
+    
+    def get_all_fsm(self):
+        every_employee = self.data_wrapper.get_all_employees()
+        fsm = []
+        for employee in every_employee:
+            if employee.rank == "Flight Service Manager":
+                fsm.append(employee.nid)
+        return fsm
+    
+    def get_all_fa(self):
+        every_employee = self.data_wrapper.get_all_employees()
+        fa = []
+        for employee in every_employee:
+            if employee.rank == "Flight Attendant":
+                fa.append(employee.nid)
+        return fa
+    
+
     def check_if_employee_exists(self, voyage):
         every_employee = self.data_wrapper.get_all_employees()
-        nids = every_employee[0]
+        nids = []
+        for em in every_employee:
+            nids.append(em.nid)
 
         if voyage.captain in nids or voyage.captain == "N/A":
             if voyage.copilot in nids or voyage.copilot == "N/A":
@@ -46,8 +107,8 @@ class Voyage_Logic:
     def check_working(self, voyage):
         #check if employee alredy working that day
 
-        date_out = self.date_time(voyage[4])
-        date_home = self.date_time(voyage[5])
+        date_out = voyage.date_out
+        date_home = voyage.date_home
         
         working_out_date = self.check_day(date_out)
         working_out_date = working_out_date[0]
@@ -56,20 +117,17 @@ class Voyage_Logic:
 
         already_working = working_out_date + working_home_date
 
-        if voyage[6] in already_working:
+        if voyage.captain in already_working:
             #Captain is already working that day
             return True
-        elif voyage[7] in already_working:
+        elif voyage.copilot in already_working:
             #copilot is already working that day
             return True
-        elif voyage[8] in already_working:
+        elif voyage.flight_service_manager in already_working:
             #Flight service manager is already working that day
             return True
-        elif voyage[9] in already_working:
-            #Flight attented is already working that day
-            return True
-        elif voyage[10] in already_working:
-            #Captain is alredy working that day
+        elif voyage.flight_attendant1 in already_working or voyage.flight_attendant2 in already_working and voyage.flight_attendant2 == voyage.flight_attendant1:
+            #Flight attented is already working that day or it is the same flight attendent
             return True
         else: 
             return False
@@ -90,15 +148,19 @@ class Voyage_Logic:
             result_date = datetime(year, month, day)
             return result_date
         except ValueError:
-            return False
+            return None
 
     def date_time_plus_week(self, date):
         '''adds 7 days to a date thefore a week'''
-        int_date = self.date_time(date)
-
-        week_from_date = int_date + timedelta(days=7)
-
-        return week_from_date
+        try:
+            date = self.date_time(date)
+            if date == None:
+                return None
+            else:
+                week_from_date = date + timedelta(days=7)
+            return week_from_date
+        except ValueError or TypeError:
+            return None
 
     def check_day(self, date="yyyy.mm.dd"):
         '''checks if people are working, not working on perticuler 
@@ -117,7 +179,7 @@ class Voyage_Logic:
         for voyage in voyages:
             date_out = self.date_time(voyage.date_out)
             date_home = self.date_time(voyage.date_home)
-            if date_out == search_date or date == search_date:
+            if date_out == search_date or date_home == search_date:
                 voyages_in_date.append(voyage)
 
 
@@ -202,11 +264,11 @@ class Voyage_Logic:
 
         begin = "NA"
         number = count_voyages + 1
-        if len(number) == 3:
+        if len(str(number)) == 3:
             return begin+number
-        elif len(number) == 2:
+        elif len(str(number)) == 2:
             return f"{begin}0{number}"
-        elif len(number) == 1:
+        elif len(str(number)) == 1:
             return f"{begin}00{number}"
         else:
             return False
