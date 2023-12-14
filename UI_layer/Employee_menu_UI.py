@@ -13,34 +13,33 @@ class Employee_menu_ui:
     
 
     def get_employees(self):
-        print(self.const.employees_menu())
-        user_selection = self.const.input_selection()
+        user_selection = ""
+        while user_selection != self.const.BACK:
+            print(self.const.employees_menu())
+            user_selection = self.const.input_selection()
 
-        if user_selection == self.const.ONE: # List all employees
-            self.get_list_employees()
-            
-        elif user_selection == self.const.TWO: # List information of an employee
-            self.search_employee()
+            if user_selection == self.const.ONE: # List all employees
+                self.get_list_employees()
+                
+            elif user_selection == self.const.TWO: # List information of an employee
+                self.search_employee()
 
-        elif user_selection == self.const.THREE: # List all employees not working on a given day
-            self.not_working_given_day()
+            elif user_selection == self.const.THREE: # List all employees not working on a given day
+                self.not_working_given_day()
 
-        elif user_selection == self.const.FOUR: # List all employees working on a given day
-            self.get_working_given_day()
+            elif user_selection == self.const.FOUR: # List all employees working on a given day
+                self.get_working_given_day()
 
-        elif user_selection == self.const.FIVE: # Printable work summary for an employee in a giving week
-            self.employees_working_week()
+            elif user_selection == self.const.FIVE: # Printable work summary for an employee in a giving week
+                self.employees_working_week()
 
-        elif user_selection == self.const.SIX: #update employee
-            self.edit_employee()
+            elif user_selection == self.const.SIX: #update employee
+                self.edit_employee()
 
-        elif user_selection == self.const.QUIT:
-            print(self.const.EXIT_TEXT)
-            quit()
+            elif user_selection == self.const.QUIT:
+                print(self.const.EXIT_TEXT)
+                quit()
         
-        else: # Go back
-            pass
-
     def get_list_employees(self): # We need to change this
         result = self.logic_wrapper.get_all_employees()
         print("List of all Employees:")

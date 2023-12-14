@@ -11,7 +11,7 @@ class Airplane_menu_ui:
         self.const = UI_layer.constants
 
     def get_manager_airplane_menu(self):
-        """ """
+        """Prints out the choices for working with airplanes and calls functions accordingly"""
         user_selection = ""
         while user_selection != self.const.BACK:
             print(self.const.airplane_menu())
@@ -42,6 +42,6 @@ class Airplane_menu_ui:
         airplanes = self.logic_wrapper.get_all_airplanes()
         for airplane in airplanes:
             print(airplane)
-        input("Press ENTER to go back to the menu")
+        input("Press ENTER to go back to the menu: ")
     
     
