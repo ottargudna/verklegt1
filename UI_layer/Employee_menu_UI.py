@@ -1,4 +1,4 @@
-from Model.employee import Employee
+#from Model.employee import Employee
 from UI_layer.input_validate import Validate
 import UI_layer.constants
 from logic_layer.logic_wrapper import Logic_Wrapper
@@ -10,7 +10,10 @@ class Employee_menu_ui:
         self.const = UI_layer.constants
         self.logic_wrapper = Logic_Wrapper()
         self.input_validate = Validate()
-        self.model_employee = Employee()
+<<<<<<< Updated upstream
+        #self.model_employee = Employee()
+=======
+>>>>>>> Stashed changes
     
 
     def get_employees(self):
@@ -63,8 +66,8 @@ class Employee_menu_ui:
         email = input("Email: ")
         homenumber = input("Home phone number (can leave empty): ")
 
-        new_employee = self.logic_wrapper.create_employee(name, ssn, phone, email)
-        print(self.model_employee(new_employee))
+        new_employee = self.logic_wrapper.create_employee(ssn, name, role, rank, license, address, phone, email, homenumber)
+        print(Employee(new_employee))
 
     def edit_employee(self):
         pass

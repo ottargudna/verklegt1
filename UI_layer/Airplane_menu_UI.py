@@ -3,6 +3,7 @@ from logic_layer.logic_wrapper import Logic_Wrapper
 import UI_layer.constants
 
 
+
 class Airplane_menu_ui:
 
     def __init__(self):
@@ -10,6 +11,7 @@ class Airplane_menu_ui:
         self.const = UI_layer.constants
 
     def get_manager_airplane_menu(self):
+        """ """
         print(self.const.airplane_menu())
         user_selection = self.const.input_selection()
 
@@ -27,10 +29,11 @@ class Airplane_menu_ui:
             pass
     
     def get_register_airplane(self):
+
         insignia = input("Enter plane insignia: ")
         plane_id = input("Enter the plane id: ")
         seats = input("Enter the number of seats: ")
-        airplane = insignia, plane_id, seats
+        airplane = Airplane(insignia, plane_id, seats)
         register_airplane = self.logic_wrapper.create_airplane(airplane)
         return register_airplane
 

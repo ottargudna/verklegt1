@@ -1,4 +1,3 @@
-from Model.airplane import Airplane
 from data_layer.data_wrapper import Data_Wrapper
 
 class Airplane_Logic:
