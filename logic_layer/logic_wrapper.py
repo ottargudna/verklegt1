@@ -81,6 +81,10 @@ class Logic_Wrapper:
         week and also gets every voyages on that week'''
         self.voyage_logic.check_week(date)
 
+    def generte_voyage_nr(self):
+        '''Create voyage number, counts all voyages and then gives it a number'''
+        self.voyage_logic.generte_voyage_nr()
+
 
 
 
