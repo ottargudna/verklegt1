@@ -32,6 +32,15 @@ class Logic_Wrapper:
     def get_one_employee(self, nid):
         '''searches for one employee'''
         self.employee_logic.get_one_employee(nid)
+    
+    def get_week_work(self, nid, date):
+        '''Gets a list of voyages that the nid is working on'''
+        self.employee_logic.get_week_work(nid, date)
+    
+    def check_if_voyages_are_fully_shiped(self):
+        '''Cheks if user has a voyage where there is not an a employee in it'''
+        self.employee_logic.check_if_voyages_are_fully_shiped()
+      
 
 
     #Airplane
