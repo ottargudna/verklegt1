@@ -22,6 +22,6 @@ class Airplane_Logic:
         every_airplane = self.data_wrapper.get_all_airplanes(self)
 
         for plane in every_airplane:
-            if airplane[0] == plane.plane_insignia:
+            if airplane[0] == plane.aircraft_id:
                 return True # already exists
         

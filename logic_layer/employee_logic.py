@@ -90,7 +90,7 @@ class Employee_Logic:
         return workin_in_voyage
     
 
-    def check_if_voyages_are_fully_shiped(self):
+    def check_if_voyages_are_fully_staffed(self):
         '''Cheks if user has a voyage where there is not an a employee in it'''
         voyages = self.data_wrapper.get_all_voyages()
 

@@ -36,9 +36,9 @@ class Logic_Wrapper:
         '''Gets a list of voyages that the nid is working on'''
         self.employee_logic.get_week_work(nid, date)
     
-    def check_if_voyages_are_fully_shiped(self):
+    def check_if_voyages_are_fully_staffed(self):
         '''Cheks if user has a voyage where there is not an a employee in it'''
-        self.employee_logic.check_if_voyages_are_fully_shiped()
+        self.employee_logic.check_if_voyages_are_fully_staffed()
       
 
 
