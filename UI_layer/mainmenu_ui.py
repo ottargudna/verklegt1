@@ -41,11 +41,6 @@ class MainMenu_ui:
                 
         elif user_selection == self.const.THREE: # Employees
             self.employee_menu.get_employees()
-             #name = input("name")
-            #ssn = input("ssn")
-            #input("phone")
-            #input("email")
-            #logicwrapper.create_empl(Emplpoyee(name, ssn, ...))
 
         elif user_selection == self.const.FOUR: # Voyages
             self.voyage_menu.get_manager_voyage()
