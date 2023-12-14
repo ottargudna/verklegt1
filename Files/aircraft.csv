@@ -1,4 +1,4 @@
-plane_insignia,plane_type_id,capacity
+aircraft_id,plane_type_id,capacity
 TF-EPG,NAFokkerF100,100
 TF-UVR,NAFokkerF28,65
 TF-XZR,NABAE146,82

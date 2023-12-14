@@ -13,9 +13,24 @@ class Voyage_Logic:
         for v in every_voyage:
             if voyage == v:
                 return False #already exists
+        check_everything = self.check_everything
+        if check_everything == False:
+            return False #please enter correct data
+        else:
+            self.data_wrapper.create_voyage(voyage)
+
+
+    def check_everything(self, voyage):
         check_if_employee_exists = self.check_if_employee_exists(voyage)
         if check_if_employee_exists == False:
             return False #employee dose not exist
+        check_aircraft = self.check_aircraft_id
+        if check_aircraft == False:
+            return False # aircaft dose not exist
+        check_arr_destination = self.check_arr_destination(voyage)
+        check_dep_destination = self.check_dep_destination(voyage)
+        if check_dep_destination == False or check_arr_destination == False:
+            return False # destination dose not exist
         check_date_out = self.date_time(voyage.date_out)
         if check_date_out == None:
             return False #date is not correct
@@ -30,8 +45,33 @@ class Voyage_Logic:
         check_if_employee_working = self.check_working(voyage)
         if check_if_employee_working == True:
             return False #employee is already working
-        else:
-            self.data_wrapper.create_voyage(voyage)
+        
+        
+
+
+    def check_dep_destination(self, voyage):
+        every_destination = self.data_wrapper.get_all_destinations()
+        every_airport = []
+        for dest in every_destination:
+            every_airport.append(dest.airport_initials)
+        if voyage.dep_from not in every_airport:
+            return False
+
+    def check_arr_destination(self, voyage):
+        every_destination = self.data_wrapper.get_all_destinations()
+        every_airport = []
+        for dest in every_destination:
+            every_airport.append(dest.airport_initials)
+        if voyage.arr_at not in every_airport:
+            return False
+
+    def check_aircraft_id(self,voyage):
+        every_airplane = self.data_wrapper.get_all_airplanes()
+        every_airplane_id = []
+        for plane in every_airplane:
+            every_airplane_id.append(plane.aircraft_id)
+        if voyage.aircraft_id not in every_airplane_id:
+            return False
 
 
     def in_correct_role(self, voyage):
@@ -187,20 +227,35 @@ class Voyage_Logic:
         working_nid = []    #nid for employees working that day
         not_working = []    #employee that are not working (every information)
         working = []        #employee that are working (every information)
+        dest = []
 
         for voyage in voyages_in_date:
             #only gets nid's
             working_nid.append(voyage.captain)
+            dest.append(voyage.arr_at)
             working_nid.append(voyage.copilot)
+            dest.append(voyage.arr_at)
             working_nid.append(voyage.flight_service_manager)
+            dest.append(voyage.arr_at)
             working_nid.append(voyage.flight_attendant1)
+            dest.append(voyage.arr_at)
             working_nid.append(voyage.flight_attendant2)
+            dest.append(voyage.arr_at)
 
+        '''
+            employee.add_destination(dest[counter])
+            working.append(employee)
+            counter += 1
+'''
         #gets every working employee informations
+        counter = 0
         for employee in every_employee:
             for nid in working_nid:
                 if nid == employee.nid:
-                    working.append(employee)
+                    employee_destination = (employee, dest[counter])
+                    working.append(employee_destination)
+                    counter += 1
+
 
         #not working function
         for employee in every_employee:
