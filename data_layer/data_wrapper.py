@@ -30,10 +30,13 @@ class Data_Wrapper:
     def create_destination(self, destination):
         return self.destination_data.create_destination(destination)
 
+    def update_destination(self, destination):
+         return self.destination_data.update_destination(destination)
+
     def get_all_voyages(self):
         return self.voyage_data.get_all_voyages()
     
-    def create_voyages(self, voyage):
+    def create_voyage(self, voyage):
         return self.voyage_data.create_voyage(voyage)
     
     def get_all_airplanes(self):
