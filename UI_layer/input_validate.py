@@ -27,7 +27,7 @@ class Validate:
             return False
 
     def validate_nid(self, nid):
-        if len(nid) == 10 and nid.isditgit():
+        if len(nid) == 10 and nid.isdigit():
             return True
         else: 
             return False

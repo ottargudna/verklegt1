@@ -10,6 +10,7 @@ class Destiantions_menu_ui:
     
     def get_manager_destinations(self):
         """Prints out menues of options for the user and calls functions that go with them"""
+
         user_selection = ""
         while user_selection != self.const.BACK:
             print(self.const.destinations_menu())
@@ -30,6 +31,8 @@ class Destiantions_menu_ui:
 
     
     def register_new_destination(self):
+        """Gets input from user and gets a function from the logic layer"""
+
         register_destination = False
         while register_destination == False:
             dest_name = input("Enter the country: ")
@@ -52,6 +55,8 @@ class Destiantions_menu_ui:
         return updated_destination
 
     def list_all_destinations(self):
+        """Gets a list from the logic layer and prints it out"""
+
         all_destinations = self.logic_wrapper.get_all_destinations()
         for destination in all_destinations:
             print(destination)

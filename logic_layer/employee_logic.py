@@ -15,15 +15,19 @@ class Employee_Logic:
         for e in every_employee:
             if employee.nid == e.nid:
                 return False #already exists
-        self.data_wrapper.create_employee(employee)
+        self.datawrapper.create_employee(employee)
 
     def get_all_employees(self):
         """Gets all employees"""
-        self.datawrapper.get_all_employees()
+        employees_list = []
+        employees = self.datawrapper.get_all_employees()
+        for employee in employees:
+            employees_list.append([employee.nid, employee.name, employee.rank])
+        return employees_list
 
     def edit_employee(self, employee):
         '''Takes in name of an employee and forwards it to data layer'''
-        self.data_wrapper.update_employee(employee)
+        self.datawrapper.update_employee(employee)
         
         
     def list_voyges_for_an_employee(self):
@@ -32,7 +36,7 @@ class Employee_Logic:
     def get_one_employee(self, nid):
         '''searches for one employee'''
         employee_list = []
-        every_employee = self.data_wrapper.get_all_employees()
+        every_employee = self.datawrapper.get_all_employees()
         for employee in every_employee:
             if employee.nid == nid:
                 employee_list.append(employee)
@@ -65,7 +69,7 @@ class Employee_Logic:
         '''Gets a list of voyages that the nid is working on'''
 
         #get every employee and voyage
-        voyages = self.data_wrapper.get_all_voyages()
+        voyages = self.datawrapper.get_all_voyages()
         
         date = self.date_time(date)
         week_from_date = self.date_time_plus_week(date)
@@ -92,7 +96,7 @@ class Employee_Logic:
 
     def check_if_voyages_are_fully_staffed(self):
         '''Cheks if user has a voyage where there is not an a employee in it'''
-        voyages = self.data_wrapper.get_all_voyages()
+        voyages = self.datawrapper.get_all_voyages()
 
         not_fully_shiped = []
 
