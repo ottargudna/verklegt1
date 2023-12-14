@@ -1,4 +1,4 @@
-from Model.employee import Employee
+#from Model.employee import Employee
 from UI_layer.input_validate import Validate
 import UI_layer.constants
 from logic_layer.logic_wrapper import Logic_Wrapper
@@ -10,7 +10,7 @@ class Employee_menu_ui:
         self.const = UI_layer.constants
         self.logic_wrapper = Logic_Wrapper()
         self.input_validate = Validate()
-        self.model_employee = Employee()
+        #self.model_employee = Employee()
     
 
     def get_employees(self):
