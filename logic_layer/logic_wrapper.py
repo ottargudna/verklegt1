@@ -44,10 +44,10 @@ class Logic_Wrapper:
 
     #Airplane
     def create_airplane(self, airplane):
-        self.airplane_logic.create_airplane(airplane)
+        return self.airplane_logic.create_airplane(airplane)
 
     def get_all_airplanes(self):
-        self.airplane_logic.get_all_airplanes()
+        return self.airplane_logic.get_all_airplanes()
 
     #Destinations
 
@@ -57,7 +57,7 @@ class Logic_Wrapper:
 
     def get_all_destinations(self):
         """Gets all destinations"""
-        self.destination_logic.get_all_destinations()
+        return self.destination_logic.get_all_destinations()
 
     def edit_destanations(self, destination):
         '''Takes in name of an destination and forwards it to data layer'''

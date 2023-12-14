@@ -12,7 +12,7 @@ class Airplane_Data:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 list.append(Airplane(row["plane_insignia"], row ["plane_type_id"], row ["capacity"]))
-        return list 
+        return list
     
     def create_airplane(self, airplane):
         with open(self.file_name, "a", newline= '', encoding = "utf-8") as csvfile:

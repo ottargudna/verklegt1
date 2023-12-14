@@ -17,7 +17,7 @@ class Airplane_Logic:
 
     def get_all_airplanes(self):
         """Gets all airplanes"""
-        self.datawrapper.get_all_airplanes()
+        return self.datawrapper.get_all_airplanes()
 
     def airplane_already_exist(self, airplane):
         every_airplane = self.datawrapper.get_all_airplanes()
@@ -25,4 +25,5 @@ class Airplane_Logic:
         for plane in every_airplane:
             if airplane.plane_insignia == plane.plane_insignia:
                 return True # already exists
+        return False
         

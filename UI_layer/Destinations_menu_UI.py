@@ -10,24 +10,25 @@ class Destiantions_menu_ui:
         #self.model_destinations = Desinations()
     
     def get_manager_destinations(self):
-        print(self.const.destinations_menu())
-        user_selection = self.const.input_selection()
+        """Prints out menues of options for the user and calls functions that go with them"""
+        user_selection = ""
+        while user_selection != self.const.BACK:
+            print(self.const.destinations_menu())
+            user_selection = self.const.input_selection()
 
-        if user_selection == self.const.ONE: # Register a new destination
-            self.register_new_destination()
-        
-        elif user_selection == self.const.TWO: # Edit destinations
-            self.edit_destanation()
+            if user_selection == self.const.ONE: # Register a new destination
+                self.register_new_destination()
+            
+            elif user_selection == self.const.TWO: # Edit destinations
+                self.edit_destanation()
 
-        elif user_selection == self.const.THREE: # List all destinations
-            self.list_all_destinations()
+            elif user_selection == self.const.THREE: # List all destinations
+                self.list_all_destinations()
 
-        elif user_selection == self.const.QUIT:
-            print(self.const.EXIT_TEXT)
-            quit()
-    
-        else: # Go back
-            pass
+            elif user_selection == self.const.QUIT:
+                print(self.const.EXIT_TEXT)
+                quit()
+
     
     def register_new_destination(self):
         dest_name = input("Enter the country: ")
