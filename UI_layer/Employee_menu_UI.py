@@ -2,6 +2,7 @@ from Model.employee import Employee
 from UI_layer.input_validate import Validate
 import UI_layer.constants
 from logic_layer.logic_wrapper import Logic_Wrapper
+from prettytable import PrettyTable
 
 class Employee_menu_ui:
 
@@ -31,7 +32,7 @@ class Employee_menu_ui:
     
 
     def get_employees(self):
-        print(self.const.employees_menu)
+        print(self.const.employees_menu())
         user_selection = self.const.input_selection()
 
         if user_selection == self.const.ONE: # List all employees
@@ -65,16 +66,16 @@ class Employee_menu_ui:
         user_selection = self.const.input_selection()
 
         if user_selection == self.const.ONE: # Register a new pilot
-            pass
+            self.register_new_employee()
 
         elif user_selection == self.const.TWO: # Edit information of a pilot
-            pass
+            self.edit_employee()
 
         elif user_selection == self.const.THREE: # Search for a pilot
             self.get_search_pilot()
 
         elif user_selection == self.const.FOUR: # List pilots
-            pass
+            self.get_list_of_pilots()
 
         elif user_selection == self.const.QUIT:
             print(self.const.EXIT_TEXT)
@@ -89,13 +90,13 @@ class Employee_menu_ui:
         user_selection = self.const.input_selection()
 
         if user_selection == self.const.ONE: # Register a new crew member
-            pass
+            self.register_new_employee()
 
         elif user_selection == self.const.TWO: # Edit information of a crew member
-            pass
+            self.edit_employee()
 
         elif user_selection == self.const.THREE: # Search for a crew member
-            pass
+            self.search_employee()
 
         elif user_selection == self.const.FOUR: # List crew members
             pass
@@ -173,6 +174,14 @@ class Employee_menu_ui:
             All_employees.add_row([i.name, i.nid, i.role, i.rank])
         print(All_employees)
         input("Press any key to go back to Employees Menu.")
+    
+
+    def get_list_of_pilots(self):
+        pass
+
+
+    def get_list_of_crew(self):
+        pass
     
 
     def register_new_employee(self):

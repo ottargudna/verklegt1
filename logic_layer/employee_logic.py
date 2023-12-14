@@ -6,11 +6,12 @@ from datetime import datetime, timedelta
 
 class Employee_Logic:
     def __init__(self, data_connection ) -> None:
+        self.datawrapper = Data_Wrapper()
         self.data_wrapper = data_connection
 
     def create_employee(self, employee):
         """Takes in Employee object and forwards it to the data layer"""
-        every_employee = self.data_wrapper.get_all_employees()
+        every_employee = self.data_wrapper.datawrapper.get_all_employees()
         for e in every_employee:
             if employee.nid == e.nid:
                 return False #already exists
@@ -18,7 +19,7 @@ class Employee_Logic:
 
     def get_all_employees(self):
         """Gets all employees"""
-        self.data_wrapper.get_all_employees()
+        self.datawrapper.get_all_employees()
 
     def edit_employee(self, employee):
         '''Takes in name of an employee and forwards it to data layer'''
