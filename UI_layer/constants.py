@@ -59,7 +59,7 @@ EMPLOYEE_MENU = f"""
         """
 AIRPLANE_MENU = f"""
                                 [{ONE}] Register airplane
-                                [{TWO}] Edit airplane
+                                [{TWO}] List all airplanes
 {BORDER}
         """
 DESTINATIONS_MENU = f"""

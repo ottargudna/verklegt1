@@ -39,5 +39,6 @@ class Airplane_menu_ui:
 
     def get_list_airplanes(self):
         airplanes = self.logic_wrapper.get_all_airplanes()
-        for i in airplanes:
-            print(i)
+        print(Airplane(airplanes))
+    
+    
