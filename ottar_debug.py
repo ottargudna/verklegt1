@@ -9,7 +9,7 @@ from Model.employee import Employee
 data_class = Data_Wrapper()
 e = Employee
 
-
+'''
 e.voyage_number = input("voyage_number ")
 e.dep_from = input("dep_from ")
 e.arr_at = input("arr_at ")
@@ -21,10 +21,12 @@ e.copilot = input("copilot ")
 e.flight_service_manager = input("flight_service_manager ")
 e.flight_attendant1 = input("flight_attendant1  ")
 e.flight_attendant2 = input("flight_attendant2  ")
+'''
 
+date = input("date ")
 
 logic_class = Voyage_Logic(data_class)
-result = logic_class.create_voyage(e)
+result = logic_class.check_day(date)
 
-print(result)
+print(result[0])
 
