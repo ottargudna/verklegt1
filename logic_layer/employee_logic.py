@@ -93,19 +93,25 @@ class Employee_Logic:
         '''Cheks if user has a voyage where there is not an a employee in it'''
         voyages = self.data_wrapper.get_all_voyages()
 
-        not_fully_shiped = set()
+        not_fully_shiped = []
+
 
         for voyage in voyages:
             if voyage.captain == "N/A":
-                not_fully_shiped.append(voyage)
+                if voyage not in not_fully_shiped:
+                    not_fully_shiped.append(voyage)
             elif voyage.copilot == "N/A":
-                not_fully_shiped.append(voyage)
+                if voyage not in not_fully_shiped:
+                    not_fully_shiped.append(voyage)
             elif voyage.flight_service_manager == "N/A":
-                not_fully_shiped.append(voyage)
+                if voyage not in not_fully_shiped:
+                    not_fully_shiped.append(voyage)
             elif voyage.flight_attendant1 == "N/A":
-                not_fully_shiped.append(voyage)
+                if voyage not in not_fully_shiped:
+                    not_fully_shiped.append(voyage)
             elif voyage.flight_attendant2 == "N/A":
-                not_fully_shiped.append(voyage)
+                if voyage not in not_fully_shiped:
+                    not_fully_shiped.append(voyage)
         
         if not_fully_shiped == None:
             return False

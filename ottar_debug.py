@@ -7,7 +7,7 @@ from Model.employee import Employee
 #nid,name,role,rank,licence,address,phone_nr,email,homephone_nr
 data_class = Data_Wrapper()
 e = Employee
-e.nid = input("enter NID: ")
+'''e.nid = input("enter NID: ")
 
 e.role = input("role ")
 e.rank = input("rank ")
@@ -15,10 +15,10 @@ e.licence = input("licence ")
 e.address = input("addres ")
 e.phone_nr = input("phone number ")
 e.email = input("email ")
-e.homephone_nr = input("homephone nr ")
+e.homephone_nr = input("homephone nr ")'''
 
 logic_class = Employee_Logic(data_class)
-result = logic_class.edit_employee(e)
+result = logic_class.check_if_voyages_are_fully_shiped()
 
 print(result)
 
