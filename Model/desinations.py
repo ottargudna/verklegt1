@@ -1,9 +1,9 @@
 
 #destination,airport_intials,flight_time,distance_from_iceland
 class Desinations:
-    def __init__(self, destination, airport_intials, flight_time, distance_from_iceland, contact_name, emergency_phone_nr):
+    def __init__(self, destination, airport_initials, flight_time, distance_from_iceland, contact_name, emergency_phone_nr):
         self.destination = destination
-        self.airport_initials = airport_intials
+        self.airport_initials = airport_initials
         self.flight_time = flight_time
         self.distance_from_iceland = distance_from_iceland
         self.contact_name = contact_name
