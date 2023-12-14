@@ -23,7 +23,8 @@ class Data_Wrapper:
 
     def update_employee(self,employee):
         return self.employee_data.update_employee(employee)
-    
+
+
     def get_all_destinations(self):
         return self.destination_data.get_all_destinations()
 
