@@ -10,7 +10,7 @@ class Destiantions_menu_ui:
     
     def get_manager_destinations(self):
         """Prints out menues of options for the user and calls functions that go with them"""
-        
+
         user_selection = ""
         while user_selection != self.const.BACK:
             print(self.const.destinations_menu())

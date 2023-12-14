@@ -3,6 +3,7 @@ from UI_layer.input_validate import Validate
 import UI_layer.constants
 from logic_layer.logic_wrapper import Logic_Wrapper
 from prettytable import PrettyTable
+import os
 
 class Employee_menu_ui:
 
@@ -41,13 +42,20 @@ class Employee_menu_ui:
                 quit()
         
     def get_list_employees(self): # We need to change this
-        result = self.logic_wrapper.get_all_employees()
-        print("List of all Employees:")
-        all_employees = PrettyTable(['Name', 'Social Id', 'Job Title', 'Rank'])
-        for i in result:
-            all_employees.add_row([i.name, i.nid, i.role, i.rank])
-        print(all_employees)
-        input("Press any key to go back to Employees Menu.")
+        employees = self.logic_wrapper.get_all_employees()
+        for employee in employees:
+            employee_str = f"{employee[0].ljust(10)}{" ".rjust(30)}{employee[1].ljust(60)}{employee[2].ljust(30)}"
+            print(employee_str)
+        input("Press ENTER to go back to the menu: ")
+
+
+#        result = self.logic_wrapper.get_all_employees()
+#        print("List of all Employees:")
+#        all_employees = PrettyTable(['Name', 'Social Id', 'Job Title', 'Rank'])
+#        for i in result:
+#            all_employees.add_row([i.name, i.nid, i.role, i.rank])
+#        print(all_employees)
+#        input("Press any key to go back to Employees Menu.")
     
 
     def register_new_employee(self):

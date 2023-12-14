@@ -23,7 +23,7 @@ class Logic_Wrapper:
         self.employee_logic.create_employee(employee)
 
     def get_all_employees(self):
-        self.employee_logic.get_all_employees()
+        return self.employee_logic.get_all_employees()
 
     def edit_employee(self, employee):
         self.employee_logic.edit_employee(employee)
