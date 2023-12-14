@@ -43,9 +43,13 @@ class Destiantions_menu_ui:
             register_destination = self.logic_wrapper.create_destination(destination)
         return register_destination
 
-    def edit_destanation(self, destination):
-        destination = input("What destination would you like to edit?: ")
-        return self.logic_wrapper.edit_destanations(destination)
+    def edit_destanation(self):
+        destination = input("What destination would you like to edit?: ").lower()
+        update_dest = self.logic_wrapper.edit_destanations(destination)
+        contact = input("Enter the contact name: ")
+        emergency_num = input("Enter the contact emergency number: ")
+        updated_destination = Desinations(contact, emergency_num)
+        return updated_destination
 
     def list_all_destinations(self):
         all_destinations = self.logic_wrapper.get_all_destinations()

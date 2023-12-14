@@ -9,7 +9,7 @@ from logic_layer.voyage_logic import Voyage_Logic
 
 class Logic_Wrapper:
     def __init__(self) -> None:
-        self.data_wrapper = Data_Wrapper
+        self.data_wrapper = Data_Wrapper()
         self.employee_logic = Employee_Logic(self.data_wrapper)
         self.airplane_logic = Airplane_Logic(self.data_wrapper)
         self.destination_logic = Destinations_Logic(self.data_wrapper)
@@ -61,7 +61,7 @@ class Logic_Wrapper:
 
     def edit_destanations(self, destination):
         '''Takes in name of an destination and forwards it to data layer'''
-        self.destination_logic.edit_destinations(destination)
+        self.destination_logic.update_destination(destination)
         
     #Voyage
     def get_all_voyages(self):
@@ -83,7 +83,7 @@ class Logic_Wrapper:
 
     def generte_voyage_nr(self):
         '''Create voyage number, counts all voyages and then gives it a number'''
-        self.voyage_logic.generte_voyage_nr()
+        self.voyage.generte_voyage_nr()
 
 
 

@@ -22,5 +22,5 @@ class Destinations_Logic:
         self.datawrapper.get_all_destinations()
 
     def update_destination(self, destination):
-        '''Takes in name of an destination and forwards it to data layer'''
-        self.data_wrapper.update_destination(destination)
+        '''Takes in a name of a destination and forwards it to data layer'''
+        self.datawrapper.update_destination(destination)
