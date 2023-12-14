@@ -17,8 +17,8 @@ e.phone_nr = input("phone number ")
 e.email = input("email ")
 e.homephone_nr = input("homephone nr ")'''
 
-logic_class = Employee_Logic(data_class)
-result = logic_class.check_if_voyages_are_fully_shiped()
+logic_class = Voyage_Logic(data_class)
+result = logic_class.generte_voyage_nr()
 
 print(result)
 

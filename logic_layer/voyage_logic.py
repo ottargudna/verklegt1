@@ -202,11 +202,11 @@ class Voyage_Logic:
 
         begin = "NA"
         number = count_voyages + 1
-        if len(number) == 3:
+        if len(str(number)) == 3:
             return begin+number
-        elif len(number) == 2:
+        elif len(str(number)) == 2:
             return f"{begin}0{number}"
-        elif len(number) == 1:
+        elif len(str(number)) == 1:
             return f"{begin}00{number}"
         else:
             return False
