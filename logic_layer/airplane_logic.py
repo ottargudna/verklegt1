@@ -1,4 +1,4 @@
-from Model.airplane import Airplane
+#from Model.airplane import Airplane
 from data_layer.data_wrapper import Data_Wrapper
 
 class Airplane_Logic:
@@ -12,11 +12,19 @@ class Airplane_Logic:
         if check_existing_airplanes == False:
             self.datawrapper.create_airplane(airplane)
         else:
+<<<<<<< Updated upstream
             return False
         #if false enter another name and return a str try another name
 
     def get_all_airplanes(self):
         """Gets all airplane"""
+=======
+            self.datawrapper.create_airplane(airplane)
+        #if true enter another name and return a str try another name
+
+    def get_all_airplanes(self):
+        """Gets all airplanes"""
+>>>>>>> Stashed changes
         self.datawrapper.get_all_airplanes()
 
     def airplane_already_exist(self, airplane):
