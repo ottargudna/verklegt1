@@ -68,34 +68,6 @@ DESTINATIONS_MENU = f"""
                                 [{THREE}] List all destinations
 {BORDER}
         """
-STAFF_MENU = f"""
-                                [{ONE}] Employees
-                                [{TWO}] Pilot
-                                [{THREE}] Crew
-        {BORDER}
-        """
-PILOT_MANAGER_MENU = f"""
-                                [{ONE}] Edit information of a pilot
-                                [{TWO}] Search for a pilot
-                                [{THREE}] List all pilots
-{BORDER}
-        """
-CREW_MANAGER_MENU = f"""
-                                [{ONE}] Edit information of a crew member
-                                [{TWO}] Search for a crew member
-                                [{THREE}] List all crew members
-{BORDER}
-        """
-PILOT_SHIFT_SUP_MENU = f"""
-                                [{ONE}] Search for a pilot
-                                [{TWO}] List all pilots
-{BORDER}
-        """
-CREW_SHIFT_SUP_MENU = f"""
-                                [{ONE}] Search for a crew member
-                                [{TWO}] List all crew members
-{BORDER}
-        """
 EMPLOYEES_MENU = f"""
                                 [{ONE}] List all employees
                                 [{TWO}] List information of an employee
@@ -138,21 +110,6 @@ def airplane_menu():
 
 def destinations_menu():
     return LOGO + DESTINATIONS_MENU + FOOTER
-
-def staff_menu():
-    return LOGO + STAFF_MENU + FOOTER
-
-def pilot_manager_menu():
-    return LOGO + PILOT_MANAGER_MENU + FOOTER
-
-def pilot_shift_supervisor_menu():
-    return LOGO + PILOT_SHIFT_SUP_MENU + FOOTER
-
-def crew_manager_menu():
-    return LOGO + CREW_MANAGER_MENU + FOOTER
-
-def crew_shift_supervisor_menu():
-    return LOGO + CREW_SHIFT_SUP_MENU + FOOTER
 
 def employees_menu():
     return LOGO + EMPLOYEES_MENU + FOOTER
