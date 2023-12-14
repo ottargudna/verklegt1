@@ -1,7 +1,6 @@
 from Model.desinations import Desinations
 import UI_layer.constants
 from logic_layer.logic_wrapper import Logic_Wrapper
-import string
 
 class Destiantions_menu_ui:
 
