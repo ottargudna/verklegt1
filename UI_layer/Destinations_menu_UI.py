@@ -7,6 +7,7 @@ class Destiantions_menu_ui:
     def __init__(self) -> None:
         self.const = UI_layer.constants
         self.logic_wrapper = Logic_Wrapper()
+        #self.model_destinations = Desinations()
     
     def get_manager_destinations(self):
         print(self.const.destinations_menu())

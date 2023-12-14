@@ -23,7 +23,7 @@ class MainMenu_ui:
             self.destinations_menu.list_all_destinations()
 
         elif user_selection == self.const.TWO: # Employees
-            self.employee_menu.get_shift_superviser_employees_menu()
+            self.employee_menu.get_employees()
 
         elif user_selection == self.const.THREE: # Voyages
             self.voyage_menu.get_shift_superviser_voyage()
@@ -40,7 +40,7 @@ class MainMenu_ui:
             self.destinations_menu.get_manager_destinations()
                 
         elif user_selection == self.const.THREE: # Employees
-            self.employee_menu.get_staff_menu()
+            self.employee_menu.get_employees()
              #name = input("name")
             #ssn = input("ssn")
             #input("phone")
