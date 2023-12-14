@@ -9,7 +9,7 @@ class Destiantions_menu_ui:
         self.logic_wrapper = Logic_Wrapper()
     
     def get_manager_destinations(self):
-        print(self.const.destinations_menu)
+        print(self.const.destinations_menu())
         user_selection = self.const.input_selection()
 
         if user_selection == self.const.ONE: # Register a new destination

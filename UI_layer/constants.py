@@ -140,7 +140,7 @@ def destinations_menu():
     return LOGO + DESTINATIONS_MENU + FOOTER
 
 def staff_menu():
-    return LOGO + DESTINATIONS_MENU + FOOTER
+    return LOGO + STAFF_MENU + FOOTER
 
 def pilot_manager_menu():
     return LOGO + PILOT_MANAGER_MENU + FOOTER

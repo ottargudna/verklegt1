@@ -2,6 +2,7 @@ from Model.employee import Employee
 from UI_layer.input_validate import Validate
 import UI_layer.constants
 from logic_layer.logic_wrapper import Logic_Wrapper
+from prettytable import PrettyTable
 
 class Employee_menu_ui:
 
@@ -31,7 +32,7 @@ class Employee_menu_ui:
     
 
     def get_employees(self):
-        print(self.const.employees_menu)
+        print(self.const.employees_menu())
         user_selection = self.const.input_selection()
 
         if user_selection == self.const.ONE: # List all employees
