@@ -84,23 +84,3 @@ class MainMenu_ui:
             
             elif user_selection == self.const.THREE:
                 self.get_employee()
-
-
-    #elif user_selection == SELECTION_THREE: # Employees
-        #name = input("name")
-        #ssn = input("ssn")
-        #input("phone")
-        #input("enail")
-        #logicwrapper.create_empl(Emplpoyee(name, ssn, ...))
-        #pass
-
-    #if user_selection == SELECTION_ONE: # Display Shifts
-        #pass
-    #if user_selection == SELECTION_ONE: # Display Shifts
-        #pass
-
-    #elif user_selection == SELECTION_TWO: # Display Hours
-        #pass
-
-
-
