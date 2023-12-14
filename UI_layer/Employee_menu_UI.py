@@ -9,26 +9,6 @@ class Employee_menu_ui:
     def __init__(self) -> None:
         self.const = UI_layer.constants
         self.logic_wrapper = Logic_Wrapper()
-
-    def get_staff_menu(self):
-        print(self.const.staff_menu())
-        user_selection = self.const.input_selection()
-        
-        if user_selection == self.const.ONE: # Employees
-            self.get_employees()
-            
-        elif user_selection == self.const.TWO: # Pilot
-            self.get_manager_pilots()
-            
-        elif user_selection == self.const.THREE: # Crew
-            self.get_manager_crew()
-        
-        elif user_selection == self.const.QUIT:
-            print(self.const.EXIT_TEXT)
-            quit()
-        
-        else: # Go back
-            pass
     
 
     def get_employees(self):
@@ -59,111 +39,6 @@ class Employee_menu_ui:
         
         else: # Go back
             pass
-    
-
-    def get_manager_pilots(self):
-        print(self.const.pilot_manager_menu)
-        user_selection = self.const.input_selection()
-
-        if user_selection == self.const.ONE: # Register a new pilot
-            self.register_new_employee()
-
-        elif user_selection == self.const.TWO: # Edit information of a pilot
-            self.edit_employee()
-
-        elif user_selection == self.const.THREE: # Search for a pilot
-            self.get_search_pilot()
-
-        elif user_selection == self.const.FOUR: # List pilots
-            self.get_list_of_pilots()
-
-        elif user_selection == self.const.QUIT:
-            print(self.const.EXIT_TEXT)
-            quit()
-        
-        else: # Go back
-            pass
-
-
-    def get_manager_crew(self):
-        print(self.const.crew_manager_menu())
-        user_selection = self.const.input_selection()
-
-        if user_selection == self.const.ONE: # Register a new crew member
-            self.register_new_employee()
-
-        elif user_selection == self.const.TWO: # Edit information of a crew member
-            self.edit_employee()
-
-        elif user_selection == self.const.THREE: # Search for a crew member
-            self.search_employee()
-
-        elif user_selection == self.const.FOUR: # List crew members
-            pass
-
-        elif user_selection == self.const.QUIT:
-            print(self.const.EXIT_TEXT)
-            quit()
-    
-        else: # Go back
-            pass
-        
-    
-    def get_shift_superviser_employees_menu(self):
-        print(self.const.staff_menu())
-        user_selection = self.const.input_selection()
-
-        if user_selection == self.const.ONE: # Employees
-            self.get_employees()
-
-        elif user_selection == self.const.TWO: # Pilot
-            self.get_shift_superviser_pilots()
-
-        elif user_selection == self.const.THREE: # Crew
-            self.get_shift_superviser_crew()
-        
-        elif user_selection == self.const.QUIT:
-            print(self.const.EXIT_TEXT)
-            quit()
-    
-        else: # Go back
-            pass
-
-
-    def get_shift_superviser_pilots(self):
-        print(self.const.pilot_shift_supervisor_menu())
-        user_selection = self.const.input_selection()
-
-        if user_selection == self.const.ONE: # Search for a pilot
-            pass
-
-        elif user_selection == self.const.TWO: # List all pilots
-            pass
-
-        elif user_selection == self.const.QUIT:
-            print(self.const.EXIT_TEXT)
-            quit()
-    
-        else: # Go back
-            pass
-
-
-    def get_shift_superviser_crew(self):
-        print(self.const.crew_shift_supervisor_menu())
-        user_selection = self.const.input_selection()
-
-        if user_selection == self.const.ONE: # Search for a crew member
-            pass
-
-        elif user_selection == self.const.TWO: # List all crew members
-            pass
-
-        elif user_selection == self.const.QUIT:
-            print(self.const.EXIT_TEXT)
-            quit()
-    
-        else: # Go back
-            pass
 
 
     def get_list_employees(self): # We need to change this
@@ -174,14 +49,6 @@ class Employee_menu_ui:
             All_employees.add_row([i.name, i.nid, i.role, i.rank])
         print(All_employees)
         input("Press any key to go back to Employees Menu.")
-    
-
-    def get_list_of_pilots(self):
-        pass
-
-
-    def get_list_of_crew(self):
-        pass
     
 
     def register_new_employee(self):
@@ -236,16 +103,16 @@ class Employee_menu_ui:
         week = input("Enter NID:")
 
     
-    def get_search_pilot(self): # We need to change this
-        NID = input("Enter NID to get Pilot: ")
-        while self.input_validate.validate_nid(NID) == False:
-            print('Invalid NID, please try again.')
-            NID = input('Enter NID to get Employee: ')
-
-        get_one_employee = self.logic_wrapper.get_one_employee(NID)
-        print("List of information of an Employee")
-        info_employee = PrettyTable(['NID','Name','Role','Rank', 'Licence', 'Address', 'Phone_nr', 'Email', 'Homephone_nr'])
-        for i in get_one_employee:
-            info_employee.add_row([i.nid, i.name, i.role, i.rank, i.licence, i.address, i.phone_nr, i.email, i.homephone_nr])
-        print(info_employee)
-        input("Press any key to go back to Employees Menu.")
+#    def get_search_pilot(self): # We need to change this
+#        NID = input("Enter NID to get Pilot: ")
+#        while self.input_validate.validate_nid(NID) == False:
+#            print('Invalid NID, please try again.')
+#            NID = input('Enter NID to get Employee: ')
+#
+#        get_one_employee = self.logic_wrapper.get_one_employee(NID)
+#        print("List of information of an Employee")
+#        info_employee = PrettyTable(['NID','Name','Role','Rank', 'Licence', 'Address', 'Phone_nr', 'Email', 'Homephone_nr'])
+#        for i in get_one_employee:
+#            info_employee.add_row([i.nid, i.name, i.role, i.rank, i.licence, i.address, i.phone_nr, i.email, i.homephone_nr])
+#        print(info_employee)
+#        input("Press any key to go back to Employees Menu.")
