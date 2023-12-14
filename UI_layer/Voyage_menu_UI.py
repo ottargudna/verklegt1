@@ -44,7 +44,7 @@ class Voyage_menu_ui:
             self.get_list_voyages_of_employee()
 
     
-    def get_register_new_voyage(self, voyage):
+    def get_register_new_voyage(self):
         departing_from = input("Departing from: ")
         arriving_at = input("Arriving at: ")
         aircraft_id = input("Aircraft ID: ")
