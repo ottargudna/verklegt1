@@ -6,7 +6,7 @@ class Validate:
         pass
 
     def validate_name(self, name):
-        if name.isditgit:
+        if name.isditgit():
             return False
         else: 
             return True
@@ -21,33 +21,33 @@ class Validate:
             return False
 
     def validate_phone_number(self, p_number):
-        if len(p_number) == 7 and p_number.isditgit:
+        if len(p_number) == 7 and p_number.isditgit():
             return True
         else: 
             return False
 
     def validate_nid(self, nid):
-        if len(nid) == 10 and nid.isditgit:
+        if len(nid) == 10 and nid.isditgit():
             return True
         else: 
             return False
 
     def validate_destination(self, destination):
-        if destination.isalpha:
+        if destination.isalpha():
             return True
         else:
             return False
 
     def validate_addres(self, address):
         ad_num = address.split(" ")
-        if address[0].isalpha and address[1].isdigit:
+        if address[0].isalpha() and address[1].isdigit():
             return True
         else:
             return False
 
     def validate_role(self, role):
         roles = ["pilot", "cabincrew"]
-        role = role.lower
+        role = role.lower()
         if role in roles:
             return True
         else:
