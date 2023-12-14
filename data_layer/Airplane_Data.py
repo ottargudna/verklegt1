@@ -19,3 +19,6 @@ class Airplane_Data:
             fieldnames = ["plane_insignia","plane_type_id","capacity"]
             writer = csv.DictWriter(csvfile,fieldnames = fieldnames) 
             writer.writerow({"plane_insignia": Airplane.plane_insignia, "plane_type_id": Airplane.plane_type_id, "capacity": Airplane.capacity})
+=======
+            writer.writerow({"plane_insignia": airplane.plane_insignia, "plane_type_id": airplane.plane_type_id, "capacity": airplane.capacity})
+>>>>>>> Stashed changes
