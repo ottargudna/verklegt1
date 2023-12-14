@@ -13,7 +13,6 @@ class Logic_Wrapper:
         self.employee_logic = Employee_Logic(self.data_wrapper)
         self.airplane_logic = Airplane_Logic(self.data_wrapper)
         self.destination_logic = Destinations_Logic(self.data_wrapper)
-        #self.flight_logic = Flights_Logic(self.data_wrapper)
         self.voyage = Voyage_Logic(self.data_wrapper)
 
 

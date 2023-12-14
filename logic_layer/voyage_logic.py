@@ -46,8 +46,8 @@ class Voyage_Logic:
     def check_working(self, voyage):
         #check if employee alredy working that day
 
-        date_out = self.date_time(voyage[3])
-        date_home = self.date_time(voyage[4])
+        date_out = self.date_time(voyage[4])
+        date_home = self.date_time(voyage[5])
         
         working_out_date = self.check_day(date_out)
         working_out_date = working_out_date[0]
@@ -56,19 +56,19 @@ class Voyage_Logic:
 
         already_working = working_out_date + working_home_date
 
-        if voyage[5] in already_working:
+        if voyage[6] in already_working:
             #Captain is already working that day
             return True
-        elif voyage[6] in already_working:
+        elif voyage[7] in already_working:
             #copilot is already working that day
             return True
-        elif voyage[7] in already_working:
+        elif voyage[8] in already_working:
             #Flight service manager is already working that day
             return True
-        elif voyage[8] in already_working:
+        elif voyage[9] in already_working:
             #Flight attented is already working that day
             return True
-        elif voyage[9] in already_working:
+        elif voyage[10] in already_working:
             #Captain is alredy working that day
             return True
         else: 
