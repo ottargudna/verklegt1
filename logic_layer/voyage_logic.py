@@ -1,11 +1,12 @@
 from Model.voyage import Voyage
 from datetime import datetime, timedelta
+from data_layer.data_wrapper import Data_Wrapper
 
 
 class Voyage_Logic:
     
     def __init__(self, data_connection):
-        self.data_wrapper = data_connection
+        self.data_wrapper = Data_Wrapper()
 
     def create_voyage(self, voyage):
         """Takes in destination object and forwards it to the data layer"""
@@ -175,7 +176,7 @@ class Voyage_Logic:
 
     def get_all_voyages(self):
         '''Gets all voyages'''
-        self.data_wrapper.get_all_voyages()
+        return self.data_wrapper.get_all_voyages()
 
     
 

@@ -72,10 +72,16 @@ class MainMenu_ui:
                 quit()
 
             elif user_selection == self.const.ONE: # Display Shifts
-                pass
+                self.display_shifts()
 
             elif user_selection == self.const.TWO: # Display Hours
-                pass
+                self.display_hours()
+    
+    def display_shifts(self):
+        pass
+
+    def display_hours(self):
+        pass
 
             
     

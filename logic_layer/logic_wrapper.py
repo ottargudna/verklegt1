@@ -65,7 +65,8 @@ class Logic_Wrapper:
         
     #Voyage
     def get_all_voyages(self):
-        return self.voyage_logic.get_all_voyages()
+        return self.voyage.get_all_voyages()
+
 
     def create_voyage(self, voyage):
         """Takes in voyage object and forwards it to the data layer"""

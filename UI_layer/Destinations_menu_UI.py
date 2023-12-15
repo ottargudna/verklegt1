@@ -54,7 +54,6 @@ class Destiantions_menu_ui:
         d.contact_name = input("Enter the contact name: ").lower()
         d.emergency_phone_nr = input("Enter the contact emergency number: ")
 
-
         updated_destination = self.logic_wrapper.update_destination(d)
         return updated_destination
 
