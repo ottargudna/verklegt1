@@ -72,7 +72,7 @@ class Employee_menu_ui:
     def get_list_employees(self):
         employees = self.logic_wrapper.get_all_employees()
         for employee in employees:
-            print(employee)
+            print(f"{employee.role:<25} {employee.nid:<17} {employee.name:<13}")
         input("Press ENTER to go back to the menu: ")
     
 

@@ -19,11 +19,8 @@ class Employee_Logic:
 
     def get_all_employees(self):
         """Gets all employees"""
-        employees_list = []
         employees = self.datawrapper.get_all_employees()
-        for employee in employees:
-            employees_list.append([employee.role, employee.nid, employee.name])
-        return employees_list
+        return employees
 
     def edit_employee(self, employee):
         '''Takes in name of an employee and forwards it to data layer'''
