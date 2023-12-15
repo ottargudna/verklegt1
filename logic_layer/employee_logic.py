@@ -11,7 +11,7 @@ class Employee_Logic:
 
     def create_employee(self, employee):
         """Takes in Employee object and forwards it to the data layer"""
-        every_employee = self.data_wrapper.get_all_employees()
+        every_employee = self.datawrapper.get_all_employees()
         for e in every_employee:
             if employee.nid == e.nid:
                 return False #already exists
@@ -38,9 +38,7 @@ class Employee_Logic:
         every_employee = self.datawrapper.get_all_employees()
         for employee in every_employee:
             if employee.nid == nid:
-
-                employee_list.append([f"NID: {employee.nid}", f"Name: {employee.name}", f"Role: {employee.role}", f"Rank: {employee.rank}", f"Licence: {employee.licence}", f"Address: {employee.address}", f"Phone number: {employee.phone_nr}", f"Email: {employee.email}", f"Home phone number: {employee.homephone_nr}"])
-        return employee_list
+                return [f"NID: {employee.nid}", f"Name: {employee.name}", f"Role: {employee.role}", f"Rank: {employee.rank}", f"Licence: {employee.licence}", f"Address: {employee.address}", f"Phone number: {employee.phone_nr}", f"Email: {employee.email}", f"Home phone number: {employee.homephone_nr}"]
 
             
     def date_time(self, date):
