@@ -133,8 +133,8 @@ class Employee_menu_ui:
         e = Employee
         nid  = input("What employee whould you like to edit, please enter SSD: ").lower()
         while self.input_validate.validate_nid(nid) == False:
-            print("Invalid SSN, please try again")
-            nid = input("SSN: ")
+            print("Invalid SSN, please try again: ")
+            nid = input("What employee whould you like to edit, please enter SSD: ").lower()
         e.nid = nid
         
         role = input("Enter new role (pilot/crew): ").lower()
@@ -176,9 +176,11 @@ class Employee_menu_ui:
         homephone_nr = input("Enter new homephone number: ")
         if homephone_nr == "":
             homephone_nr = "N/A"
-        e.homephone_nr
-        updated_employee = self.logic_wrapper.update_employee(e)
-        return updated_employee
+        e.homephone_nr = homephone_nr
+
+        updated_employee = self.logic_wrapper.edit_employee(e)
+        print("New employee has been registered")
+        input("Press ENTER to go back to the menu: ")
 
     def list_voyges_for_employee(self):
         pass
