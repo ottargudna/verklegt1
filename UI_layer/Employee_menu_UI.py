@@ -186,13 +186,15 @@ class Employee_menu_ui:
 
     def search_employee(self): # We need to change this
         nid = input("Enter NID to get Employee: ")
-        while self.input_validate.validate_nid(nid) == False or one_employee == False:
+        while self.input_validate.validate_nid(nid) == False:
             print('Invalid NID, please try again.')
             nid = input('Enter NID to get Employee: ')
         one_employee = self.logic_wrapper.get_one_employee(nid)
         if one_employee == False:
             print("Please enter a NID of an employee ")
         print(one_employee)
+        print("New employee has been registered")
+        input("Press ENTER to go back to the menu: ")
 
 
     def not_working_given_day(self):
