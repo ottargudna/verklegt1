@@ -13,7 +13,7 @@ class Logic_Wrapper:
         self.employee_logic = Employee_Logic(self.data_wrapper)
         self.airplane_logic = Airplane_Logic(self.data_wrapper)
         self.destination_logic = Destinations_Logic(self.data_wrapper)
-        self.voyage = Voyage_Logic(self.data_wrapper)
+        self.voyage_logic = Voyage_Logic(self.data_wrapper)
 
 
     """Here comes all functions sem that are used in the logic layer and returns them"""
@@ -65,34 +65,37 @@ class Logic_Wrapper:
         
     #Voyage
     def get_all_voyages(self):
-        return self.voyage.get_all_voyages()
+        return self.voyage_logic.get_all_voyages()
 
 
     def create_voyage(self, voyage):
         """Takes in voyage object and forwards it to the data layer"""
-        return self.voyage.create_voyage(voyage)
+        return self.voyage_logic.create_voyage(voyage)
 
     def check_day(self, date):
         '''checks if people are working, not working on perticuler 
         day and also gets every voyages on that day'''
-        return self.voyage.check_day(date)
+        return self.voyage_logic.check_day(date)
 
     def check_week(self, date): #enter the first day in that week
         '''checks if people are working, not working on perticuler 
         week and also gets every voyages on that week'''
-        return self.voyage.check_week(date)
+        return self.voyage_logic.check_week(date)
 
     def generte_voyage_nr(self):
         '''Create voyage number, counts all voyages and then gives it a number'''
-        return self.voyage.generte_voyage_nr()
-    
+        return self.voyage_logic.generte_voyage_nr()
+
     def get_all_pilots(self):
         '''gets all pilots'''
-        return self.voyage.get_all_pilots()
+        return self.voyage_logic.get_all_pilots()
     
     def get_all_crew(self):
         '''gets all crew'''
-        return self.voyage.get_all_crew()
+        return self.voyage_logic.get_all_crew()
+
+
+
 
 
 
