@@ -27,13 +27,20 @@ class Employee_Logic:
         self.datawrapper.update_employee(employee)
         
     
-    def get_one_employee(self, nid):
+    def get_one_employee(self, nid): # We need to change this
         '''searches for one employee'''
-        every_employee = self.datawrapper.get_all_employees()
+        employee_list = []
+        every_employee = self.data_wrapper.get_all_employees()
         for employee in every_employee:
             if employee.nid == nid:
                 return employee
+<<<<<<< Updated upstream
 
+=======
+                employee_list.append(employee)
+        return employee_list
+    
+>>>>>>> Stashed changes
             
     def date_time(self, date):
         '''gets date and time, splits it and makes so you can calculate'''

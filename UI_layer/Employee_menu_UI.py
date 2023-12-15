@@ -186,12 +186,16 @@ class Employee_menu_ui:
 
     def search_employee(self): # We need to change this
         nid = input("Enter NID to get Employee: ")
-        while self.input_validate.validate_nid(nid) == False or one_employee == False:
+        while self.input_validate.validate_nid(nid) == False:
             print('Invalid NID, please try again.')
             nid = input('Enter NID to get Employee: ')
         one_employee = self.logic_wrapper.get_one_employee(nid)
         if one_employee == False:
+<<<<<<< Updated upstream
             print("Please enter a NID of an employee ")
+=======
+             print("Please enter a NID of an employee ")
+>>>>>>> Stashed changes
         print(one_employee)
 
 
