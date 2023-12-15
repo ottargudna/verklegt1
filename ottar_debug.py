@@ -24,6 +24,7 @@ e.flight_attendant1 = input("flight_attendant1  ")
 e.flight_attendant2 = input("flight_attendant2  ")
 '''
 '''
+'''
 date = input("date ")
 
 logic_class = Voyage_Logic(data_class)
@@ -31,7 +32,6 @@ result = logic_class.check_day(date)
 
 print(result[0])
 
-'''
 aircraft_id = input("Enter aircraft ID: ")
 validate_instance = Validate()  # Create an instance of the Validate class
 result = validate_instance.validate_cap(aircraft_id)  # Call the method on the instance

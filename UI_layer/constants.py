@@ -57,7 +57,6 @@ EMPLOYEE_MENU = f"""
                                 Employee menu
 
                                 [{ONE}] Display Shifts
-                                [{TWO}] Display Hours
 
 {BORDER}
         """
