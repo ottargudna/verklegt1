@@ -7,6 +7,7 @@ class Destiantions_menu_ui:
     def __init__(self) -> None:
         self.const = UI_layer.constants
         self.logic_wrapper = Logic_Wrapper()
+        self.model = Desinations
     
     def get_manager_destinations(self):
         """Prints out menues of options for the user and calls functions that go with them"""
@@ -47,16 +48,14 @@ class Destiantions_menu_ui:
         return register_destination
 
     def update_destination(self):
-        destination = input("What destination would you like to edit?: ").lower()
+        d = Desinations
+        d.destination  = input("What destination would you like to edit?: ").lower()
+        
+        d.contact_name = input("Enter the contact name: ").lower()
+        d.emergency_phone_nr = input("Enter the contact emergency number: ")
 
-        update_dest = self.logic_wrapper.edit_destanations(destination)
-        contact = input("Enter the contact name: ")
 
-        update_dest = self.logic_wrapper.update_destination(destination)
-        contact = input("Enter the contact name: ").lower()
-
-        emergency_num = input("Enter the contact emergency number: ")
-        updated_destination = Desinations(contact, emergency_num)
+        updated_destination = self.logic_wrapper.update_destination(d)
         return updated_destination
 
     def list_all_destinations(self):
