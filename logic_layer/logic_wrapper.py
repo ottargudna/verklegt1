@@ -69,7 +69,7 @@ class Logic_Wrapper:
 
     def create_voyage(self, voyage):
         """Takes in voyage object and forwards it to the data layer"""
-        self.voyage_logic.create_voyage(voyage)
+        self.voyage.create_voyage(voyage)
 
     def check_day(self, date):
         '''checks if people are working, not working on perticuler 
@@ -79,7 +79,7 @@ class Logic_Wrapper:
     def check_week(self, date): #enter the first day in that week
         '''checks if people are working, not working on perticuler 
         week and also gets every voyages on that week'''
-        self.voyage_logic.check_week(date)
+        self.voyage.check_week(date)
 
     def generte_voyage_nr(self):
         '''Create voyage number, counts all voyages and then gives it a number'''
