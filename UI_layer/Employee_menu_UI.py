@@ -187,6 +187,22 @@ class Employee_menu_ui:
         pass
 
     def search_employee(self): # We need to change this
+
+        NID = input("Enter NID to get Employee: ")
+        while self.input_validate.validate_nid(NID) == False:
+            print('Invalid NID, please try again.')
+            NID = input('Enter NID to get Employee: ')
+
+        employee = self.logic_wrapper.get_one_employee(NID)
+        print(employee)
+        
+#        print("List of information of an Employee")
+#        info_employee = PrettyTable(['NID','Name','Role','Rank', 'Licence', 'Address', 'Phone_nr', 'Email', 'Homephone_nr'])
+#        for i in get_one_employee:
+#            info_employee.add_row([i.nid, i.name, i.role, i.rank, i.licence, i.address, i.phone_nr, i.email, i.homephone_nr])
+#        print(info_employee)
+#        input("Press any key to go back to Employees Menu.")
+
         nid = input("Enter NID to get Employee: ")
         one_employee = None
         while one_employee is None:
@@ -197,16 +213,41 @@ class Employee_menu_ui:
             if one_employee == None:  # Check if the employee list is empty
                 print("No employee found with that NID, please try again.")
             else:
-                print(one_employee)  # Employee found, print details
-                break  # Break out of the loop since employee is found
+                for item in one_employee:
+                    print(item)  # Employee found, print details
+        input("Press ENTER to go back to the menu: ")
+                #break  # Break out of the loop since employee is found
 
-        
-#        print("List of information of an Employee")
-#        info_employee = PrettyTable(['NID','Name','Role','Rank', 'Licence', 'Address', 'Phone_nr', 'Email', 'Homephone_nr'])
-#        for i in get_one_employee:
-#            info_employee.add_row([i.nid, i.name, i.role, i.rank, i.licence, i.address, i.phone_nr, i.email, i.homephone_nr])
-#        print(info_employee)
-#        input("Press any key to go back to Employees Menu.")
+        nid = input("Enter NID to get Employee: ")
+        one_employee = None
+        while one_employee is None:
+            if self.input_validate.validate_nid(nid) == False:
+                print('Invalid NID, please try again.')
+            else:
+                one_employee = self.logic_wrapper.get_one_employee(nid)
+            if one_employee == None:  # Check if the employee list is empty
+                print("No employee found with that NID, please try again.")
+            else:
+                for item in one_employee:
+                    print(item)  # Employee found, print details
+        input("Press ENTER to go back to the menu: ")
+                #break  # Break out of the loop since employee is found
+
+
+        nid = input("Enter NID to get Employee: ")
+        one_employee = None
+        while one_employee is None:
+            if self.input_validate.validate_nid(nid) == False:
+                print('Invalid NID, please try again.')
+            else:
+                one_employee = self.logic_wrapper.get_one_employee(nid)
+            if one_employee == None:  # Check if the employee list is empty
+                print("No employee found with that NID, please try again.")
+            else:
+                for item in one_employee:
+                    print(item)  # Employee found, print details
+        input("Press ENTER to go back to the menu: ")
+                #break  # Break out of the loop since employee is found
 
 
     def not_working_given_day(self): # We need to change this
@@ -214,19 +255,19 @@ class Employee_menu_ui:
         check_day = self.logic_wrapper.check_day(date)
         while check_day == False:
             print("Enter a valid date:")
-            date = input("Enter date: YYYY-MM-DD")
+            date = input("Enter date (YYYY-MM-DD): ")
         print("List of all employees not working on a given day:")
         not_working = PrettyTable(check_day[1])
         print(not_working)
     
 
     def get_working_given_day(self): # We need to change this
-        date = input("Enter date: YYYY-MM-DD")
+        date = input("Enter date (YYYY-MM-DD): ")
 
         check_day = self.logic_wrapper.check_day(date)
         while check_day == False:
             print("Enter a valid date:")
-            date = input("Enter date: YYYY-MM-DD")
+            date = input("Enter date (YYYY-MM-DD): ")
         print("List of employees working on a given day:")
         date_employee = PrettyTable('Date', 'Name', 'NID')
         for i in check_day:

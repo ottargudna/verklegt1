@@ -38,10 +38,10 @@ class Employee_Logic:
         every_employee = self.datawrapper.get_all_employees()
         for employee in every_employee:
             if employee.nid == nid:
-                return employee
-        return None
 
-       
+                employee_list.append([f"NID: {employee.nid}", f"Name: {employee.name}", f"Role: {employee.role}", f"Rank: {employee.rank}", f"Licence: {employee.licence}", f"Address: {employee.address}", f"Phone number: {employee.phone_nr}", f"Email: {employee.email}", f"Home phone number: {employee.homephone_nr}"])
+        return employee_list
+
             
     def date_time(self, date):
         '''gets date and time, splits it and makes so you can calculate'''
