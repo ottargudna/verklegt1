@@ -215,6 +215,7 @@ class Employee_menu_ui:
             print(f"Role: {employee.role:<25} SSN: {employee.nid:<17} Name: {employee.name:<13}")
         input("Press ENTER to go back to the menu: ")
 
+
     def get_working_given_day(self): # We need to change this
         date = input("Enter date: YYYY.MM.DD ")
 
@@ -224,12 +225,11 @@ class Employee_menu_ui:
             date = input("Enter date: YYYY.MM.DD ")
         print("List of employees working on a given day: ")
         working = check_day[0]
-        table = PrettyTable(['Date', 'Name', 'NID', 'Destination'])
-        for emp in working:
-            emp_info = emp[0]
-            dest = emp[1]
-            table.add_row([date, emp_info.name, emp_info.nid, dest])
-        print(table)
+        for employee in working:
+            employee_info = employee[0]
+            dest = employee[1]
+            print(f"Role: {employee_info.role:<25} SSN: {employee_info.nid:<15} Name: {employee_info.name:<25} Dest: {dest:<15}")
+        input("Press ENTER to go back to the menu: ")
 
 
     def employees_working_week(self):
