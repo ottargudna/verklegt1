@@ -3,8 +3,8 @@ from UI_layer.Destinations_menu_UI import Destiantions_menu_ui
 from UI_layer.Airplane_menu_UI import Airplane_menu_ui
 from UI_layer.Voyage_menu_UI import Voyage_menu_ui
 import UI_layer.constants
-from logic_layer.logic_wrapper import Logic_Wrapper
 from UI_layer.input_validate import Validate
+from logic_layer.logic_wrapper import Logic_Wrapper
 
 class MainMenu_ui:
     def __init__(self) -> None:
@@ -16,9 +16,11 @@ class MainMenu_ui:
         self.logic_wrapper = Logic_Wrapper()
         self.input_validate = Validate()
     
+    
     def employee_name(self):
         return input("Enter your name: ")
     
+
     def get_shift_superviser(self):
 
         user_selection = ""
@@ -84,6 +86,7 @@ class MainMenu_ui:
 
                 input("Press ENTER to go back to menu: ")
     
+
     def display_shifts(self):
         ssn = input("SSN: ")
         while self.input_validate.validate_nid(ssn) == False:
