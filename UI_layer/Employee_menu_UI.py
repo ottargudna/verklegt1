@@ -206,23 +206,23 @@ class Employee_menu_ui:
         for employee in not_working_day:
             print(f"Role: {employee.role:<25} SSN: {employee.nid:<17} Name: {employee.name:<13}")
         input("Press ENTER to go back to the menu: ")
-    
-    # TODO: Change this
-    def get_working_given_day(self): 
-        date = input("Enter date (YYYY-MM-DD): ")
-        working = self.logic_wrapper.check_day(date)
-        
-        while working == None:
-            print("Invalid date")
-            date = input("Enter date (YYYY-MM-DD): ")
-            working = self.logic_wrapper.check_day(date)
 
-        print("List of employees working on a given day:")
-        working_day = working[0]
-        for employee in working_day:
-            print(f"Role: {employee.role:<25} SSN: {employee.nid:<17} Name: {employee.name:<13}")
+
+    def get_working_given_day(self): # We need to change this
+        date = input("Enter date: YYYY.MM.DD ")
+
+        check_day = self.logic_wrapper.check_day(date)
+        while check_day == False:
+            print("Enter a valid date:")
+            date = input("Enter date: YYYY.MM.DD ")
+        print("List of employees working on a given day: ")
+        working = check_day[0]
+        for employee in working:
+            employee_info = employee[0]
+            dest = employee[1]
+            print(f"Role: {employee_info.role:<25} SSN: {employee_info.nid:<15} Name: {employee_info.name:<25} Dest: {dest:<15}")
         input("Press ENTER to go back to the menu: ")
 
-    # TODO: Finish this
+
     def employees_working_week(self):
         week = input("Enter NID:")
