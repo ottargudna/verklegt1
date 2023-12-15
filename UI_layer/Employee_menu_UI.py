@@ -89,11 +89,12 @@ class Employee_menu_ui:
             name = input("Name: ")
         
         role = input("Role (pilot/crew): ")
-        while self.input_validate.validate_role(role):
+        while self.input_validate.validate_role(role) == False:
             print("Invalid role, please try again")
+            input("Role (pilot/crew): ")
 
         rank = input("Rank: ")
-        while self.input_validate.validate_rank(rank) == False:
+        while self.input_validate.validate_rank(role, rank) == False:
             print("Invalid rank, please try again")
             rank = input("Rank: ")
 
