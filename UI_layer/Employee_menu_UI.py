@@ -62,7 +62,7 @@ class Employee_menu_ui:
             elif user_selection == self.const.FOUR: # List all employees working on a given day
                 self.get_working_given_day()
 
-            elif user_selection == self.const.FIVE: # Printable work summary for an employee in a giving week
+            elif user_selection == self.const.FIVE: # Printable work summary for an employee in a given week
                 self.employees_working_week()
 
             elif user_selection == self.const.QUIT:

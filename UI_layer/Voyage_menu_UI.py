@@ -76,6 +76,7 @@ class Voyage_menu_ui:
         voyage = departing_from, arriving_at, aircraft_id, date_out, date_home, captain, copilot, flight_service_manager, flight_attendant1, flight_attendant2
         return self.logic_wrapper.create_voyage(voyage)
 
+
     def get_list_all_voyages(self):
         voyages = self.logic_wrapper.get_all_voyages()
         for voyage in voyages:
@@ -85,6 +86,7 @@ class Voyage_menu_ui:
             else:
                 print(voyage.voyage_number, "Fully staffed")
         input("Press ENTER to go back to the menu: ")
+
 
     def get_list_voyages_for_day(self):
         day = input("Date (YYYY.MM.DD): ")
@@ -98,6 +100,7 @@ class Voyage_menu_ui:
                 print(f"Voyage number: {voyage.voyage_number}", self.const.FULLY_STAFFED)
         input("Press ENTER to go back to the menu: ")   
 
+
     def get_list_voyages_for_week(self):
         date = input("Date (YYYY.MM.DD): ")
         voyages = self.logic_wrapper.check_week(date)
@@ -109,6 +112,7 @@ class Voyage_menu_ui:
             else:
                 print(f"Voyage number: {voyage.voyage_number:<7}", f"Dep. from: {voyage.dep_from:<5}", f"Ar. at: {voyage.arr_at:<5}\n", f"Plane ID: {voyage.aircraft_id:<13}", f"Date out: {voyage.date_out:<13}", f"Date home: {voyage.date_home:<13}", f"{self.const.FULLY_STAFFED:13}")
         input("Press ENTER to go back to the menu: ") 
+
 
     def get_list_voyages_of_employee(self):
         ssn = input("SSN: ")
