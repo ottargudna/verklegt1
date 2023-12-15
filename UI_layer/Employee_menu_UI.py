@@ -114,54 +114,70 @@ class Employee_menu_ui:
 
     def register_new_employee(self):
         """Gets all the information for a new employee and sends to the logic wrapper"""
+        e = Employee
         ssn = input("SSN: ")
         while self.input_validate.validate_nid(ssn) == False:
             print("Invalid SSN, please try again")
             ssn = input("SSN: ")
+        e.nid = ssn
         
         name = input("Name: ").lower()
         while self.input_validate.validate_name(name) == False:
             print("Invalid name, please try again")
             name = input("Name: ")
+        e.name = name
         
-        role = input("Role (pilot/crew): ")
+        role = input("Role (pilot/cabincrew): ")
         while self.input_validate.validate_role(role) == False:
             print("Invalid role, please try again")
-            input("Role (pilot/crew): ")
+            input("Role (pilot/cabincrew): ")
+        e.role = role
 
-        rank = input("Rank: ")
+
+
+        rank = input("Rank: (if pilot(captain/copilot) and cabincrew(flight service manager/flight attendant) ")
         while self.input_validate.validate_rank(role, rank) == False:
             print("Invalid rank, please try again")
             rank = input("Rank: ")
+        e.rank = rank
 
         if role == "pilot":
             license = input("Airplane licence: ")
         else:
             license = "N/A"
+        e.licence = license
+
 
         address = input("Address: ").lower()
         while self.input_validate.validate_addres(address) == False:
             print("Invalid address, please try again")
             input("Address: ").lower()
+        e.address = address
 
         phone = input("Phone: ")
         while self.input_validate.validate_phone_number(phone) == False:
             print("Invalid phone number, please try again")
             phone = input("Phone: ")
+        e.phone_nr = phone
 
         email = input("Email: ").lower()
         while self.input_validate.validate_email(email) == False:
             print("Invalid email, please try again")
             email = input("Email: ").lower()
+        e.email = email
 
         homenumber = input("Home phone number: ")
+        while self.input_validate.home_phone(phone) == False:
+            print("Invalid phone number, please try again")
+            phone = input("Phone: ")
         if homenumber == "":
             homenumber = "N/A"
+        e.homephone_nr = homenumber
         
         print("New employee has been registered")
         input("Press ENTER to go back to the menu: ")
 
-        new_employee = self.logic_wrapper.create_employee(ssn, name, role, rank, license, address, phone, email, homenumber)
+        new_employee = self.logic_wrapper.create_employee(e)
         return Employee(new_employee)
 
     def edit_employee(self):

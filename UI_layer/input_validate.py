@@ -119,6 +119,10 @@ class Validate:
         except ValueError:
             return False
         
-
+    def home_phone(self, number):
+        if len(number) == 7 and number.isdigit() or number == "":
+            return True
+        else: 
+            return False
 
         
