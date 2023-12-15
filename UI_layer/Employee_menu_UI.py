@@ -174,15 +174,18 @@ class Employee_menu_ui:
 
 
     def not_working_given_day(self): # We need to change this
-        date = input("Enter date: YYYY-MM-DD")
-        check_day = self.logic_wrapper.check_day(date)
-        while check_day == False:
-            print("Enter a valid date:")
-            date = input("Enter date: YYYY-MM-DD")
+        date = input("Enter date (YYYY-MM-DD): ")
+        not_working = self.logic_wrapper.check_day(date)
+        while not_working == None:
+            print("Invalid date")
+            date = input("Enter date (YYYY-MM-DD): ")
+            not_working = self.logic_wrapper.check_day(date)
+
         print("List of all employees not working on a given day:")
-        not_working = PrettyTable(check_day[1])
-        print(not_working)
-    
+        not_working_day = not_working[1]
+        for employee in not_working_day:
+            print(f"Role: {employee.role:<25} SSN: {employee.nid:<17} Name: {employee.name:<13}")
+        input("Press ENTER to go back to the menu: ")
 
     def get_working_given_day(self): # We need to change this
         date = input("Enter date: YYYY.MM.DD ")

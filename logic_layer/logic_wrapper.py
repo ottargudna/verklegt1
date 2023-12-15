@@ -85,7 +85,7 @@ class Logic_Wrapper:
     def generte_voyage_nr(self):
         '''Create voyage number, counts all voyages and then gives it a number'''
         return self.voyage_logic.generte_voyage_nr()
-    
+
     def get_all_pilots(self):
         '''gets all pilots'''
         return self.voyage_logic.get_all_pilots()
@@ -93,6 +93,8 @@ class Logic_Wrapper:
     def get_all_crew(self):
         '''gets all crew'''
         return self.voyage_logic.get_all_crew()
+
+
 
 
 
