@@ -191,12 +191,10 @@ class Employee_menu_ui:
             nid = input('Enter NID to get Employee: ')
         one_employee = self.logic_wrapper.get_one_employee(nid)
         if one_employee == False:
-<<<<<<< Updated upstream
             print("Please enter a NID of an employee ")
-=======
-             print("Please enter a NID of an employee ")
->>>>>>> Stashed changes
         print(one_employee)
+        print("New employee has been registered")
+        input("Press ENTER to go back to the menu: ")
 
 
     def not_working_given_day(self):

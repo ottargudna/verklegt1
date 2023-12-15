@@ -34,14 +34,9 @@ class Employee_Logic:
         for employee in every_employee:
             if employee.nid == nid:
                 return employee
-<<<<<<< Updated upstream
-
-=======
-                employee_list.append(employee)
+        employee_list.append(employee)
         return employee_list
     
->>>>>>> Stashed changes
-            
     def date_time(self, date):
         '''gets date and time, splits it and makes so you can calculate'''
             #date is an str yyyy.mm.dd
