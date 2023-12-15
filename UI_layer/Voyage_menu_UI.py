@@ -4,8 +4,6 @@ from logic_layer.logic_wrapper import Logic_Wrapper
 import os
 
 class Voyage_menu_ui:
-    def __init__(self):
-        self.logic_wrapper = Logic_Wrapper
 
     def __init__(self) -> None:
         self.const = UI_layer.constants
@@ -53,11 +51,25 @@ class Voyage_menu_ui:
         aircraft_id = input("Aircraft ID: ")
         date_out = input("Date out: ")
         date_home = input("Date home: ")
-        captain = input("Captain (press enter to leave empty): ")
-        copilot = input("Copilot (press enter to leave empty): ")
+        captain = input("Captain (press ENTER to leave empty): ")
+        if captain == "":
+            captain = "N/A"
+
+        copilot = input("Copilot (press ENTER to leave empty): ")
+        if copilot == "":
+            copilot = "N/A"
+
         flight_service_manager = input("Flight service manager (press enter to leave empty): ")
+        if flight_service_manager == "":
+            flight_service_manager = "N/A"
+
         flight_attendant1 = input("Flight attendant (press enter to leave empty): ")
+        if flight_attendant1 == "":
+            flight_attendant1 = "N/A"
+
         flight_attendant2 = input("Flight attendant (press enter to leave empty): ")
+        if flight_attendant2 == "":
+            flight_attendant2 = "N/A"
 
         voyage = departing_from, arriving_at, aircraft_id, date_out, date_home, captain, copilot, flight_service_manager, flight_attendant1, flight_attendant2
         return self.logic_wrapper.create_voyage(voyage)
