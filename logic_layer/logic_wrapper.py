@@ -59,7 +59,7 @@ class Logic_Wrapper:
         """Gets all destinations"""
         return self.destination_logic.get_all_destinations()
 
-    def edit_destanations(self, destination):
+    def update_destination(self, destination):
         '''Takes in name of an destination and forwards it to data layer'''
         self.destination_logic.update_destination(destination)
         

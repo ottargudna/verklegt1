@@ -20,7 +20,7 @@ class Destiantions_menu_ui:
                 self.register_new_destination()
             
             elif user_selection == self.const.TWO: # Edit destinations
-                self.edit_destanation()
+                self.update_destination()
 
             elif user_selection == self.const.THREE: # List all destinations
                 self.list_all_destinations()
@@ -46,9 +46,9 @@ class Destiantions_menu_ui:
             register_destination = self.logic_wrapper.create_destination(destination)
         return register_destination
 
-    def edit_destanation(self):
+    def update_destination(self):
         destination = input("What destination would you like to edit?: ").lower()
-        update_dest = self.logic_wrapper.edit_destanations(destination)
+        update_dest = self.logic_wrapper.update_destination(destination)
         contact = input("Enter the contact name: ")
         emergency_num = input("Enter the contact emergency number: ")
         updated_destination = Desinations(contact, emergency_num)
