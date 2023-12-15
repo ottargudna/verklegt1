@@ -61,7 +61,7 @@ class Employee_menu_ui:
             elif user_selection == self.const.FOUR: # List all employees working on a given day
                 self.get_working_given_day()
 
-            elif user_selection == self.const.FIVE: # Printable work summary for an employee in a giving week
+            elif user_selection == self.const.FIVE: # Printable work summary for an employee in a given week
                 self.employees_working_week()
 
             elif user_selection == self.const.QUIT:
@@ -117,13 +117,11 @@ class Employee_menu_ui:
         while self.input_validate.validate_nid(ssn) == False:
             print("Invalid SSN, please try again")
             ssn = input("SSN: ")
-        e.nid = ssn
         
         name = input("Name: ").lower()
         while self.input_validate.validate_name(name) == False:
             print("Invalid name, please try again")
             name = input("Name: ")
-        e.name = name
         
         role = input("Role (pilot/cabincrew): ")
         while self.input_validate.validate_role(role) == False:
@@ -146,26 +144,21 @@ class Employee_menu_ui:
             license = input("Airplane licence: ")
         else:
             license = "N/A"
-        e.licence = license
-
 
         address = input("Address: ").lower()
         while self.input_validate.validate_addres(address) == False:
             print("Invalid address, please try again")
             input("Address: ").lower()
-        e.address = address
 
         phone = input("Phone: ")
         while self.input_validate.validate_phone_number(phone) == False:
             print("Invalid phone number, please try again")
             phone = input("Phone: ")
-        e.phone_nr = phone
 
         email = input("Email: ").lower()
         while self.input_validate.validate_email(email) == False:
             print("Invalid email, please try again")
             email = input("Email: ").lower()
-        e.email = email
 
         homenumber = input("Home phone number: ")
         while self.input_validate.home_phone(phone) == False:
@@ -173,7 +166,6 @@ class Employee_menu_ui:
             phone = input("Phone: ")
         if homenumber == "":
             homenumber = "N/A"
-        e.homephone_nr = homenumber
         
         print("New employee has been registered")
         input("Press ENTER to go back to the menu: ")
@@ -218,7 +210,7 @@ class Employee_menu_ui:
             print(f"Role: {employee.role:<25} SSN: {employee.nid:<17} Name: {employee.name:<13}")
         input("Press ENTER to go back to the menu: ")
     
-    # TODO: Change this
+
     def get_working_given_day(self): 
         date = input("Enter date (YYYY-MM-DD): ")
         working = self.logic_wrapper.check_day(date)
