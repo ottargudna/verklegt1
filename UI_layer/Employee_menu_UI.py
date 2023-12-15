@@ -135,13 +135,14 @@ class Employee_menu_ui:
         pass
 
     def search_employee(self): # We need to change this
-        NID = input("Enter NID to get Employee: ")
-        while self.input_validate.validate_nid(NID) == False:
+        nid = input("Enter NID to get Employee: ")
+        while self.input_validate.validate_nid(nid) == False or one_employee == False:
             print('Invalid NID, please try again.')
-            NID = input('Enter NID to get Employee: ')
-
-        employee = self.logic_wrapper.get_one_employee(NID)
-        print(employee)
+            nid = input('Enter NID to get Employee: ')
+            one_employee = self.logic_wrapper.get_one_employee(nid)
+            if one_employee == False:
+                print("Please enter a NID of an employee ")
+        print(one_employee)
         
 #        print("List of information of an Employee")
 #        info_employee = PrettyTable(['NID','Name','Role','Rank', 'Licence', 'Address', 'Phone_nr', 'Email', 'Homephone_nr'])

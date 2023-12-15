@@ -20,7 +20,7 @@ class Logic_Wrapper:
 
     #Employees
     def create_employee(self, employee):
-        self.employee_logic.create_employee(employee)
+        return self.employee_logic.create_employee(employee)
 
     def get_all_employees(self):
         return self.employee_logic.get_all_employees()
@@ -30,15 +30,15 @@ class Logic_Wrapper:
 
     def get_one_employee(self, nid):
         '''searches for one employee'''
-        self.employee_logic.get_one_employee(nid)
+        return self.employee_logic.get_one_employee(nid)
     
     def get_week_work(self, nid, date):
         '''Gets a list of voyages that the nid is working on'''
-        self.employee_logic.get_week_work(nid, date)
+        return self.employee_logic.get_week_work(nid, date)
     
     def check_if_voyages_are_fully_staffed(self):
         '''Cheks if user has a voyage where there is not an a employee in it'''
-        self.employee_logic.check_if_voyages_are_fully_staffed()
+        return self.employee_logic.check_if_voyages_are_fully_staffed()
       
 
 
@@ -61,29 +61,29 @@ class Logic_Wrapper:
 
     def update_destination(self, destination):
         '''Takes in name of an destination and forwards it to data layer'''
-        self.destination_logic.update_destination(destination)
+        return self.destination_logic.update_destination(destination)
         
     #Voyage
     def get_all_voyages(self):
-        self.voyage_logic.get_all_voyages()
+        return self.voyage_logic.get_all_voyages()
 
     def create_voyage(self, voyage):
         """Takes in voyage object and forwards it to the data layer"""
-        self.voyage_logic.create_voyage(voyage)
+        return self.voyage_logic.create_voyage(voyage)
 
     def check_day(self, date):
         '''checks if people are working, not working on perticuler 
         day and also gets every voyages on that day'''
-        self.voyage_logic.check_day(date)
+        return self.voyage_logic.check_day(date)
 
     def check_week(self, date): #enter the first day in that week
         '''checks if people are working, not working on perticuler 
         week and also gets every voyages on that week'''
-        self.voyage_logic.check_week(date)
+        return self.voyage_logic.check_week(date)
 
     def generte_voyage_nr(self):
         '''Create voyage number, counts all voyages and then gives it a number'''
-        self.voyage.generte_voyage_nr()
+        return self.voyage.generte_voyage_nr()
 
 
 

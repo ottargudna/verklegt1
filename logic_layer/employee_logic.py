@@ -35,12 +35,13 @@ class Employee_Logic:
     
     def get_one_employee(self, nid):
         '''searches for one employee'''
-        employee_list = []
         every_employee = self.datawrapper.get_all_employees()
         for employee in every_employee:
             if employee.nid == nid:
-                employee_list.append(employee)
-        return employee_list
+                return employee
+        return False
+
+       
             
     def date_time(self, date):
         '''gets date and time, splits it and makes so you can calculate'''
