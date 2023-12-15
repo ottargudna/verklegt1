@@ -110,13 +110,14 @@ class MainMenu_ui:
     
 
     def main(self):
-        print(self.const.main_menu())
-        user_selection = self.const.input_selection()
+        running = True
+        while running:
+            print(self.const.main_menu())
+            user_selection = self.const.input_selection()
 
-        while True:
             if user_selection == self.const.QUIT:
                 print(self.const.EXIT_TEXT)
-                break
+                running = False
 
             if user_selection == self.const.ONE:
                 self.get_manager()
