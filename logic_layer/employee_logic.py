@@ -11,7 +11,7 @@ class Employee_Logic:
 
     def create_employee(self, employee):
         """Takes in Employee object and forwards it to the data layer"""
-        every_employee = self.data_wrapper.datawrapper.get_all_employees()
+        every_employee = self.data_wrapper.get_all_employees()
         for e in every_employee:
             if employee.nid == e.nid:
                 return False #already exists
