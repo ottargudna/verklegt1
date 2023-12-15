@@ -44,29 +44,19 @@ class Employee_menu_ui:
     def get_list_employees(self): # We need to change this
         employees = self.logic_wrapper.get_all_employees()
         for employee in employees:
-            employee_str = f"{employee[0].ljust(10)}{" ".rjust(30)}{employee[1].ljust(60)}{employee[2].ljust(30)}"
-            print(employee_str)
+            print(employee)
         input("Press ENTER to go back to the menu: ")
-
-
-#        result = self.logic_wrapper.get_all_employees()
-#        print("List of all Employees:")
-#        all_employees = PrettyTable(['Name', 'Social Id', 'Job Title', 'Rank'])
-#        for i in result:
-#            all_employees.add_row([i.name, i.nid, i.role, i.rank])
-#        print(all_employees)
-#        input("Press any key to go back to Employees Menu.")
     
 
     def register_new_employee(self):
         ssn = input("SSN: ")
-        name = input("Name: ")
+        name = input("Name: ").lower()
         role = input("Role (pilot/crew): ")
         rank = input("Rank: ")
         license = input("Airplane licence (leave empty if not a pilot): ")
-        address = input("Address: ")
+        address = input("Address: ").lower()
         phone = input("Phone: ")
-        email = input("Email: ")
+        email = input("Email: ").lower()
         homenumber = input("Home phone number (can leave empty): ")
 
         new_employee = self.logic_wrapper.create_employee(ssn, name, role, rank, license, address, phone, email, homenumber)

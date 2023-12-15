@@ -22,7 +22,7 @@ class Employee_Logic:
         employees_list = []
         employees = self.datawrapper.get_all_employees()
         for employee in employees:
-            employees_list.append([employee.nid, employee.name, employee.rank])
+            employees_list.append(employee.name)
         return employees_list
 
     def edit_employee(self, employee):

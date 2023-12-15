@@ -1,6 +1,7 @@
 from Model.airplane import Airplane
 from logic_layer.logic_wrapper import Logic_Wrapper
 import UI_layer.constants
+from UI_layer.input_validate import Validate
 
 
 
@@ -8,6 +9,7 @@ class Airplane_menu_ui:
 
     def __init__(self):
         self.logic_wrapper = Logic_Wrapper()
+        self.validate = Validate()
         self.const = UI_layer.constants
 
     def get_manager_airplane_menu(self):
