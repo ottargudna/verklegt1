@@ -35,8 +35,11 @@ class Destiantions_menu_ui:
 
         register_destination = False
         while register_destination == False:
+            dest_name = input("Enter the country: ").lower()
+            airport = input("Enter the initials of the airport: ").upper()
             flight_time = input("Enter the flight time: ")
             distance = input("Enter the distance from Iceland: ")
+            contact_name = input("Enter the contact name: ").lower()
             contact_number = input("Enter the contact emergency number: ")
 
             destination = Desinations(dest_name, airport, flight_time, distance, contact_name, contact_number)
@@ -45,10 +48,12 @@ class Destiantions_menu_ui:
 
     def edit_destanation(self):
         destination = input("What destination would you like to edit?: ").lower()
+<<<<<<< Updated upstream
         update_dest = self.logic_wrapper.edit_destanations(destination)
         contact = input("Enter the contact name: ")
 =======
         update_dest = self.logic_wrapper.update_destination(destination)
+        contact = input("Enter the contact name: ").lower()
 >>>>>>> Stashed changes
         emergency_num = input("Enter the contact emergency number: ")
         updated_destination = Desinations(contact, emergency_num)
