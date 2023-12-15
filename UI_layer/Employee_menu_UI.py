@@ -140,13 +140,15 @@ class Employee_menu_ui:
             print('Invalid NID, please try again.')
             NID = input('Enter NID to get Employee: ')
 
-        get_one_employee = self.logic_wrapper.get_one_employee(NID)
-        print("List of information of an Employee")
-        info_employee = PrettyTable(['NID','Name','Role','Rank', 'Licence', 'Address', 'Phone_nr', 'Email', 'Homephone_nr'])
-        for i in get_one_employee:
-            info_employee.add_row([i.nid, i.name, i.role, i.rank, i.licence, i.address, i.phone_nr, i.email, i.homephone_nr])
-        print(info_employee)
-        input("Press any key to go back to Employees Menu.")
+        employee = self.logic_wrapper.get_one_employee(NID)
+        print(employee)
+        
+#        print("List of information of an Employee")
+#        info_employee = PrettyTable(['NID','Name','Role','Rank', 'Licence', 'Address', 'Phone_nr', 'Email', 'Homephone_nr'])
+#        for i in get_one_employee:
+#            info_employee.add_row([i.nid, i.name, i.role, i.rank, i.licence, i.address, i.phone_nr, i.email, i.homephone_nr])
+#        print(info_employee)
+#        input("Press any key to go back to Employees Menu.")
 
 
     def not_working_given_day(self): # We need to change this
