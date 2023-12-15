@@ -83,6 +83,7 @@ class Voyage_Logic:
         '''gets all crew'''
         crew = self.get_all_fa() + self.get_all_fsm()
         return crew
+    
     def in_correct_role(self, voyage):
         all_captains = self.get_all_captains()
         if voyage.captain not in all_captains:
