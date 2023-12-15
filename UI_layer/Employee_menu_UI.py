@@ -203,12 +203,12 @@ class Employee_menu_ui:
 #        input("Press any key to go back to Employees Menu.")
 
 
-    def not_working_given_day(self): # We need to change this
-        date = input("Enter date (YYYY-MM-DD): ")
+    def not_working_given_day(self):
+        date = input("Enter date (YYYY.MM.DD): ")
         not_working = self.logic_wrapper.check_day(date)
         while not_working == None:
             print("Invalid date")
-            date = input("Enter date (YYYY-MM-DD): ")
+            date = input("Enter date (YYYY.MM.DD): ")
             not_working = self.logic_wrapper.check_day(date)
 
         print("List of all employees not working on a given day:")
@@ -235,4 +235,16 @@ class Employee_menu_ui:
 
 
     def employees_working_week(self):
-        week = input("Enter NID:")
+        nid = input("Enter SSN: ")
+        date = input("Enter date (YYYY.MM.DD): ")
+
+        week_summary = self.logic_wrapper.get_week_work(nid, date)
+        while week_summary == False:
+            print("Employee was not working during this time")
+            nid = input("Enter SSN: ")
+            date = input("Enter date (YYYY.MM.DD): ")
+            
+        print(f"Printable week summary for employee {nid}:")
+        for voyage in week_summary:
+            print(f"Voyage number: {voyage.voyage_number:<7}", f"Dep. from: {voyage.dep_from:<5}", f"Ar. at: {voyage.arr_at:<5}")
+        input("Press ENTER to go back to the menu: ")
