@@ -237,7 +237,7 @@ class Voyage_Logic:
         working_nid = []    #nid for employees working that day
         not_working = []    #employee that are not working (every information)
         working = []        #employee that are working (every information)
-        dest = []
+        dest = []           #destinations
 
         for voyage in voyages_in_date:
             #only gets nid's
@@ -294,7 +294,7 @@ class Voyage_Logic:
         working_nid = []    #nid for employees working that day
         not_working = []    #employee that are not working (every information)
         working = []        #employee that are working (every information)
-        dest = []
+        dest = []           #destinations
 
         for voyage in voyages_in_date:
             #only gets nid's
