@@ -26,16 +26,13 @@ class Employee_Logic:
         '''Takes in name of an employee and forwards it to data layer'''
         self.datawrapper.update_employee(employee)
         
-        
-    def list_voyges_for_an_employee(self):
-        pass
     
     def get_one_employee(self, nid):
         '''searches for one employee'''
         every_employee = self.datawrapper.get_all_employees()
         for employee in every_employee:
             if employee.nid == nid:
-                return [f"NID: {employee.nid}", f"Name: {employee.name}", f"Role: {employee.role}", f"Rank: {employee.rank}", f"Licence: {employee.licence}", f"Address: {employee.address}", f"Phone number: {employee.phone_nr}", f"Email: {employee.email}", f"Home phone number: {employee.homephone_nr}"]
+                return employee
 
             
     def date_time(self, date):

@@ -189,9 +189,9 @@ class Employee_menu_ui:
         while self.input_validate.validate_nid(nid) == False or one_employee == False:
             print('Invalid NID, please try again.')
             nid = input('Enter NID to get Employee: ')
-            one_employee = self.logic_wrapper.get_one_employee(nid)
-            if one_employee == False:
-                print("Please enter a NID of an employee ")
+        one_employee = self.logic_wrapper.get_one_employee(nid)
+        if one_employee == False:
+            print("Please enter a NID of an employee ")
         print(one_employee)
 
 
