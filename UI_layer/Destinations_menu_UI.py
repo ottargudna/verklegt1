@@ -88,5 +88,5 @@ class Destiantions_menu_ui:
 
         all_destinations = self.logic_wrapper.get_all_destinations()
         for destination in all_destinations:
-            print(destination)
+            print(f"Destination: {destination.destination:<10} {destination.airport_initials:<10}   flight time: {destination.flight_time:<3}")
         input("Press ENTER to go back to the menu: ")
