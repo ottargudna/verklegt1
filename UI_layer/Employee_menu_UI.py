@@ -182,8 +182,6 @@ class Employee_menu_ui:
         print("New employee has been registered")
         input("Press ENTER to go back to the menu: ")
 
-    def list_voyges_for_employee(self):
-        pass
 
     def search_employee(self): # We need to change this
         nid = input("Enter NID to get Employee: ")
@@ -194,13 +192,6 @@ class Employee_menu_ui:
             if one_employee == False:
                 print("Please enter a NID of an employee ")
         print(one_employee)
-        
-#        print("List of information of an Employee")
-#        info_employee = PrettyTable(['NID','Name','Role','Rank', 'Licence', 'Address', 'Phone_nr', 'Email', 'Homephone_nr'])
-#        for i in get_one_employee:
-#            info_employee.add_row([i.nid, i.name, i.role, i.rank, i.licence, i.address, i.phone_nr, i.email, i.homephone_nr])
-#        print(info_employee)
-#        input("Press any key to go back to Employees Menu.")
 
 
     def not_working_given_day(self):

@@ -26,6 +26,13 @@ class Validate:
                 return False
         else:
             return False
+    
+    
+    def validate_seats(self, seats):
+        if seats.isdigit():
+            return True
+        else:
+            return False
 
 
     def validate_email(self, email):
