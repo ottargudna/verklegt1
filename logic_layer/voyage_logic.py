@@ -74,7 +74,15 @@ class Voyage_Logic:
         if voyage.aircraft_id not in every_airplane_id:
             return False
 
-
+    def get_all_pilots(self):
+        '''gets all pilots'''
+        pilots = self.get_all_captains() + self.get_all_copilots()
+        return pilots
+    
+    def get_all_crew(self):
+        '''gets all crew'''
+        crew = self.get_all_fa() + self.get_all_fsm()
+        return crew
     def in_correct_role(self, voyage):
         all_captains = self.get_all_captains()
         if voyage.captain not in all_captains:
