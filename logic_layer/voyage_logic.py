@@ -254,7 +254,7 @@ class Voyage_Logic:
             if employee.nid not in working:
                 not_working.append(employee)
 
-        return working, not_working,voyages_in_date
+        return working, not_working, voyages_in_date
     # if you want a list of who are working on the date you do [0], not working [1], voyages in that time period [2]
 
 
