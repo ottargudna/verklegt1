@@ -3,6 +3,8 @@ from UI_layer.Destinations_menu_UI import Destiantions_menu_ui
 from UI_layer.Airplane_menu_UI import Airplane_menu_ui
 from UI_layer.Voyage_menu_UI import Voyage_menu_ui
 import UI_layer.constants
+from UI_layer.input_validate import Validate
+from logic_layer.logic_wrapper import Logic_Wrapper
 
 class MainMenu_ui:
     def __init__(self) -> None:
@@ -11,10 +13,14 @@ class MainMenu_ui:
         self.airplane_menu = Airplane_menu_ui()
         self.voyage_menu = Voyage_menu_ui()
         self.const = UI_layer.constants
+        self.logic_wrapper = Logic_Wrapper()
+        self.input_validate = Validate()
+    
     
     def employee_name(self):
         return input("Enter your name: ")
     
+
     def get_shift_superviser(self):
 
         user_selection = ""
@@ -72,19 +78,31 @@ class MainMenu_ui:
                 quit()
 
             elif user_selection == self.const.ONE: # Display Shifts
-                self.display_shifts()
+                shifts = self.display_shifts()
+                if shifts == []:
+                    print("Employee is not working here, please try again ")
+                for shift in shifts:
+                    print(f"date out: {shift.date_out:<10}   date home: {shift.date_home:<10}   dep from: {shift.dep_from:<3}   arr at: {shift.arr_at:<3}")
 
-            elif user_selection == self.const.TWO: # Display Hours
-                self.display_hours()
+                input("Press ENTER to go back to menu: ")
     
+
     def display_shifts(self):
-        pass
+        ssn = input("SSN: ")
+        while self.input_validate.validate_nid(ssn) == False:
+            print("Invalid SSN, please try again")
+            ssn = input("SSN: ")
+        
+        date = input("Enter date (YYYY.MM.DD): ")
+        
+        shifts = self.logic_wrapper.get_week_work(ssn, date)
+        while shifts == False:
+            print("Enter a valid date:")
+            date = input("Enter date (YYYY.MM.DD): ")
+            shifts = self.logic_wrapper.get_week_work(ssn, date)
 
-    def display_hours(self):
-        pass
+        return shifts
 
-            
-    
 
     def main(self):
         print(self.const.main_menu())

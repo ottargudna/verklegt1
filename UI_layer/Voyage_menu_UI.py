@@ -1,6 +1,7 @@
 from Model.voyage import Voyage
 import UI_layer.constants
 from logic_layer.logic_wrapper import Logic_Wrapper
+from UI_layer.input_validate import Validate
 import os
 
 class Voyage_menu_ui:
@@ -8,6 +9,7 @@ class Voyage_menu_ui:
     def __init__(self) -> None:
         self.const = UI_layer.constants
         self.logic_wrapper = Logic_Wrapper()
+        self.input_validate = Validate()
 
     def get_manager_voyage(self):
         print(self.const.voyage_menu_manager())
@@ -85,7 +87,7 @@ class Voyage_menu_ui:
         input("Press ENTER to go back to the menu: ")
 
     def get_list_voyages_for_day(self):
-        day = input("Date (yyyy.mm.dd): ")
+        day = input("Date (YYYY.MM.DD): ")
         voyages = self.logic_wrapper.check_day(day)
         voyages_day = voyages[2]
 
@@ -97,7 +99,7 @@ class Voyage_menu_ui:
         input("Press ENTER to go back to the menu: ")   
 
     def get_list_voyages_for_week(self):
-        date = input("Date (yyyy.mm.dd): ")
+        date = input("Date (YYYY.MM.DD): ")
         voyages = self.logic_wrapper.check_week(date)
         voyages_week = voyages[2]
 
@@ -109,4 +111,23 @@ class Voyage_menu_ui:
         input("Press ENTER to go back to the menu: ") 
 
     def get_list_voyages_of_employee(self):
-        pass
+        ssn = input("SSN: ")
+        while self.input_validate.validate_nid(ssn) == False:
+            print("Invalid SSN, please try again")
+            ssn = input("SSN: ")
+        
+        date = input("Enter date (YYYY.MM.DD): ")
+        
+        shifts = self.logic_wrapper.get_week_work(ssn, date)
+        while shifts == False:
+            print("Enter a valid date:")
+            date = input("Enter date (YYYY.MM.DD): ")
+            shifts = self.logic_wrapper.get_week_work(ssn, date)
+        
+        if shifts == []:
+            print("Employee is not working here, please try again")
+            input("Press ENTER to go back to the menu: ")
+        else:
+            for shift in shifts:
+                print(f"date out: {shift.date_out:<10}   date home: {shift.date_home:<10}   dep from: {shift.dep_from:<3}   arr at: {shift.arr_at:<3}")
+            input("Press ENTER to go back to the menu: ")
