@@ -81,10 +81,10 @@ class Voyage_menu_ui:
         voyages = self.logic_wrapper.get_all_voyages()
         for voyage in voyages:
             if self.logic_wrapper.check_if_voyages_are_fully_staffed() == False:
-                print(voyage.voyage_number, "Not staffed")
+                print(f"Voyage number: {voyage.voyage_number:<7}", f"Dep. from: {voyage.dep_from:<5}", f"Ar. at: {voyage.arr_at:<5}\n", f"Plane ID: {voyage.aircraft_id:<13}", f"Date out: {voyage.date_out:<13}", f"Date home: {voyage.date_home:13}", f"{self.const.NOT_STAFFED:<13}")
 
             else:
-                print(voyage.voyage_number, "Fully staffed")
+                print(f"Voyage number: {voyage.voyage_number:<7}", f"Dep. from: {voyage.dep_from:<5}", f"Ar. at: {voyage.arr_at:<5}\n", f"Plane ID: {voyage.aircraft_id:<13}", f"Date out: {voyage.date_out:<13}", f"Date home: {voyage.date_home:<13}", f"{self.const.FULLY_STAFFED:13}")
         input("Press ENTER to go back to the menu: ")
 
 
@@ -95,9 +95,9 @@ class Voyage_menu_ui:
 
         for voyage in voyages_day:
             if self.logic_wrapper.check_if_voyages_are_fully_staffed() == False:
-                print(f"Voyage number: {voyage.voyage_number}", self.const.NOT_STAFFED)
+                print(f"Voyage number: {voyage.voyage_number:<7}", f"Dep. from: {voyage.dep_from:<5}", f"Ar. at: {voyage.arr_at:<5}\n", f"Plane ID: {voyage.aircraft_id:<13}", f"Date out: {voyage.date_out:<13}", f"Date home: {voyage.date_home:13}", f"{self.const.NOT_STAFFED:<13}")
             else:
-                print(f"Voyage number: {voyage.voyage_number}", self.const.FULLY_STAFFED)
+                print(f"Voyage number: {voyage.voyage_number:<7}", f"Dep. from: {voyage.dep_from:<5}", f"Ar. at: {voyage.arr_at:<5}\n", f"Plane ID: {voyage.aircraft_id:<13}", f"Date out: {voyage.date_out:<13}", f"Date home: {voyage.date_home:<13}", f"{self.const.FULLY_STAFFED:13}")
         input("Press ENTER to go back to the menu: ")   
 
 

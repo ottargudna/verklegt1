@@ -14,7 +14,7 @@ class Voyage_Logic:
         for v in every_voyage:
             if voyage == v:
                 return False #already exists
-        check_everything = self.check_everything
+        check_everything = self.check_everything()
         if check_everything == False:
             return False #please enter correct data
         else:
@@ -25,7 +25,7 @@ class Voyage_Logic:
         check_if_employee_exists = self.check_if_employee_exists(voyage)
         if check_if_employee_exists == False:
             return False #employee dose not exist
-        check_aircraft = self.check_aircraft_id
+        check_aircraft = self.check_aircraft_id()
         if check_aircraft == False:
             return False # aircaft dose not exist
         check_arr_destination = self.check_arr_destination(voyage)
