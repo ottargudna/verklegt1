@@ -114,6 +114,7 @@ class Employee_menu_ui:
 
     def register_new_employee(self):
         """Gets all the information for a new employee and sends to the logic wrapper"""
+        e = Employee()
         ssn = input("SSN: ")
         while self.input_validate.validate_nid(ssn) == False:
             print("Invalid SSN, please try again")
@@ -127,9 +128,10 @@ class Employee_menu_ui:
         role = input("Role (pilot/crew): ")
         while self.input_validate.validate_role(role) == False:
             print("Invalid role, please try again")
-            input("Role (pilot/crew): ")
+            role = input("Role (pilot/cabincrew): ")
+        e.role = role
 
-        rank = input("Rank: ")
+        rank = input("Rank: (if pilot(captain/copilot) and cabincrew(flight service manager/flight attendant) ")
         while self.input_validate.validate_rank(role, rank) == False:
             print("Invalid rank, please try again")
             rank = input("Rank: ")
@@ -170,7 +172,7 @@ class Employee_menu_ui:
     def list_voyges_for_employee(self):
         pass
 
-    def search_employee(self): # We need to change this
+    def search_employee(self):
 
         nid = input("Enter NID to get Employee: ")
         one_employee = None
@@ -186,7 +188,7 @@ class Employee_menu_ui:
                     print(item)  # Employee found, print details
         input("Press ENTER to go back to the menu: ")
 
-
+    # TODO: Change this
     def not_working_given_day(self): # We need to change this
         date = input("Enter date (YYYY-MM-DD): ")
         check_day = self.logic_wrapper.check_day(date)
@@ -197,7 +199,7 @@ class Employee_menu_ui:
         not_working = PrettyTable(check_day[1])
         print(not_working)
     
-
+    # TODO: Change this
     def get_working_given_day(self): # We need to change this
         date = input("Enter date (YYYY-MM-DD): ")
 
@@ -210,6 +212,6 @@ class Employee_menu_ui:
         for i in check_day:
             date_employee.add_row([date, i.name, i.nid])
 
-
+    # TODO: Finish this
     def employees_working_week(self):
         week = input("Enter NID:")
