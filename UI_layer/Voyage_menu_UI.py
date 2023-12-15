@@ -85,7 +85,15 @@ class Voyage_menu_ui:
         input("Press ENTER to go back to the menu: ")
 
     def get_list_voyages_for_day(self):
-        pass
+        day = input("Date (yyyy.mm.dd): ")
+        voyages = self.logic_wrapper.check_day(day)
+        voyages_day = voyages[2]
+        for voyage in voyages_day:
+            if self.logic_wrapper.check_if_voyages_are_fully_staffed() == False:
+                print(f"Voyage number: {voyage.voyage_number}", "Not staffed")
+            else:
+                print(f"Voyage number: {voyage.voyage_number}", "Fully staffed")
+        input("Press ENTER to go back to the menu: ")   
 
     def get_list_voyages_for_week(self):
         pass
