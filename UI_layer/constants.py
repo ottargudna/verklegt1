@@ -139,13 +139,13 @@ def main_menu():
     return LOGO + MAIN_MENU_CHOICES + MAIN_MENU_FOOTER
 
 def manager_menu():
-    return LOGO + MANAGER_CHOICES + MAIN_MENU_FOOTER
+    return LOGO + MANAGER_CHOICES + FOOTER
 
 def shift_supervisor_menu():
-    return LOGO + SHIFT_SUPERVISOR_MENU + MAIN_MENU_FOOTER
+    return LOGO + SHIFT_SUPERVISOR_MENU + FOOTER
 
 def employee_menu():
-    return LOGO + EMPLOYEE_MENU + MAIN_MENU_FOOTER
+    return LOGO + EMPLOYEE_MENU + FOOTER
 
 def airplane_menu():
     return LOGO + AIRPLANE_MENU + FOOTER

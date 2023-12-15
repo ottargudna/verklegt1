@@ -34,7 +34,6 @@ class Airplane_menu_ui:
 
         a = Airplane
 
-
         plane_id = input("Enter the plane ID: ")
         while self.input_validate.aircraft_id(plane_id) == False:
             print("Invalid plane ID, please try again")
