@@ -130,7 +130,7 @@ class Employee_menu_ui:
         role = input("Role (pilot/cabincrew): ")
         while self.input_validate.validate_role(role) == False:
             print("Invalid role, please try again")
-            input("Role (pilot/cabincrew): ")
+            role = input("Role (pilot/cabincrew): ")
         e.role = role
 
 
