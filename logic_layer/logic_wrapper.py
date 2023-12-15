@@ -13,7 +13,7 @@ class Logic_Wrapper:
         self.employee_logic = Employee_Logic(self.data_wrapper)
         self.airplane_logic = Airplane_Logic(self.data_wrapper)
         self.destination_logic = Destinations_Logic(self.data_wrapper)
-        self.voyage = Voyage_Logic(self.data_wrapper)
+        self.voyage_logic = Voyage_Logic(self.data_wrapper)
 
 
     """Here comes all functions sem that are used in the logic layer and returns them"""
@@ -65,7 +65,7 @@ class Logic_Wrapper:
         
     #Voyage
     def get_all_voyages(self):
-        return self.voyage.get_all_voyages()
+        return self.voyage_logic.get_all_voyages()
 
 
     def create_voyage(self, voyage):
@@ -84,6 +84,7 @@ class Logic_Wrapper:
 
     def generte_voyage_nr(self):
         '''Create voyage number, counts all voyages and then gives it a number'''
+<<<<<<< Updated upstream
         return self.voyage.generte_voyage_nr()
     
     def get_all_pilots(self):
@@ -93,6 +94,9 @@ class Logic_Wrapper:
     def get_all_crew(self):
         '''gets all crew'''
         return self.voyage.get_all_crew()
+=======
+        return self.voyage_logic.generte_voyage_nr()
+>>>>>>> Stashed changes
 
 
 

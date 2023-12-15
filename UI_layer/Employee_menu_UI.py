@@ -225,11 +225,30 @@ class Employee_menu_ui:
             date = input("Enter date (YYYY-MM-DD): ")
             working = self.logic_wrapper.check_day(date)
 
+<<<<<<< Updated upstream
         print("List of employees working on a given day:")
         working_day = working[0]
         for employee in working_day:
             print(f"Role: {employee.role:<25} SSN: {employee.nid:<17} Name: {employee.name:<13}")
         input("Press ENTER to go back to the menu: ")
+=======
+    def get_working_given_day(self): # We need to change this
+        date = input("Enter date: YYYY.MM.DD ")
+
+        check_day = self.logic_wrapper.check_day(date)
+        while check_day == False:
+            print("Enter a valid date:")
+            date = input("Enter date: YYYY.MM.DD ")
+        print("List of employees working on a given day: ")
+        working = check_day[0]
+        table = PrettyTable(['Date', 'Name', 'NID', 'Destination'])
+        for emp in working:
+            emp_info = emp[0]
+            dest = emp[1]
+            table.add_row([date, emp_info.name, emp_info.nid, dest])
+        print(table)
+
+>>>>>>> Stashed changes
 
     # TODO: Finish this
     def employees_working_week(self):
