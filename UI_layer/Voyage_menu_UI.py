@@ -89,7 +89,7 @@ class Voyage_menu_ui:
         voyages = self.logic_wrapper.check_day(day)
         voyages_day = voyages[2]
         for voyage in voyages_day:
-            print(voyage)
+            print(voyage.voyage_number)
         input("Press ENTER to go back to the menu: ")        
 
     def get_list_voyages_for_week(self):
