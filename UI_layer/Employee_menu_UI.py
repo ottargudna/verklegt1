@@ -171,26 +171,68 @@ class Employee_menu_ui:
         return self.logic_wrapper.create_employee(new_employee)
 
     def edit_employee(self):
-        pass
+        e = Employee
+        nid  = input("What employee whould you like to edit, please enter SSD: ").lower()
+        while self.input_validate.validate_nid(nid) == False:
+            print("Invalid SSN, please try again: ")
+            nid = input("What employee whould you like to edit, please enter SSD: ").lower()
+        e.nid = nid
+        
+        role = input("Enter new role (pilot/crew): ").lower()
+        while self.input_validate.validate_role(role) == False:
+            print("Invalid role, please try again")
+            role = input("Enter new role (pilot/crew): ").lower()
+        e.role = role
 
-    def list_voyges_for_employee(self):
-        pass
+        rank = input("Enter new rank: ").lower()
+        while self.input_validate.validate_rank(role, rank) == False:
+            print("Invalid rank, please try again")
+            rank = input("Enter new rank: ").lower()
+        if role == "pilot":
+            license = input("Enter new airplane license ").lower()
+        else:
+            license = "N/A"
+        e.rank = rank
+        e.licence = license
+        
+        address = input("Enter new address: ")
+        while self.input_validate.validate_addres(address) == False:
+            print("Invalid address, please try again")
+            address = input("Enter new address: ").lower()
+        e.address = address
 
-    def search_employee(self):
+        phone = input("Enter new phone number: ")
+        while self.input_validate.validate_phone_number(phone) == False:
+            print("Invalid phone number, please try again")
+            phone = input("Enter new phone number: ")
+        e.phone_nr = phone
 
-        nid = input("Enter NID to get Employee: ")
-        one_employee = None
-        while one_employee is None:
-            if self.input_validate.validate_nid(nid) == False:
-                print('Invalid NID, please try again.')
-            else:
-                one_employee = self.logic_wrapper.get_one_employee(nid)
-            if one_employee == None:  # Check if the employee list is empty
-                print("No employee found with that NID, please try again.")
-            else:
-                for item in one_employee:
-                    print(item)  # Employee found, print details
+        email = input("Enter new email: ")
+        while self.input_validate.validate_email(email) == False:
+            print("Invalid email, please try again")
+            email = input("Enter new email: ").lower()
+        e.email = email
+
+
+        homephone_nr = input("Enter new homephone number: ")
+        if homephone_nr == "":
+            homephone_nr = "N/A"
+        e.homephone_nr = homephone_nr
+
+        updated_employee = self.logic_wrapper.edit_employee(e)
+        print("New employee has been registered")
         input("Press ENTER to go back to the menu: ")
+
+
+    def search_employee(self): # We need to change this
+        nid = input("Enter NID to get Employee: ")
+        while self.input_validate.validate_nid(nid) == False or one_employee == False:
+            print('Invalid NID, please try again.')
+            nid = input('Enter NID to get Employee: ')
+            one_employee = self.logic_wrapper.get_one_employee(nid)
+            if one_employee == False:
+                print("Please enter a NID of an employee ")
+        print(one_employee)
 
 
     def not_working_given_day(self):

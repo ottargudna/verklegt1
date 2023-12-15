@@ -11,8 +11,29 @@ class Validate:
         else: 
             return True
 
-    def validate_flight_number(self, number):
-        pass
+    def aircraft_id(self, aircraft_id):
+        if len(aircraft_id) == 6:
+            if "-" in aircraft_id:
+                splited = aircraft_id.split("-")
+                if len(splited[0]) == 2 and len(splited[1]) == 3:
+                    if splited[0].isalpha and splited[1]:
+                        return True
+                    else:
+                        return False
+                else:
+                    return False
+            else:
+                return False
+        else:
+            return False
+    
+    
+    def validate_seats(self, seats):
+        if seats.isdigit():
+            return True
+        else:
+            return False
+
 
     def validate_email(self, email):
         if "@" and "." in email:

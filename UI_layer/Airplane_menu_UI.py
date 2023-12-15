@@ -9,7 +9,7 @@ class Airplane_menu_ui:
 
     def __init__(self):
         self.logic_wrapper = Logic_Wrapper()
-        self.validate = Validate()
+        self.input_validate = Validate()
         self.const = UI_layer.constants
 
     def get_manager_airplane_menu(self):
@@ -31,13 +31,31 @@ class Airplane_menu_ui:
             
     
     def get_register_airplane(self):
-        register_airplane = False
-        while register_airplane == False:
-            insignia = input("Enter plane insignia: ")
-            plane_id = input("Enter the plane id: ")
+
+        a = Airplane
+
+
+        plane_type = input("Enter plane type: ")
+        while self.input_validate.airplane_type(plane_type) == False:
+            print("Invalid insignia, please try again")
+            plane_type = input("Enter plane type: ")
+        a.plane_type_id = plane_type
+        
+        plane_id = input("Enter the plane ID: ")
+        while self.input_validate.aircraft_id(plane_id) == False:
+            print("Invalid plane ID, please try again")
+            plane_id = input("Enter the plane ID: ")
+        a.aircraft_id = plane_id
+
+        seats = input("Enter the number of seats: ")
+        while self.input_validate.validate_seats(seats) == False:
+            print("Invalid seats, please try again")
             seats = input("Enter the number of seats: ")
-            airplane = Airplane(insignia, plane_id, seats)
-            register_airplane = self.logic_wrapper.create_airplane(airplane)
+        a.capacity = seats
+        register_airplane = self.logic_wrapper.create_airplane(a)
+        print("Airplane has been registered")
+        input("Press ENTER to go back to the menu: ")
+
         return register_airplane
 
     def get_list_airplanes(self):
