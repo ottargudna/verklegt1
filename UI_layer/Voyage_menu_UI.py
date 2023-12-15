@@ -1,8 +1,11 @@
 from Model.voyage import Voyage
 import UI_layer.constants
 from logic_layer.logic_wrapper import Logic_Wrapper
+import os
 
 class Voyage_menu_ui:
+    def __init__(self):
+        self.logic_wrapper = Logic_Wrapper
 
     def __init__(self) -> None:
         self.const = UI_layer.constants
@@ -60,7 +63,14 @@ class Voyage_menu_ui:
         return self.logic_wrapper.create_voyage(voyage)
 
     def get_list_all_voyages(self):
-        pass
+        voyages = self.logic_wrapper.get_all_voyages()
+        for voyage in voyages:
+            if self.logic_wrapper.check_if_voyages_are_fully_staffed() == False:
+                print(voyage.voyage_number, "Not staffed")
+
+            else:
+                print(voyage.voyage_number, "Fully staffed")
+        input("Press ENTER to go back to the menu: ")
 
     def get_list_voyages_for_day(self):
         pass
