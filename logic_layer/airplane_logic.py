@@ -22,8 +22,16 @@ class Airplane_Logic:
     def airplane_already_exist(self, airplane):
         every_airplane = self.datawrapper.get_all_airplanes()
 
-        for plane in every_airplane:
-            if plane.aircraft_id in plane.aircraft_id:
-                return True # already exists
-        return False
+        every_id = []
+
+        for id in every_airplane:
+            every_id.append(id.aircraft_id)
+
+
+       
+        if airplane.aircraft_id in every_id:
+            return True # already exists
+        else:
+            return False
+
         

@@ -26,7 +26,7 @@ class Logic_Wrapper:
         return self.employee_logic.get_all_employees()
 
     def edit_employee(self, employee):
-        self.employee_logic.edit_employee(employee)
+        return self.employee_logic.edit_employee(employee)
 
     def get_one_employee(self, nid):
         '''searches for one employee'''

@@ -35,17 +35,18 @@ class Airplane_menu_ui:
         a = Airplane
 
 
+        plane_id = input("Enter the plane ID: ")
+        while self.input_validate.aircraft_id(plane_id) == False:
+            print("Invalid plane ID, please try again")
+            plane_id = input("Enter the plane ID: ")
+        a.aircraft_id = plane_id
+
         plane_type = input("Enter plane type: ")
         while self.input_validate.airplane_type(plane_type) == False:
             print("Invalid insignia, please try again")
             plane_type = input("Enter plane type: ")
         a.plane_type_id = plane_type
         
-        plane_id = input("Enter the plane ID: ")
-        while self.input_validate.aircraft_id(plane_id) == False:
-            print("Invalid plane ID, please try again")
-            plane_id = input("Enter the plane ID: ")
-        a.aircraft_id = plane_id
 
         seats = input("Enter the number of seats: ")
         while self.input_validate.validate_seats(seats) == False:

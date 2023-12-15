@@ -16,10 +16,10 @@ class Validate:
             if "-" in aircraft_id:
                 splited = aircraft_id.split("-")
                 if len(splited[0]) == 2 and len(splited[1]) == 3:
-                    if splited[0].isalpha and splited[1]:
+                    if splited[0].isalpha and splited[1].isalpha:
                         return True
                     else:
-                        return False
+                        return False             
                 else:
                     return False
             else:
