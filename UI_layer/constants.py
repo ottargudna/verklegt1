@@ -18,6 +18,7 @@ MAIN_MENU_CHOICES = f"""
                                 [{ONE}] Manager
                                 [{TWO}] Shift Supervisor
                                 [{THREE}] Employee
+                                
 {BORDER}
         """
 MAIN_MENU_FOOTER = f"""
@@ -138,13 +139,13 @@ def main_menu():
     return LOGO + MAIN_MENU_CHOICES + MAIN_MENU_FOOTER
 
 def manager_menu():
-    return LOGO + MANAGER_CHOICES + FOOTER
+    return LOGO + MANAGER_CHOICES + MAIN_MENU_FOOTER
 
 def shift_supervisor_menu():
-    return LOGO + SHIFT_SUPERVISOR_MENU + FOOTER
+    return LOGO + SHIFT_SUPERVISOR_MENU + MAIN_MENU_FOOTER
 
 def employee_menu():
-    return LOGO + EMPLOYEE_MENU + FOOTER
+    return LOGO + EMPLOYEE_MENU + MAIN_MENU_FOOTER
 
 def airplane_menu():
     return LOGO + AIRPLANE_MENU + FOOTER
