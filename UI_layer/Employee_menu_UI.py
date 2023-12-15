@@ -106,7 +106,7 @@ class Employee_menu_ui:
         address = input("Address: ").lower()
         while self.input_validate.validate_addres(address) == False:
             print("Invalid address, please try again")
-            input("Address: ").lower()
+            addres = input("Address: ").lower()
 
         phone = input("Phone: ")
         while self.input_validate.validate_phone_number(phone) == False:
@@ -121,6 +121,7 @@ class Employee_menu_ui:
         homenumber = input("Home phone number: ")
         if homenumber == "":
             homenumber = "N/A"
+        
         
         print("New employee has been registered")
         input("Press ENTER to go back to the menu: ")
@@ -142,15 +143,42 @@ class Employee_menu_ui:
             role = input("Enter new role (pilot/crew): ").lower()
         e.role = role
 
-        rank = input("Enter new rank: ")
-        e.address = input("Enter new address: ")
-        e.phone_nr = input("Enter new phone number: ")
-        e.email = input("Enter new email: ")
-        e.homephone_nr = input("Enter new homephone number: ")
+        rank = input("Enter new rank: ").lower()
+        while self.input_validate.validate_rank(role, rank) == False:
+            print("Invalid rank, please try again")
+            rank = input("Enter new rank: ").lower()
+        if role == "pilot":
+            license = input("Enter new airplane license ").lower()
+        else:
+            license = "N/A"
+        e.rank = rank
+        e.licence = license
+        
+        address = input("Enter new address: ")
+        while self.input_validate.validate_addres(address) == False:
+            print("Invalid address, please try again")
+            address = input("Enter new address: ").lower()
+        e.address = address
+
+        phone = input("Enter new phone number: ")
+        while self.input_validate.validate_phone_number(phone) == False:
+            print("Invalid phone number, please try again")
+            phone = input("Enter new phone number: ")
+        e.phone_nr = phone
+
+        email = input("Enter new email: ")
+        while self.input_validate.validate_email(email) == False:
+            print("Invalid email, please try again")
+            email = input("Enter new email: ").lower()
+        e.email = email
 
 
-        updated_destination = self.logic_wrapper.update_destination(d)
-        return updated_destination
+        homephone_nr = input("Enter new homephone number: ")
+        if homephone_nr == "":
+            homephone_nr = "N/A"
+        e.homephone_nr
+        updated_employee = self.logic_wrapper.update_employee(e)
+        return updated_employee
 
     def list_voyges_for_employee(self):
         pass
