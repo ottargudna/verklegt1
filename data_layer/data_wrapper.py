@@ -10,7 +10,6 @@ class Data_Wrapper:
         self.employee_data = Employee_Data()
         self.airplane_data = Airplane_Data()
         self.destination_data = Destinations_Data()
-        self.flight_data = Flights_Data()
         self.voyage_data= Voyage_Data()
 
     def get_all_employees(self):
