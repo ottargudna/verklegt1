@@ -20,7 +20,7 @@ class Employee_menu_ui:
             user_selection = self.const.input_selection()
 
             if user_selection == self.const.ONE: # List employees
-                self.get_list_employees()
+                self.get_list_employees_menu()
                 
             elif user_selection == self.const.TWO: # List information of an employee
                 self.search_employee()
@@ -43,6 +43,7 @@ class Employee_menu_ui:
             elif user_selection == self.const.QUIT:
                 print(self.const.EXIT_TEXT)
                 quit()
+
     
     def get_employees_menu_shift_manager(self):
         user_selection = ""
@@ -51,7 +52,7 @@ class Employee_menu_ui:
             user_selection = self.const.input_selection()
 
             if user_selection == self.const.ONE: # List all employees
-                self.get_list_employees()
+                self.get_list_employees_menu()
                 
             elif user_selection == self.const.TWO: # List information of an employee
                 self.search_employee()
@@ -68,14 +69,46 @@ class Employee_menu_ui:
             elif user_selection == self.const.QUIT:
                 print(self.const.EXIT_TEXT)
                 quit()
+
     
     def get_list_employees_menu(self):
-        pass
+        user_selection = ""
+        while user_selection != self.const.BACK:
+            print(self.const.list_employees_menu())
+            user_selection = self.const.input_selection()
+
+            if user_selection == self.const.ONE: # List all employees
+                self.get_list_employees()
+
+            elif user_selection == self.const.TWO: # List all pilots
+                self.get_list_pilots()
+
+            elif user_selection == self.const.THREE: # List all crew members
+                self.get_list_crew()
+
+            elif user_selection == self.const.QUIT:
+                print(self.const.EXIT_TEXT)
+                quit()
+
 
     def get_list_employees(self):
         employees = self.logic_wrapper.get_all_employees()
         for employee in employees:
-            print(employee)
+            print(f"Role: {employee[0]:<17} SSN: {employee[1]:<17} Name: {employee[2]:<13}")
+        input("Press ENTER to go back to the menu: ")
+
+    
+    def get_list_pilots(self):
+        pilots = self.logic_wrapper.get_all_pilots()
+        for pilot in pilots:
+            print(f"Rank: {pilot[0]:<13} SSN: {pilot[1]:<17} Name: {pilot[2]:<17}")
+        input("Press ENTER to go back to the menu: ")
+    
+
+    def get_list_crew(self):
+        crew = self.logic_wrapper.get_all_crew()
+        for crew_member in crew:
+            print(f"Rank: {crew_member[0]:<25} SSN: {crew_member[1]:<17} Name: {crew_member[2]:<13}")
         input("Press ENTER to go back to the menu: ")
     
 

@@ -103,7 +103,7 @@ class Voyage_Logic:
         captains = []
         for employee in every_employee:
             if employee.rank == "Captain":
-                captains.append(employee.nid)
+                captains.append([employee.rank, employee.nid, employee.name])
         return captains
     
     def get_all_copilots(self):
@@ -111,7 +111,7 @@ class Voyage_Logic:
         copilots = []
         for employee in every_employee:
             if employee.rank == "Copilot":
-                copilots.append(employee.nid)
+                copilots.append([employee.rank, employee.nid, employee.name])
         return copilots
     
     def get_all_fsm(self):
@@ -119,7 +119,7 @@ class Voyage_Logic:
         fsm = []
         for employee in every_employee:
             if employee.rank == "Flight Service Manager":
-                fsm.append(employee.nid)
+                fsm.append([employee.rank, employee.nid, employee.name])
         return fsm
     
     def get_all_fa(self):
@@ -127,7 +127,7 @@ class Voyage_Logic:
         fa = []
         for employee in every_employee:
             if employee.rank == "Flight Attendant":
-                fa.append(employee.nid)
+                fa.append([employee.rank, employee.nid, employee.name])
         return fa
     
 
