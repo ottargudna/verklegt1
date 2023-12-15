@@ -30,18 +30,19 @@ class Employee_Data:
 
                 employee.role = updated_employee.role
                 employee.rank = updated_employee.rank
+                employee.licence = updated_employee.licence
                 employee.address = updated_employee.address
                 employee.phone_nr = updated_employee.phone_nr
                 employee.email = updated_employee.email
                 employee.homephone_nr = updated_employee.homephone_nr
 
                 with open(self.file_name, "w+", newline = '', encoding = "utf-8") as csvfile:
-                    fieldnames = ["nid", "name", "role", "rank", "address","phone_nr", "email", "homephone_nr"]
+                    fieldnames = ["nid", "name", "role", "rank", "licence", "address","phone_nr", "email", "homephone_nr"]
                     writer = csv.DictWriter(csvfile, fieldnames = fieldnames)
                     writer.writeheader()
                     
                     for employee in employees:
-                        writer.writerow({"nid": employee.nid, "name": employee.name, "role": employee.role, "rank": employee.rank, "address": employee.address, "phone_nr": employee.phone_nr, "email": employee.email, "homephone_nr": employee.homephone_nr})
+                        writer.writerow({"nid": employee.nid, "name": employee.name, "role": employee.role, "rank": employee.rank, "licence":employee.licence, "address": employee.address, "phone_nr": employee.phone_nr, "email": employee.email, "homephone_nr": employee.homephone_nr})
 
 
                 

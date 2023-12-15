@@ -88,10 +88,10 @@ class Employee_menu_ui:
             print("Invalid name, please try again")
             name = input("Name: ")
         
-        role = input("Role (pilot/crew): ")
+        role = input("Role (pilot/cabincrew): ")
         while self.input_validate.validate_role(role) == False:
             print("Invalid role, please try again")
-            input("Role (pilot/crew): ")
+            input("Role (pilot/cabincrew): ")
 
         rank = input("Rank: ")
         while self.input_validate.validate_rank(role, rank) == False:
@@ -137,10 +137,10 @@ class Employee_menu_ui:
             nid = input("What employee whould you like to edit, please enter SSD: ").lower()
         e.nid = nid
         
-        role = input("Enter new role (pilot/crew): ").lower()
+        role = input("Enter new role (pilot/cabincrew): ").lower()
         while self.input_validate.validate_role(role) == False:
             print("Invalid role, please try again")
-            role = input("Enter new role (pilot/crew): ").lower()
+            role = input("Enter new role (pilot/cabincrew): ").lower()
         e.role = role
 
         rank = input("Enter new rank: ").lower()
@@ -148,11 +148,11 @@ class Employee_menu_ui:
             print("Invalid rank, please try again")
             rank = input("Enter new rank: ").lower()
         if role == "pilot":
-            license = input("Enter new airplane license ").lower()
+            license = input("Enter new airplane license: ").lower()
         else:
             license = "N/A"
-        e.rank = rank
         e.licence = license
+        e.rank = rank
         
         address = input("Enter new address: ")
         while self.input_validate.validate_addres(address) == False:
@@ -178,9 +178,10 @@ class Employee_menu_ui:
             homephone_nr = "N/A"
         e.homephone_nr = homephone_nr
 
-        updated_employee = self.logic_wrapper.edit_employee(e)
+        self.logic_wrapper.edit_employee(e)
         print("New employee has been registered")
         input("Press ENTER to go back to the menu: ")
+    
 
 
     def search_employee(self): # We need to change this
