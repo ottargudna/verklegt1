@@ -36,8 +36,8 @@ class Airplane_menu_ui:
             insignia = input("Enter plane insignia: ")
             plane_id = input("Enter the plane id: ")
             seats = input("Enter the number of seats: ")
-            airplane = Airplane(insignia, plane_id, seats)
-            register_airplane = self.logic_wrapper.create_airplane(airplane)
+        airplane = Airplane(insignia, plane_id, seats)
+        register_airplane = self.logic_wrapper.create_airplane(airplane)
         return register_airplane
 
     def get_list_airplanes(self):
