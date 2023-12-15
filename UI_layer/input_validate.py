@@ -116,15 +116,11 @@ class Validate:
             return False
         
     def flight_time_and_distance(self, time):
-        try:
-            if time.isdigit():
-                int(time)
-                if time > 0:
-                    return True
+            if time.isdigit() and time != "0":
+                return True
             else: 
                 return False
-        except ValueError:
-            return False
+
         
     def home_phone(self, number):
         if len(number) == 7 and number.isdigit() or number == "":
