@@ -19,7 +19,7 @@ class Employee_menu_ui:
             print(self.const.employees_menu_manager())
             user_selection = self.const.input_selection()
 
-            if user_selection == self.const.ONE: # List all employees
+            if user_selection == self.const.ONE: # List employees
                 self.get_list_employees()
                 
             elif user_selection == self.const.TWO: # List information of an employee
@@ -68,7 +68,10 @@ class Employee_menu_ui:
             elif user_selection == self.const.QUIT:
                 print(self.const.EXIT_TEXT)
                 quit()
-        
+    
+    def get_list_employees_menu(self):
+        pass
+
     def get_list_employees(self):
         employees = self.logic_wrapper.get_all_employees()
         for employee in employees:

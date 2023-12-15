@@ -41,6 +41,7 @@ MANAGER_CHOICES = f"""
                                 [{TWO}] Destinations
                                 [{THREE}] Employees
                                 [{FOUR}] Voyages
+
 {BORDER}
         """
 SHIFT_SUPERVISOR_MENU = f"""
@@ -49,6 +50,7 @@ SHIFT_SUPERVISOR_MENU = f"""
                                 [{ONE}] Destinations
                                 [{TWO}] Employees
                                 [{THREE}] Voyages
+
 {BORDER}
         """
 EMPLOYEE_MENU = f"""
@@ -56,6 +58,7 @@ EMPLOYEE_MENU = f"""
 
                                 [{ONE}] Display Shifts
                                 [{TWO}] Display Hours
+
 {BORDER}
         """
 AIRPLANE_MENU = f"""
@@ -63,6 +66,7 @@ AIRPLANE_MENU = f"""
 
                                 [{ONE}] Register airplane
                                 [{TWO}] List all airplanes
+
 {BORDER}
         """
 DESTINATIONS_MENU = f"""
@@ -71,18 +75,29 @@ DESTINATIONS_MENU = f"""
                                 [{ONE}] Register a new destination
                                 [{TWO}] Edit destinations
                                 [{THREE}] List all destinations
+
 {BORDER}
         """
 EMPLOYEES_MENU_MANAGER = f"""
                                 Employees
 
-                                [{ONE}] List all employees
+                                [{ONE}] List employees
                                 [{TWO}] List information of an employee
                                 [{THREE}] List all employees not working on a given day
                                 [{FOUR}] List all employees working on a given day
                                 [{FIVE}] Printable work summary for an employee in a giving week
                                 [{SIX}] Register new employee
                                 [{SEVEN}] Edit employee
+
+{BORDER}
+        """
+LIST_EMPLOYEES_MENU = f"""
+                                List employees
+                                
+                                [{ONE}] List all employees
+                                [{TWO}] List all pilots
+                                [{THREE}] List all crew members
+
 {BORDER}
         """
 EMPLOYEES_MENU_SHIFT_MANAGER = f"""
@@ -93,6 +108,7 @@ EMPLOYEES_MENU_SHIFT_MANAGER = f"""
                                 [{THREE}] List all employees not working on a given day
                                 [{FOUR}] List all employees working on a given day
                                 [{FIVE}] Printable work summary for an employee in a giving week
+
 {BORDER}
         """
 VOYAGE_MANAGER_MENU = f"""
@@ -103,6 +119,7 @@ VOYAGE_MANAGER_MENU = f"""
                                 [{THREE}] List all voyages for a given day
                                 [{FOUR}] List all voyages for a given week
                                 [{FIVE}] List all voyages of a staff member for a given week
+
 {BORDER}
         """
 VOYAGE_SHIFT_SUPER_MENU = f"""
@@ -112,6 +129,7 @@ VOYAGE_SHIFT_SUPER_MENU = f"""
                                 [{TWO}] List all voyages for a given day
                                 [{THREE}] List all voyages for a given week
                                 [{FOUR}] List all voyages of a staff member for a given week
+
 {BORDER}
         """
 
@@ -135,6 +153,9 @@ def destinations_menu():
 
 def employees_menu_manager():
     return LOGO + EMPLOYEES_MENU_MANAGER + FOOTER
+
+def list_employees_menu():
+    return LOGO + LIST_EMPLOYEES_MENU + FOOTER
 
 def employees_menu_shift_manager():
     return LOGO + EMPLOYEES_MENU_SHIFT_MANAGER + FOOTER
