@@ -1,4 +1,4 @@
-BORDER = 109 * "="
+BORDER = 150 * "="
 QUIT = "q"
 BACK = "b"
 EXIT_TEXT = "Goodbye :)"
@@ -13,124 +13,125 @@ SIX = "6"
 SEVEN = "7"
 
 MAIN_MENU_CHOICES = f"""
-                                What kind of staff member are you?
-                                
-                                [{ONE}] Manager
-                                [{TWO}] Shift Supervisor
-                                [{THREE}] Employee
+                                                        What kind of staff member are you?
+                                                        
+                                                        [{ONE}] Manager
+                                                        [{TWO}] Shift Supervisor
+                                                        [{THREE}] Employee
                                 
 {BORDER}
         """
 MAIN_MENU_FOOTER = f"""
-                                [{QUIT}]uit
+                                                            [{QUIT}]uit
+{BORDER}
         """
 FOOTER = f"""
-                                [{BACK}]ack to main menu     [{QUIT}]uit
+                                                [{BACK}]ack to main menu     [{QUIT}]uit
 {BORDER}
         """
 LOGO = f"""
 {BORDER}
-                              _    _          _    _       __     _____  _____
-                __|__        |  \ | |   __ _ |  \ | |     /  \   |_   _||  _  \         __|__ 
-            ---o-(_)-o---    |   \| | / __' ||   \| |    / /\ \    | |  | |_|  |    ---o-(_)-o---
-                             | |\   || |__| || |\   |   /  __  \  _| |_ |  _ _/      
-                             |_| \__| \___,_||_| \__|  /__/  \__\|_____||_| \_\ 
+                                             _    _          _    _       __     _____  _____
+                               __|__        |  \ | |   __ _ |  \ | |     /  \   |_   _||  _  \         __|__ 
+                           ---o-(_)-o---    |   \| | / __' ||   \| |    / /\ \    | |  | |_|  |    ---o-(_)-o---
+                                            | |\   || |__| || |\   |   /  __  \  _| |_ |  _ _/      
+                                            |_| \__| \___,_||_| \__|  /__/  \__\|_____||_| \_\ 
 {BORDER}
         """
 MANAGER_CHOICES = f"""
-                                Manager menu
+                                                        Manager menu
 
-                                [{ONE}] Airplanes
-                                [{TWO}] Destinations
-                                [{THREE}] Employees
-                                [{FOUR}] Voyages
+                                                        [{ONE}] Airplanes
+                                                        [{TWO}] Destinations
+                                                        [{THREE}] Employees
+                                                        [{FOUR}] Voyages
 
 {BORDER}
         """
 SHIFT_SUPERVISOR_MENU = f"""
-                                Shift supervisor menu
+                                                        Shift supervisor menu
 
-                                [{ONE}] Destinations
-                                [{TWO}] Employees
-                                [{THREE}] Voyages
+                                                        [{ONE}] Destinations
+                                                        [{TWO}] Employees
+                                                        [{THREE}] Voyages
 
 {BORDER}
         """
 EMPLOYEE_MENU = f"""
-                                Employee menu
+                                                        Employee menu
 
-                                [{ONE}] Display Shifts
+                                                        [{ONE}] Display Shifts
 
 {BORDER}
         """
 AIRPLANE_MENU = f"""
-                                Airplane
+                                                        Airplane
 
-                                [{ONE}] Register airplane
-                                [{TWO}] List all airplanes
+                                                        [{ONE}] Register airplane
+                                                        [{TWO}] List all airplanes
 
 {BORDER}
         """
 DESTINATIONS_MENU = f"""
-                                Destinations
+                                                        Destinations
 
-                                [{ONE}] Register a new destination
-                                [{TWO}] Edit destinations
-                                [{THREE}] List all destinations
+                                                        [{ONE}] Register a new destination
+                                                        [{TWO}] Edit destinations
+                                                        [{THREE}] List all destinations
 
 {BORDER}
         """
 EMPLOYEES_MENU_MANAGER = f"""
-                                Employees
+                                                        Employees
 
-                                [{ONE}] List employees
-                                [{TWO}] List information of an employee
-                                [{THREE}] List all employees not working on a given day
-                                [{FOUR}] List all employees working on a given day
-                                [{FIVE}] Printable work summary for an employee in a giving week
-                                [{SIX}] Register new employee
-                                [{SEVEN}] Edit employee
+                                                        [{ONE}] List employees
+                                                        [{TWO}] List information of an employee
+                                                        [{THREE}] List all employees not working on a given day
+                                                        [{FOUR}] List all employees working on a given day
+                                                        [{FIVE}] Printable work summary for an employee in a giving week
+                                                        [{SIX}] Register new employee
+                                                        [{SEVEN}] Edit employee
 
 {BORDER}
         """
 LIST_EMPLOYEES_MENU = f"""
-                                List employees
-                                
-                                [{ONE}] List all employees
-                                [{TWO}] List all pilots
-                                [{THREE}] List all crew members
+                                                        List employees
+                                                        
+                                                        [{ONE}] List all employees
+                                                        [{TWO}] List all pilots
+                                                        [{THREE}] List all crew members
 
 {BORDER}
         """
 EMPLOYEES_MENU_SHIFT_MANAGER = f"""
-                                Employees
+                                                        Employees
 
-                                [{ONE}] List all employees
-                                [{TWO}] List information of an employee
-                                [{THREE}] List all employees not working on a given day
-                                [{FOUR}] List all employees working on a given day
-                                [{FIVE}] Printable work summary for an employee in a giving week
+                                                        [{ONE}] List all employees
+                                                        [{TWO}] List information of an employee
+                                                        [{THREE}] List all employees not working on a given day
+                                                        [{FOUR}] List all employees working on a given day
+                                                        [{FIVE}] Printable work summary for an employee in a giving week
 
 {BORDER}
         """
 VOYAGE_MANAGER_MENU = f"""
-                                Voyages
+                                                        Voyages
 
-                                [{ONE}] Register a new voyage
-                                [{TWO}] List all voyages
-                                [{THREE}] List all voyages for a given day
-                                [{FOUR}] List all voyages for a given week
-                                [{FIVE}] List all voyages of a staff member for a given week
+                                                        [{ONE}] Register a new voyage
+                                                        [{TWO}] List all voyages
+                                                        [{THREE}] List all voyages for a given day
+                                                        [{FOUR}] List all voyages for a given week
+                                                        [{FIVE}] List all voyages of a staff member for a given week
 
 {BORDER}
         """
 VOYAGE_SHIFT_SUPER_MENU = f"""
-                                Voyages
+                                                        Voyages
 
-                                [{ONE}] List all voyages
-                                [{TWO}] List all voyages for a given day
-                                [{THREE}] List all voyages for a given week
-                                [{FOUR}] List all voyages of a staff member for a given week
+                                                        [{ONE}] List all voyages
+                                                        [{TWO}] List all voyages for a given day
+                                                        [{THREE}] List all voyages for a given week
+                                                        [{FOUR}] List all voyages of a staff member for a given week
 
 {BORDER}
         """
