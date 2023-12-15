@@ -243,11 +243,7 @@ class Voyage_Logic:
             working_nid.append(voyage.flight_attendant2)
             dest.append(voyage.arr_at)
 
-        '''
-            employee.add_destination(dest[counter])
-            working.append(employee)
-            counter += 1
-'''
+
         #gets every working employee informations
         counter = 0
         for employee in every_employee:
@@ -289,20 +285,30 @@ class Voyage_Logic:
         working_nid = []    #nid for employees working that day
         not_working = []    #employee that are not working (every information)
         working = []        #employee that are working (every information)
-        
+        dest = []
+
         for voyage in voyages_in_date:
             #only gets nid's
             working_nid.append(voyage.captain)
+            dest.append(voyage.arr_at)
             working_nid.append(voyage.copilot)
+            dest.append(voyage.arr_at)
             working_nid.append(voyage.flight_service_manager)
+            dest.append(voyage.arr_at)
             working_nid.append(voyage.flight_attendant1)
+            dest.append(voyage.arr_at)
             working_nid.append(voyage.flight_attendant2)
+            dest.append(voyage.arr_at)
+
 
         #gets every working employee informations
+        counter = 0
         for employee in every_employee:
             for nid in working_nid:
                 if nid == employee.nid:
-                    working.append(employee)
+                    employee_destination = (employee, dest[counter])
+                    working.append(employee_destination)
+                    counter += 1
 
         #not working function
         for employee in every_employee:
