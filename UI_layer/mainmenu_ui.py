@@ -102,7 +102,7 @@ class MainMenu_ui:
             shifts = self.logic_wrapper.get_week_work(ssn, date)
 
         return shifts
-
+    
 
         
 

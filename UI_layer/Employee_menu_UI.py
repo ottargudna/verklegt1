@@ -2,8 +2,6 @@ from Model.employee import Employee
 from UI_layer.input_validate import Validate
 import UI_layer.constants
 from logic_layer.logic_wrapper import Logic_Wrapper
-from prettytable import PrettyTable
-import os
 
 class Employee_menu_ui:
 
@@ -114,7 +112,7 @@ class Employee_menu_ui:
 
     def register_new_employee(self):
         """Gets all the information for a new employee and sends to the logic wrapper"""
-        e = Employee()
+
         ssn = input("SSN: ")
         while self.input_validate.validate_nid(ssn) == False:
             print("Invalid SSN, please try again")
@@ -131,13 +129,18 @@ class Employee_menu_ui:
         while self.input_validate.validate_role(role) == False:
             print("Invalid role, please try again")
             role = input("Role (pilot/cabincrew): ")
-        e.role = role
 
-        rank = input("Rank: (if pilot(captain/copilot) and cabincrew(flight service manager/flight attendant) ")
-        while self.input_validate.validate_rank(role, rank) == False:
-            print("Invalid rank, please try again")
-            rank = input("Rank: ")
-        e.rank = rank
+        if role == "pilot":
+            rank = input("Rank (captain/copilot): ")
+            while self.input_validate.validate_rank(role, rank) == False:
+                print("Invalid rank, please try again")
+                rank = input("Rank: ")
+
+        elif role == "cabincrew":
+            rank = input("Rank (flight service manager/flight attendant): ")
+            while self.input_validate.validate_rank(role, rank) == False:
+                print("Invalid rank, please try again")
+                rank = input("Rank: ")
 
         if role == "pilot":
             license = input("Airplane licence: ")
@@ -175,8 +178,8 @@ class Employee_menu_ui:
         print("New employee has been registered")
         input("Press ENTER to go back to the menu: ")
 
-        new_employee = self.logic_wrapper.create_employee(e)
-        return Employee(new_employee)
+        new_employee = Employee(ssn, name, role, rank, license, address, phone, email, homenumber)
+        return self.logic_wrapper.create_employee(new_employee)
 
     def edit_employee(self):
         pass
@@ -200,7 +203,7 @@ class Employee_menu_ui:
                     print(item)  # Employee found, print details
         input("Press ENTER to go back to the menu: ")
 
-    # TODO: Change this
+
     def not_working_given_day(self):
         date = input("Enter date (YYYY-MM-DD): ")
         not_working = self.logic_wrapper.check_day(date)
