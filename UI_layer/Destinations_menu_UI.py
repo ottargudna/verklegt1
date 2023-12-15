@@ -48,13 +48,10 @@ class Destiantions_menu_ui:
 
     def edit_destanation(self):
         destination = input("What destination would you like to edit?: ").lower()
-<<<<<<< Updated upstream
+
         update_dest = self.logic_wrapper.edit_destanations(destination)
         contact = input("Enter the contact name: ")
-=======
-        update_dest = self.logic_wrapper.update_destination(destination)
-        contact = input("Enter the contact name: ").lower()
->>>>>>> Stashed changes
+
         emergency_num = input("Enter the contact emergency number: ")
         updated_destination = Desinations(contact, emergency_num)
         return updated_destination
