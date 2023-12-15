@@ -88,7 +88,44 @@ class Validate:
             else:
                 return False
             
-    def validate_licence(self, licence):
-        pass
-           
+    def airplane_type(self, airplane_type):
+        if airplane_type.isdigit():
+            return False
+        elif airplane_type.isalpha():
+            return False
+        elif 6 > len(airplane_type) > 20:
+            return False
+        for char in airplane_type:
+            if not (char.isalpha() or char.isdigit()):
+                return False
+        return True
+            
+    def validate_cap(self, cap):
+        try:
+            if cap.isdigit() and 0 < int(cap) < 1000:
+                return True
+            else:
+                return False
+        except ValueError:
+            return False
+        
+    def dest_intials(self, intials):
+        if len(intials) == 3 and intials.isalpha():
+            return True
+        else:
+            return False
+        
+    def flight_time_and_distance(self, time):
+            if time.isdigit() and time != "0":
+                return True
+            else: 
+                return False
+
+        
+    def home_phone(self, number):
+        if len(number) == 7 and number.isdigit() or number == "":
+            return True
+        else: 
+            return False
+
         
