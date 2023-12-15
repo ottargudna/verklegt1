@@ -136,13 +136,18 @@ class Employee_menu_ui:
 
     def search_employee(self): # We need to change this
         nid = input("Enter NID to get Employee: ")
-        while self.input_validate.validate_nid(nid) == False or one_employee == False:
-            print('Invalid NID, please try again.')
-            nid = input('Enter NID to get Employee: ')
-            one_employee = self.logic_wrapper.get_one_employee(nid)
-            if one_employee == False:
-                print("Please enter a NID of an employee ")
-        print(one_employee)
+        one_employee = None
+        while one_employee is None:
+            if self.input_validate.validate_nid(nid) == False:
+                print('Invalid NID, please try again.')
+            else:
+                one_employee = self.logic_wrapper.get_one_employee(nid)
+            if one_employee == None:  # Check if the employee list is empty
+                print("No employee found with that NID, please try again.")
+            else:
+                print(one_employee)  # Employee found, print details
+                break  # Break out of the loop since employee is found
+
         
 #        print("List of information of an Employee")
 #        info_employee = PrettyTable(['NID','Name','Role','Rank', 'Licence', 'Address', 'Phone_nr', 'Email', 'Homephone_nr'])

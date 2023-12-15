@@ -39,7 +39,7 @@ class Employee_Logic:
         for employee in every_employee:
             if employee.nid == nid:
                 return employee
-        return False
+        return None
 
        
             
