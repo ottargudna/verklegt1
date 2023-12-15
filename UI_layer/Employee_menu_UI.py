@@ -13,10 +13,10 @@ class Employee_menu_ui:
         self.input_validate = Validate()
     
 
-    def get_employees(self):
+    def get_employees_manager(self):
         user_selection = ""
         while user_selection != self.const.BACK:
-            print(self.const.employees_menu())
+            print(self.const.employees_menu_manager())
             user_selection = self.const.input_selection()
 
             if user_selection == self.const.ONE: # List all employees
@@ -34,8 +34,36 @@ class Employee_menu_ui:
             elif user_selection == self.const.FIVE: # Printable work summary for an employee in a giving week
                 self.employees_working_week()
 
-            elif user_selection == self.const.SIX: #update employee
+            elif user_selection == self.const.SIX: #register new employee
+                self.register_new_employee()
+            
+            elif user_selection == self.const.SEVEN:
                 self.edit_employee()
+
+            elif user_selection == self.const.QUIT:
+                print(self.const.EXIT_TEXT)
+                quit()
+    
+    def get_employees_menu_shift_manager(self):
+        user_selection = ""
+        while user_selection != self.const.BACK:
+            print(self.const.employees_menu_shift_manager())
+            user_selection = self.const.input_selection()
+
+            if user_selection == self.const.ONE: # List all employees
+                self.get_list_employees()
+                
+            elif user_selection == self.const.TWO: # List information of an employee
+                self.search_employee()
+
+            elif user_selection == self.const.THREE: # List all employees not working on a given day
+                self.not_working_given_day()
+
+            elif user_selection == self.const.FOUR: # List all employees working on a given day
+                self.get_working_given_day()
+
+            elif user_selection == self.const.FIVE: # Printable work summary for an employee in a giving week
+                self.employees_working_week()
 
             elif user_selection == self.const.QUIT:
                 print(self.const.EXIT_TEXT)

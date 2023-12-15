@@ -8,6 +8,7 @@ THREE = "3"
 FOUR = "4"
 FIVE = "5"
 SIX = "6"
+SEVEN = "7"
 
 MAIN_MENU_CHOICES = f"""
                                 What kind of staff member are you?
@@ -58,26 +59,45 @@ EMPLOYEE_MENU = f"""
 {BORDER}
         """
 AIRPLANE_MENU = f"""
+                                Airplane
+
                                 [{ONE}] Register airplane
                                 [{TWO}] List all airplanes
 {BORDER}
         """
 DESTINATIONS_MENU = f"""
+                                Destinations
+
                                 [{ONE}] Register a new destination
                                 [{TWO}] Edit destinations
                                 [{THREE}] List all destinations
 {BORDER}
         """
-EMPLOYEES_MENU = f"""
+EMPLOYEES_MENU_MANAGER = f"""
+                                Employees
+
                                 [{ONE}] List all employees
                                 [{TWO}] List information of an employee
                                 [{THREE}] List all employees not working on a given day
                                 [{FOUR}] List all employees working on a given day
                                 [{FIVE}] Printable work summary for an employee in a giving week
                                 [{SIX}] Register new employee
+                                [{SEVEN}] Edit employee
+{BORDER}
+        """
+EMPLOYEES_MENU_SHIFT_MANAGER = f"""
+                                Employees
+
+                                [{ONE}] List all employees
+                                [{TWO}] List information of an employee
+                                [{THREE}] List all employees not working on a given day
+                                [{FOUR}] List all employees working on a given day
+                                [{FIVE}] Printable work summary for an employee in a giving week
 {BORDER}
         """
 VOYAGE_MANAGER_MENU = f"""
+                                Voyages
+
                                 [{ONE}] Register a new voyage
                                 [{TWO}] List all voyages
                                 [{THREE}] List all voyages for a given day
@@ -86,6 +106,8 @@ VOYAGE_MANAGER_MENU = f"""
 {BORDER}
         """
 VOYAGE_SHIFT_SUPER_MENU = f"""
+                                Voyages
+
                                 [{ONE}] List all voyages
                                 [{TWO}] List all voyages for a given day
                                 [{THREE}] List all voyages for a given week
@@ -111,8 +133,11 @@ def airplane_menu():
 def destinations_menu():
     return LOGO + DESTINATIONS_MENU + FOOTER
 
-def employees_menu():
-    return LOGO + EMPLOYEES_MENU + FOOTER
+def employees_menu_manager():
+    return LOGO + EMPLOYEES_MENU_MANAGER + FOOTER
+
+def employees_menu_shift_manager():
+    return LOGO + EMPLOYEES_MENU_SHIFT_MANAGER + FOOTER
 
 def voyage_menu_manager():
     return LOGO + VOYAGE_MANAGER_MENU + FOOTER

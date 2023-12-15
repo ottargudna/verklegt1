@@ -16,55 +16,68 @@ class MainMenu_ui:
         return input("Enter your name: ")
     
     def get_shift_superviser(self):
-        print(self.const.shift_supervisor_menu())
-        user_selection = self.const.input_selection()
 
-        if user_selection == self.const.ONE: # List all Destinations
-            self.destinations_menu.list_all_destinations()
+        user_selection = ""
+        while user_selection != self.const.BACK:
+            print(self.const.shift_supervisor_menu())
+            user_selection = self.const.input_selection()
 
-        elif user_selection == self.const.TWO: # Employees
-            self.employee_menu.get_employees()
+            if user_selection == self.const.ONE: # List all Destinations
+                self.destinations_menu.list_all_destinations()
 
-        elif user_selection == self.const.THREE: # Voyages
-            self.voyage_menu.get_shift_superviser_voyage()
+            elif user_selection == self.const.TWO: # Employees
+                self.employee_menu.get_employees()
+
+            elif user_selection == self.const.THREE: # Voyages
+                self.voyage_menu.get_shift_superviser_voyage()
+            
+            elif user_selection == self.const.QUIT:
+                print(self.const.EXIT_TEXT)
+                quit()
         
     
     def get_manager(self):
-        print(self.const.manager_menu())
-        user_selection = self.const.input_selection()
-
-        if user_selection == self.const.ONE: # Airplanes
-            self.airplane_menu.get_manager_airplane_menu()
-
-        elif user_selection == self.const.TWO: # Destinations
-            self.destinations_menu.get_manager_destinations()
-                
-        elif user_selection == self.const.THREE: # Employees
-            self.employee_menu.get_employees()
-
-        elif user_selection == self.const.FOUR: # Voyages
-            self.voyage_menu.get_manager_voyage()
-
-        elif user_selection == self.const.QUIT:
-            print(self.const.EXIT_TEXT)
-            quit()
         
-        else: # Go back
-            pass
+        user_selection = ""
+        while user_selection != self.const.BACK:
+            print(self.const.manager_menu())
+            user_selection = self.const.input_selection()
+
+            if user_selection == self.const.ONE: # Airplanes
+                self.airplane_menu.get_manager_airplane_menu()
+
+            elif user_selection == self.const.TWO: # Destinations
+                self.destinations_menu.get_manager_destinations()
+                    
+            elif user_selection == self.const.THREE: # Employees
+                self.employee_menu.get_employees()
+
+            elif user_selection == self.const.FOUR: # Voyages
+                self.voyage_menu.get_manager_voyage()
+
+            elif user_selection == self.const.QUIT:
+                print(self.const.EXIT_TEXT)
+                quit()
+        
     
     def get_employee(self):
-        print(self.const.employee_menu())
-        user_selection = self.const.input_selection()
+        
+        user_selection = ""
+        while user_selection != self.const.BACK:
+            print(self.const.employee_menu())
+            user_selection = self.const.input_selection()
 
-        if user_selection == self.const.QUIT:
-            print(self.const.EXIT_TEXT)
-            quit()
+            if user_selection == self.const.QUIT:
+                print(self.const.EXIT_TEXT)
+                quit()
 
-        elif user_selection == self.const.ONE: # Display Shifts
-            pass
+            elif user_selection == self.const.ONE: # Display Shifts
+                pass
 
-        elif user_selection == self.const.TWO: # Display Hours
-            pass
+            elif user_selection == self.const.TWO: # Display Hours
+                pass
+
+            
     
 
     def main(self):
