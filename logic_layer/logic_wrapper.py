@@ -75,7 +75,7 @@ class Logic_Wrapper:
     def check_day(self, date):
         '''checks if people are working, not working on perticuler 
         day and also gets every voyages on that day'''
-        self.voyage.check_day(date)
+        return self.voyage.check_day(date)
 
     def check_week(self, date): #enter the first day in that week
         '''checks if people are working, not working on perticuler 
