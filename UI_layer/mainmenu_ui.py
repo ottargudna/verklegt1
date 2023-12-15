@@ -80,7 +80,7 @@ class MainMenu_ui:
                 if shifts == []:
                     print("Employee is not working here, please try again ")
                 for shift in shifts:
-                    print(f"date out: {shift.date_out:<10} date home: {shift.date_home:<10} dep from: {shift.dep_from:<3} arr at: {shift.arr_at:<3}")
+                    print(f"date out: {shift.date_out:<10}   date home: {shift.date_home:<10}   dep from: {shift.dep_from:<3}   arr at: {shift.arr_at:<3}")
 
                 input("Press ENTER to go back to menu: ")
     
