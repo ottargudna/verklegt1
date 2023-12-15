@@ -48,8 +48,8 @@ class Voyage_menu_ui:
 
     
     def get_register_new_voyage(self):
-        departing_from = input("Departing from: ")
-        arriving_at = input("Arriving at: ")
+        departing_from = input("Departing from airport: ")
+        arriving_at = input("Arriving at airport: ")
         aircraft_id = input("Aircraft ID: ")
         date_out = input("Date out: ")
         date_home = input("Date home: ")

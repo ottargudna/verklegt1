@@ -192,7 +192,7 @@ class Employee_menu_ui:
         one_employee = self.logic_wrapper.get_one_employee(nid)
         if one_employee == False:
             print("Please enter a NID of an employee ")
-        print(one_employee)
+        print(f"SSN: {one_employee.nid}\nName: {one_employee.name}\nRole: {one_employee.role}\nRank: {one_employee.rank}\nLicence: {one_employee.licence}\nAddress: {one_employee.address}\nPhone number: {one_employee.phone_nr}\nEmail: {one_employee.email}\nHome phone number: {one_employee.homephone_nr}")
         print("New employee has been registered")
         input("Press ENTER to go back to the menu: ")
 
