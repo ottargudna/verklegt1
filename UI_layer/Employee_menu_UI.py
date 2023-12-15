@@ -236,6 +236,10 @@ class Employee_menu_ui:
 
     def employees_working_week(self):
         nid = input("Enter SSN: ")
+        while self.input_validate.validate_nid(nid) == False:
+            print("Invalid SSN, please try again: ")
+            nid = input("Enter SSN:  ").lower()
+
         date = input("Enter date (YYYY.MM.DD): ")
 
         week_summary = self.logic_wrapper.get_week_work(nid, date)
