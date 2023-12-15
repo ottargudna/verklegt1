@@ -11,7 +11,7 @@ class Airplane_Logic:
         check_existing_airplanes = self.airplane_already_exist(airplane)
 
         if check_existing_airplanes == False:
-            self.datawrapper.create_airplane(airplane)
+            return self.datawrapper.create_airplane(airplane)
         else:
             return False
 
@@ -23,7 +23,7 @@ class Airplane_Logic:
         every_airplane = self.datawrapper.get_all_airplanes()
 
         for plane in every_airplane:
-            if airplane[0] == plane.aircraft_id:
+            if plane.aircraft_id in plane.aircraft_id:
                 return True # already exists
         return False
         
