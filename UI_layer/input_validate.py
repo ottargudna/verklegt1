@@ -54,7 +54,7 @@ class Validate:
 
     def validate_addres(self, address):
         ad_num = address.split(" ")
-        if address[0].isalpha() and address[1].isdigit():
+        if ad_num[0].isalpha() and ad_num[1].isdigit():
             return True
         else:
             return False
