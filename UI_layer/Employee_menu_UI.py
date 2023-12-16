@@ -14,6 +14,8 @@ class Employee_menu_ui:
     
 
     def get_employees_manager(self):
+        """Prints out a menu for managers and calls functions according to user input"""
+
         user_selection = ""
         while user_selection != self.const.BACK:
             print(self.const.employees_menu_manager())
@@ -45,6 +47,8 @@ class Employee_menu_ui:
                 quit()
     
     def get_employees_menu_shift_manager(self):
+        """Prints out a menu for shift managers and calls functions according to user input"""
+
         user_selection = ""
         while user_selection != self.const.BACK:
             print(self.const.employees_menu_shift_manager())
@@ -70,6 +74,8 @@ class Employee_menu_ui:
                 quit()
         
     def get_list_employees(self):
+        """Gets a list of information about all employees and prints the information out"""
+
         employees = self.logic_wrapper.get_all_employees()
         for employee in employees:
             print(f"{employee.role:<25} {employee.nid:<17} {employee.name:<13}")
@@ -78,58 +84,69 @@ class Employee_menu_ui:
 
     def register_new_employee(self):
         """Gets all the information for a new employee and sends to the logic wrapper"""
+        e = Employee
         ssn = input("SSN: ")
         while self.input_validate.validate_nid(ssn) == False:
             print("Invalid SSN, please try again")
             ssn = input("SSN: ")
+        e.nid = ssn
         
         name = input("Name: ").lower()
         while self.input_validate.validate_name(name) == False:
             print("Invalid name, please try again")
             name = input("Name: ")
+        e.name = name
         
         role = input("Role (pilot/cabincrew): ")
         while self.input_validate.validate_role(role) == False:
             print("Invalid role, please try again")
             input("Role (pilot/cabincrew): ")
+        e.role = role
 
         rank = input("Rank: ")
         while self.input_validate.validate_rank(role, rank) == False:
             print("Invalid rank, please try again")
             rank = input("Rank: ")
+        e.rank = rank
 
         if role == "pilot":
             license = input("Airplane licence: ")
         else:
             license = "N/A"
+        e.licence = license
 
         address = input("Address: ").lower()
         while self.input_validate.validate_addres(address) == False:
             print("Invalid address, please try again")
-            addres = input("Address: ").lower()
+            address = input("Address: ").lower()
+        e.address = address
 
         phone = input("Phone: ")
         while self.input_validate.validate_phone_number(phone) == False:
             print("Invalid phone number, please try again")
             phone = input("Phone: ")
+        e.phone_nr = phone
 
         email = input("Email: ").lower()
         while self.input_validate.validate_email(email) == False:
             print("Invalid email, please try again")
             email = input("Email: ").lower()
+        e.email = email
 
         homenumber = input("Home phone number: ")
         if homenumber == "":
             homenumber = "N/A"
-        
+        e.homephone_nr = homenumber
         
         print("New employee has been registered")
         input("Press ENTER to go back to the menu: ")
 
-        new_employee = self.logic_wrapper.create_employee(ssn, name, role, rank, license, address, phone, email, homenumber)
-        return Employee(new_employee)
+        new_employee = self.logic_wrapper.create_employee(e)
+        return new_employee
 
     def edit_employee(self):
+        """Takes input from user and modifies an employee that exists with information from the user"""
+
         e = Employee
         nid  = input("What employee whould you like to edit, please enter SSD: ").lower()
         while self.input_validate.validate_nid(nid) == False:
@@ -184,7 +201,9 @@ class Employee_menu_ui:
     
 
 
-    def search_employee(self): # We need to change this
+    def search_employee(self):
+        """Gets an employee SSN from user and prints out information about that user"""
+
         nid = input("Enter NID to get Employee: ")
         while self.input_validate.validate_nid(nid) == False:
             print('Invalid NID, please try again.')
@@ -198,6 +217,8 @@ class Employee_menu_ui:
 
 
     def not_working_given_day(self):
+        """Gets a date from user and list of employees that are not working on that day from logic layer and prints it out"""
+
         date = input("Enter date (YYYY.MM.DD): ")
         not_working = self.logic_wrapper.check_day(date)
         while not_working == None:
@@ -213,6 +234,8 @@ class Employee_menu_ui:
 
 
     def get_working_given_day(self): # We need to change this
+        """Gets a date from user and list of employees that are working on that day from logic layer and prints it out"""
+
         date = input("Enter date: YYYY.MM.DD ")
 
         check_day = self.logic_wrapper.check_day(date)
@@ -229,6 +252,8 @@ class Employee_menu_ui:
 
 
     def employees_working_week(self):
+        """Gets a date from user and list of employees that are not working during that week from logic layer and prints it out"""
+
         nid = input("Enter SSN: ")
         while self.input_validate.validate_nid(nid) == False:
             print("Invalid SSN, please try again: ")

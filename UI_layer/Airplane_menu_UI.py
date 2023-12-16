@@ -4,7 +4,6 @@ import UI_layer.constants
 from UI_layer.input_validate import Validate
 
 
-
 class Airplane_menu_ui:
 
     def __init__(self):
@@ -14,6 +13,7 @@ class Airplane_menu_ui:
 
     def get_manager_airplane_menu(self):
         """Prints out the choices for working with airplanes and calls functions accordingly"""
+        
         user_selection = ""
         while user_selection != self.const.BACK:
             print(self.const.airplane_menu())
@@ -31,7 +31,8 @@ class Airplane_menu_ui:
             
     
     def get_register_airplane(self):
-
+        """Gets information from user and sends it to the logic layer"""
+        
         a = Airplane
 
         plane_id = input("Enter the plane ID: ")
@@ -46,7 +47,6 @@ class Airplane_menu_ui:
             plane_type = input("Enter plane type: ")
         a.plane_type_id = plane_type
         
-
         seats = input("Enter the number of seats: ")
         while self.input_validate.validate_seats(seats) == False:
             print("Invalid seats, please try again")
@@ -59,6 +59,8 @@ class Airplane_menu_ui:
         return register_airplane
 
     def get_list_airplanes(self):
+        """Gets a list of informations on all the airplanes from logic layer and prints out"""
+        
         airplanes = self.logic_wrapper.get_all_airplanes()
         for airplane in airplanes:
             print(airplane)

@@ -41,15 +41,15 @@ class Destiantions_menu_ui:
             print("Invalid country, please try again")
             dest_name = input("Enter the country: ").lower()
 
-        airport = input("Enter the initials of the airport: ").upper()
+        airport = input("Enter the initials of the airport (3 letters): ").upper()
         while self.input_validate.dest_intials(airport) == False:
             print("Invalid initials, please try again")
-            airport = input("Enter the initials of the airport: ").upper()
+            airport = input("Enter the initials of the airport (3 letters): ").upper()
 
-        flight_time = input("Enter the flight time: ")
+        flight_time = input("Enter the flight time (in hours): ")
         while self.input_validate.flight_time_and_distance(flight_time) == False:
             print("Invalid flight time, please try again")
-            flight_time = input("Enter the flight time: ")
+            flight_time = input("Enter the flight time (in hours): ")
 
         distance = input("Enter the distance from Iceland: ")
         while self.input_validate.flight_time_and_distance(distance) == False:
@@ -74,6 +74,8 @@ class Destiantions_menu_ui:
         return register_destination
 
     def update_destination(self):
+        """Gets information from user to send to logic layer to edit information on a destinations"""
+
         d = Desinations
         d.destination  = input("What destination would you like to edit?: ").lower()
         
