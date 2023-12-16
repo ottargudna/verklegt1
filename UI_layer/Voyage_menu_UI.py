@@ -48,33 +48,58 @@ class Voyage_menu_ui:
 
     
     def get_register_new_voyage(self):
-        departing_from = input("Departing from: ")
-        arriving_at = input("Arriving at: ")
-        aircraft_id = input("Aircraft ID: ")
-        date_out = input("Date out: ")
-        date_home = input("Date home: ")
-        captain = input("Captain (press ENTER to leave empty): ")
-        if captain == "":
-            captain = "N/A"
+        new_voyage = False
 
-        copilot = input("Copilot (press ENTER to leave empty): ")
-        if copilot == "":
-            copilot = "N/A"
+        v = Voyage
 
-        flight_service_manager = input("Flight service manager (press enter to leave empty): ")
-        if flight_service_manager == "":
-            flight_service_manager = "N/A"
+        while new_voyage == False:
+            voyage_number = self.logic_wrapper.generte_voyage_nr()
+            departing_from = input("Departing from: ").upper()
+            arriving_at = input("Arriving at: ").upper()
+            aircraft_id = input("Aircraft ID: ")
+            date_out = input("Date out (YYYY.MM.DD): ")
+            date_home = input("Date home (YYYY.MM.DD): ")
+            captain = input("Captain (press ENTER to leave empty): ")
+            if captain == "":
+                captain = "N/A"
 
-        flight_attendant1 = input("Flight attendant (press enter to leave empty): ")
-        if flight_attendant1 == "":
-            flight_attendant1 = "N/A"
+            copilot = input("Copilot (press ENTER to leave empty): ")
+            if copilot == "":
+                copilot = "N/A"
 
-        flight_attendant2 = input("Flight attendant (press enter to leave empty): ")
-        if flight_attendant2 == "":
-            flight_attendant2 = "N/A"
+            flight_service_manager = input("Flight service manager (press enter to leave empty): ")
+            if flight_service_manager == "":
+                flight_service_manager = "N/A"
 
-        voyage = departing_from, arriving_at, aircraft_id, date_out, date_home, captain, copilot, flight_service_manager, flight_attendant1, flight_attendant2
-        return self.logic_wrapper.create_voyage(voyage)
+            flight_attendant1 = input("Flight attendant (press enter to leave empty): ")
+            if flight_attendant1 == "":
+                flight_attendant1 = "N/A"
+
+            flight_attendant2 = input("Flight attendant (press enter to leave empty): ")
+            if flight_attendant2 == "":
+                flight_attendant2 = "N/A"
+
+
+            v.voyage_number = voyage_number
+            v.dep_from = departing_from 
+            v.arr_at = arriving_at
+            v.aircraft_id = aircraft_id
+            v.date_out = date_out
+            v.date_home = date_home
+            v.captain = captain
+            v.copilot = copilot
+            v.flight_service_manager = flight_service_manager
+            v.flight_attendant1 = flight_attendant1
+            v.flight_attendant2 = flight_attendant2
+            
+            new_voyage = self.logic_wrapper.create_voyage(v)
+            if new_voyage == False:
+                print("Something is not right please renter information ")
+                input("Press ENTER to retry: ")
+
+        input("Press ENTER to go back to the menu: ")
+        return new_voyage
+
 
 
     def get_list_all_voyages(self):
@@ -135,3 +160,6 @@ class Voyage_menu_ui:
             for shift in shifts:
                 print(f"date out: {shift.date_out:<10}   date home: {shift.date_home:<10}   dep from: {shift.dep_from:<3}   arr at: {shift.arr_at:<3}")
             input("Press ENTER to go back to the menu: ")
+
+
+

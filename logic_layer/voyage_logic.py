@@ -14,7 +14,7 @@ class Voyage_Logic:
         for v in every_voyage:
             if voyage == v:
                 return False #already exists
-        check_everything = self.check_everything()
+        check_everything = self.check_everything(voyage)
         if check_everything == False:
             return False #please enter correct data
         else:
@@ -25,7 +25,7 @@ class Voyage_Logic:
         check_if_employee_exists = self.check_if_employee_exists(voyage)
         if check_if_employee_exists == False:
             return False #employee dose not exist
-        check_aircraft = self.check_aircraft_id()
+        check_aircraft = self.check_aircraft_id(voyage)
         if check_aircraft == False:
             return False # aircaft dose not exist
         check_arr_destination = self.check_arr_destination(voyage)
@@ -40,12 +40,14 @@ class Voyage_Logic:
             return False #date is not correct
         if check_date_out > check_date_home:
             return False #home date is bigger then out date
+        
         check_correct_role = self.in_correct_role(voyage)
-        if check_correct_role == False:
-            return False #check if everyone is in correct role
+        #if check_correct_role == False:
+            #return False #check if everyone is in correct role
         check_if_employee_working = self.check_working(voyage)
         if check_if_employee_working == True:
             return False #employee is already working
+        return True
         
         
 
@@ -86,16 +88,16 @@ class Voyage_Logic:
     
     def in_correct_role(self, voyage):
         all_captains = self.get_all_captains()
-        if voyage.captain not in all_captains:
+        if voyage.captain not in all_captains or voyage.captain != "N/A":
             return False
         all_copilots = self.get_all_copilots()
-        if voyage.copilot not in all_copilots:
+        if voyage.copilot not in all_copilots or voyage.copilot != "N/A":
             return False
         all_fsm = self.get_all_fsm()
-        if voyage.flight_service_manager not in all_fsm:
+        if voyage.flight_service_manager not in all_fsm or voyage.flight_service_manager != "N/A":
             return False
         all_fa = self.get_all_fa()
-        if voyage.flight_attendant1 not in all_fa or voyage.flight_attendant2 not in all_fa:
+        if voyage.flight_attendant1 not in all_fa or voyage.flight_attendant2 or voyage.flight_attendant1 != "N/A" and voyage.flight_attendant2 != "N/A":
             return False
 
     def get_all_captains(self):
