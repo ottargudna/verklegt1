@@ -41,9 +41,13 @@ class Voyage_Logic:
         if check_date_out > check_date_home:
             return False #home date is bigger then out date
         
-        check_correct_role = self.in_correct_role(voyage)
+        #check_correct_role = self.in_correct_role(voyage) 
         #if check_correct_role == False:
             #return False #check if everyone is in correct role
+        """Here above is a function that dose not support when SSN = "N/A" but when dealing with real NID it works
+        this worked some hours before we found the bug but someone accidentially pushed without pulling first but we 
+        did not have time to fix it, this also happend to other functions but we were able to save them barely in time"""
+
         check_if_employee_working = self.check_working(voyage)
         if check_if_employee_working == True:
             return False #employee is already working
